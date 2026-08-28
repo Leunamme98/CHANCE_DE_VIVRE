@@ -1,0 +1,136 @@
+// Copie exacte des tokens de charte_graphique/design-system-chance-de-vivre.md
+// Toute divergence entre ce fichier et le document source est un bug (voir docs/normes-codage.md section 4).
+
+// ---------------------------------------------------------------------------
+// Variables SCSS (calculs, mixins, media queries)
+// ---------------------------------------------------------------------------
+
+// Couleurs marque
+$color-primary: #1E8A5B;
+$color-primary-dark: #155C3E;
+$color-primary-light: #D9F0E4;
+$color-primary-900: #0E3A28;
+$color-secondary: #C9754A;
+$color-secondary-dark: #9C5636;
+$color-secondary-light: #F3E1D6;
+$color-accent: #F4A623;
+$color-accent-dark: #C9800F;
+$color-accent-light: #FDECC7;
+
+// Neutres
+$color-bg: #FBF9F5;
+$color-surface: #FFFFFF;
+$color-surface-alt: #F5F3EE;
+$color-text-primary: #2B2A27;
+$color-text-secondary: #6B6A64;
+$color-text-tertiary: #A6A49C;
+$color-border: #E5E2DB;
+$color-border-strong: #C9C6BC;
+
+// Sémantique
+$color-success-bg: #E5F5EA;
+$color-success-text: #3B9E5C;
+$color-success-border: #B7E4C4;
+$color-warning-bg: #FDF1DD;
+$color-warning-text: #D98E1C;
+$color-warning-border: #F5D6A0;
+$color-error-bg: #FAE7E3;
+$color-error-text: #B4472E;
+$color-error-border: #F0BFB0;
+$color-info-bg: #E3EFF5;
+$color-info-text: #3E7FA8;
+$color-info-border: #B9D8E8;
+
+// Overlays et ombres
+$overlay-modal: rgba(43, 42, 39, 0.45);
+$shadow-sm: 0 1px 3px rgba(43, 42, 39, 0.08);
+$shadow-md: 0 4px 12px rgba(43, 42, 39, 0.10);
+$shadow-lg: 0 8px 24px rgba(43, 42, 39, 0.14);
+
+// Typographie
+$font-heading: 'Poppins', -apple-system, 'Segoe UI', Roboto, sans-serif;
+$font-body: 'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+// Espacement (unité de base 4px)
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 24px;
+$space-6: 32px;
+$space-7: 48px;
+$space-8: 64px;
+
+// Rayons
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 999px;
+
+// Breakpoint (mobile-first : ce SCSS ne définit que le seuil desktop)
+$breakpoint-desktop: 768px;
+
+// ---------------------------------------------------------------------------
+// Variables CSS (custom properties) — section 9 du design system, copie exacte
+// ---------------------------------------------------------------------------
+
+:root {
+  /* Couleurs marque */
+  --color-primary: #{$color-primary};
+  --color-primary-dark: #{$color-primary-dark};
+  --color-primary-light: #{$color-primary-light};
+  --color-primary-900: #{$color-primary-900};
+  --color-secondary: #{$color-secondary};
+  --color-secondary-dark: #{$color-secondary-dark};
+  --color-secondary-light: #{$color-secondary-light};
+  --color-accent: #{$color-accent};
+  --color-accent-dark: #{$color-accent-dark};
+  --color-accent-light: #{$color-accent-light};
+
+  /* Neutres */
+  --color-bg: #{$color-bg};
+  --color-surface: #{$color-surface};
+  --color-surface-alt: #{$color-surface-alt};
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-text-tertiary: #{$color-text-tertiary};
+  --color-border: #{$color-border};
+  --color-border-strong: #{$color-border-strong};
+
+  /* Sémantique */
+  --color-success-bg: #{$color-success-bg};
+  --color-success-text: #{$color-success-text};
+  --color-warning-bg: #{$color-warning-bg};
+  --color-warning-text: #{$color-warning-text};
+  --color-error-bg: #{$color-error-bg};
+  --color-error-text: #{$color-error-text};
+  --color-info-bg: #{$color-info-bg};
+  --color-info-text: #{$color-info-text};
+
+  /* Typographie */
+  --font-heading: #{$font-heading};
+  --font-body: #{$font-body};
+
+  /* Espacement */
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+  --space-7: #{$space-7};
+  --space-8: #{$space-8};
+
+  /* Rayons */
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  --radius-full: #{$radius-full};
+
+  /* Ombres */
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+}

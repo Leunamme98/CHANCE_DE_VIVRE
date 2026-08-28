@@ -1,0 +1,13 @@
+@use 'variables' as v;
+
+// Mobile-first : le CSS de base cible le mobile, ce mixin ajoute le desktop (>= 768px)
+@mixin desktop {
+  @media (min-width: v.$breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin focus-ring($color: v.$color-primary-light) {
+  outline: none;
+  box-shadow: 0 0 0 3px #{$color};
+}
