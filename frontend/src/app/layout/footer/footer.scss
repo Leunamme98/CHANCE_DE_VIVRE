@@ -1,0 +1,61 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-footer {
+  background-color: v.$color-primary-900;
+  color: v.$color-surface;
+  padding: v.$space-6 v.$space-4;
+
+  @include v.desktop {
+    padding: v.$space-8 v.$space-6;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$space-6;
+
+    @include v.desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: v.$space-5;
+    }
+  }
+
+  &__bloc {
+    h4 {
+      color: v.$color-surface;
+      margin-bottom: v.$space-3;
+    }
+
+    p {
+      margin: 0 0 v.$space-2;
+      color: v.$color-primary-light;
+    }
+  }
+
+  &__label {
+    color: v.$color-primary-light;
+    margin-right: v.$space-1;
+  }
+
+  &__liens {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-2;
+  }
+
+  a {
+    color: v.$color-surface;
+
+    &:hover {
+      color: v.$color-primary-light;
+    }
+  }
+
+  &__mentions {
+    margin: v.$space-6 0 0;
+    padding-top: v.$space-4;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.8125rem;
+    color: v.$color-primary-light;
+  }
+}

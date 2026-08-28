@@ -1,0 +1,37 @@
+// Classes de mise en page partagées entre les pages (features/*) — évite la duplication.
+@use 'mixins' as v;
+
+.cdv-entete {
+  padding: v.$space-6 v.$space-4;
+  text-align: center;
+  background-color: v.$color-surface-alt;
+
+  @include v.desktop {
+    padding: v.$space-7 v.$space-6;
+  }
+}
+
+.cdv-section {
+  padding: v.$space-6 v.$space-4;
+  text-align: center;
+
+  @include v.desktop {
+    padding: v.$space-8 v.$space-6;
+  }
+
+  &--alt {
+    background-color: v.$color-surface-alt;
+  }
+
+  &__sous-titre {
+    color: v.$color-text-secondary;
+    margin-top: v.$space-2;
+  }
+
+  > p {
+    max-width: 720px;
+    margin: v.$space-4 auto 0;
+    color: v.$color-text-secondary;
+    text-align: left;
+  }
+}

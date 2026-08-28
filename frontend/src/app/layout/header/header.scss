@@ -1,0 +1,143 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: v.$color-surface;
+  border-bottom: 1px solid v.$color-border;
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 v.$space-4;
+
+    @include v.desktop {
+      height: 72px;
+      padding: 0 v.$space-6;
+    }
+  }
+
+  &__logo {
+    font-family: v.$font-heading;
+    font-weight: 600;
+    font-size: 1.0625rem;
+    color: v.$color-text-primary;
+    text-decoration: none;
+  }
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background-color: v.$color-text-primary;
+      border-radius: v.$radius-full;
+    }
+
+    @include v.desktop {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: v.$color-surface;
+    border-bottom: 1px solid v.$color-border;
+    padding: v.$space-4;
+    gap: v.$space-3;
+
+    &--ouvert {
+      display: flex;
+    }
+
+    a {
+      font-family: v.$font-heading;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      color: v.$color-text-primary;
+      text-decoration: none;
+      padding: v.$space-2 0;
+
+      &.active,
+      &:hover {
+        color: v.$color-primary;
+      }
+    }
+
+    @include v.desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: static;
+      border-bottom: none;
+      padding: 0;
+      gap: v.$space-6;
+
+      a {
+        position: relative;
+        padding: v.$space-2 0;
+
+        &.active::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -2px;
+          height: 2px;
+          background-color: v.$color-primary;
+        }
+      }
+    }
+  }
+
+  &__langues {
+    display: flex;
+    gap: v.$space-2;
+    margin-top: v.$space-3;
+    padding-top: v.$space-3;
+    border-top: 1px solid v.$color-border;
+
+    @include v.desktop {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+      margin-left: v.$space-3;
+    }
+  }
+
+  &__langue {
+    background: none;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-sm;
+    padding: v.$space-1 v.$space-2;
+    font-family: v.$font-body;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: v.$color-text-secondary;
+    cursor: pointer;
+
+    &--active {
+      background-color: v.$color-primary-light;
+      color: v.$color-primary-dark;
+      border-color: v.$color-primary;
+    }
+  }
+}

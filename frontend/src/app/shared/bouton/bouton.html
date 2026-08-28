@@ -1,0 +1,20 @@
+@if (routerLink()) {
+  <a
+    class="cdv-bouton cdv-bouton--{{ variante() }}"
+    [routerLink]="routerLink()"
+  >
+    <ng-content />
+  </a>
+} @else {
+  <button
+    class="cdv-bouton cdv-bouton--{{ variante() }}"
+    [class.cdv-bouton--chargement]="chargement()"
+    [type]="type()"
+    [disabled]="disabled() || chargement()"
+  >
+    @if (chargement()) {
+      <span class="cdv-bouton__spinner" aria-hidden="true"></span>
+    }
+    <ng-content />
+  </button>
+}

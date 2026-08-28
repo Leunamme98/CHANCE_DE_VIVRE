@@ -1,1 +1,97 @@
-{}
+{
+  "NAV": {
+    "ACCUEIL": "Accueil",
+    "QUI_SOMMES_NOUS": "Qui sommes-nous",
+    "MISSIONS": "Nos missions",
+    "PROJETS": "Nos projets",
+    "PARTENAIRES": "Nos partenaires",
+    "CONTACT": "Contact",
+    "OUVRIR_MENU": "Ouvrir le menu",
+    "FERMER_MENU": "Fermer le menu"
+  },
+  "COMMON": {
+    "NOM_ONG": "Chance De Vivre-Togo",
+    "EN_SAVOIR_PLUS": "En savoir plus",
+    "VOIR_TOUS_LES_PROJETS": "Voir tous les projets",
+    "NOUS_CONTACTER": "Nous contacter",
+    "CHANGER_LANGUE": "Changer de langue",
+    "CATEGORIE_EDUCATION": "Éducation",
+    "CATEGORIE_SANTE": "Santé",
+    "CATEGORIE_ECONOMIE": "Économie locale"
+  },
+  "FOOTER": {
+    "COORDONNEES_TITRE": "Coordonnées",
+    "ADRESSE": "Tsévié, région Maritime, Togo",
+    "TELEPHONE_LIBELLE": "Téléphone",
+    "EMAIL_LIBELLE": "Email",
+    "LIENS_TITRE": "Navigation",
+    "RESEAUX_TITRE": "Suivez-nous",
+    "FACEBOOK": "Facebook",
+    "MENTIONS": "Chance De Vivre-Togo. Tous droits réservés."
+  },
+  "ACCUEIL": {
+    "TITRE_PAGE": "Chance de Vivre — Accueil",
+    "DESCRIPTION_PAGE": "ONG Chance De Vivre-Togo : éducation, santé et économie locale à Tsévié et dans plusieurs régions du Togo.",
+    "HERO_TITRE": "Chaque geste compte pour changer une vie",
+    "HERO_SOUS_TITRE": "Chance De Vivre-Togo agit pour l'éducation, la santé et l'économie locale dans plusieurs localités du Togo.",
+    "HERO_CTA": "Nous contacter",
+    "DOMAINES_TITRE": "Nos domaines d'action",
+    "DOMAINES_SOUS_TITRE": "Trois piliers pour un impact durable",
+    "CHIFFRES_TITRE": "Notre impact en chiffres",
+    "CTA_SECTION_TITRE": "Envie de nous soutenir ou d'en savoir plus ?",
+    "CTA_SECTION_BOUTON": "Contactez-nous"
+  },
+  "QUI_SOMMES_NOUS": {
+    "TITRE_PAGE": "Chance de Vivre — Qui sommes-nous",
+    "DESCRIPTION_PAGE": "L'histoire, les valeurs et la zone d'action de l'ONG Chance De Vivre-Togo.",
+    "TITRE": "Qui sommes-nous",
+    "HISTOIRE_TITRE": "Notre histoire",
+    "HISTOIRE_TEXTE": "Chance De Vivre-Togo est une ONG basée à Tsévié, dans la région Maritime du Togo. Depuis plusieurs années, elle mène des actions concrètes en faveur de l'éducation, de la santé et de l'économie locale, aux côtés des communautés togolaises.",
+    "VALEURS_TITRE": "Nos valeurs",
+    "VALEUR_SOLIDARITE_TITRE": "Solidarité",
+    "VALEUR_SOLIDARITE_TEXTE": "Agir aux côtés des communautés, avec et pour elles.",
+    "VALEUR_TRANSPARENCE_TITRE": "Transparence",
+    "VALEUR_TRANSPARENCE_TEXTE": "Rendre compte de nos actions à nos partenaires et au public.",
+    "VALEUR_IMPACT_TITRE": "Impact durable",
+    "VALEUR_IMPACT_TEXTE": "Privilégier des actions qui changent durablement le quotidien.",
+    "ZONE_TITRE": "Notre zone d'action",
+    "ZONE_TEXTE": "Nos actions se déploient dans plusieurs localités du Togo : Tsévié (région Maritime), Agbonou et Anié (région des Plateaux), ainsi que dans la région de Kara."
+  },
+  "MISSIONS": {
+    "TITRE_PAGE": "Chance de Vivre — Nos missions",
+    "DESCRIPTION_PAGE": "Les trois piliers d'action de l'ONG Chance De Vivre-Togo : éducation, santé, économie locale.",
+    "TITRE": "Nos missions",
+    "SOUS_TITRE": "Trois piliers, une même ambition : améliorer durablement la vie des communautés togolaises.",
+    "EXEMPLES_TITRE": "Exemples d'actions"
+  },
+  "PROJETS": {
+    "TITRE_PAGE": "Chance de Vivre — Nos projets",
+    "DESCRIPTION_PAGE": "Découvrez les réalisations concrètes de l'ONG Chance De Vivre-Togo sur le terrain.",
+    "TITRE": "Nos projets",
+    "SOUS_TITRE": "Des réalisations concrètes, sur le terrain, aux côtés des communautés."
+  },
+  "PARTENAIRES": {
+    "TITRE_PAGE": "Chance de Vivre — Nos partenaires",
+    "DESCRIPTION_PAGE": "Les institutions qui soutiennent l'ONG Chance De Vivre-Togo.",
+    "TITRE": "Nos partenaires",
+    "SOUS_TITRE": "Ils nous font confiance et soutiennent nos actions sur le terrain."
+  },
+  "CONTACT": {
+    "TITRE_PAGE": "Chance de Vivre — Contact",
+    "DESCRIPTION_PAGE": "Contactez l'ONG Chance De Vivre-Togo à Tsévié.",
+    "TITRE": "Contact",
+    "SOUS_TITRE": "Une question, un projet, une envie de nous soutenir ? Écrivez-nous.",
+    "COORDONNEES_TITRE": "Nos coordonnées",
+    "FORMULAIRE_TITRE": "Envoyez-nous un message",
+    "CHAMP_NOM": "Nom",
+    "CHAMP_EMAIL": "Email",
+    "CHAMP_MESSAGE": "Message",
+    "CHAMP_NOM_ERREUR": "Merci d'indiquer votre nom.",
+    "CHAMP_EMAIL_ERREUR": "Merci d'indiquer une adresse email valide.",
+    "CHAMP_MESSAGE_ERREUR": "Merci de rédiger un message.",
+    "BOUTON_ENVOYER": "Envoyer",
+    "ENVOI_EN_COURS": "Envoi en cours…",
+    "SUCCES": "Votre message a bien été envoyé. Merci !",
+    "ERREUR": "Une erreur est survenue. Merci de réessayer ou de nous contacter par téléphone."
+  }
+}

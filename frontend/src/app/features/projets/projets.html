@@ -1,1 +1,29 @@
-<p>projets works!</p>
+<section class="cdv-entete">
+  <h1>{{ 'PROJETS.TITRE' | translate }}</h1>
+  <p>{{ 'PROJETS.SOUS_TITRE' | translate }}</p>
+</section>
+
+<section class="cdv-section">
+  <div class="cdv-galerie">
+    @for (projet of projets$ | async; track projet.id) {
+      <cdv-carte [padded]="false">
+        <img
+          class="cdv-galerie__image"
+          [src]="projet.image"
+          [alt]="projet.imageAlt"
+          loading="lazy"
+          width="400"
+          height="300"
+        />
+        <div class="cdv-galerie__contenu">
+          <cdv-badge [type]="projet.categorie">{{
+            'COMMON.CATEGORIE_' + projet.categorie.toUpperCase() | translate
+          }}</cdv-badge>
+          <h2>{{ projet.titre }}</h2>
+          <p>{{ projet.description }}</p>
+          <p class="cdv-galerie__lieu">{{ projet.lieu }} · {{ projet.date }}</p>
+        </div>
+      </cdv-carte>
+    }
+  </div>
+</section>

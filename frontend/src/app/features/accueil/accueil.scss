@@ -1,0 +1,97 @@
+@use '../../../styles/mixins' as v;
+
+// TODO: contenu à valider avec le client — ajouter une photo de terrain en fond de hero (Phase 3)
+.cdv-hero {
+  background-color: v.$color-primary-900;
+  padding: v.$space-7 v.$space-4;
+  text-align: center;
+
+  @include v.desktop {
+    padding: v.$space-8 v.$space-6;
+  }
+
+  &__contenu {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$space-4;
+
+    h1 {
+      color: v.$color-surface;
+    }
+
+    p {
+      color: v.$color-primary-light;
+      font-size: 1.0625rem;
+    }
+  }
+}
+
+.cdv-grille-missions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-4;
+  margin-top: v.$space-6;
+  text-align: left;
+
+  @include v.desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$space-5;
+  }
+
+  cdv-carte {
+    display: flex;
+  }
+
+  h3 {
+    margin: v.$space-3 0 v.$space-2;
+  }
+
+  p {
+    color: v.$color-text-secondary;
+    margin: 0 0 v.$space-3;
+  }
+}
+
+.cdv-grille-chiffres {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-5;
+  margin-top: v.$space-6;
+
+  @include v.desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cdv-chiffre {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-1;
+
+  &__valeur {
+    font-family: v.$font-heading;
+    font-size: 2rem;
+    font-weight: 600;
+    color: v.$color-primary;
+  }
+
+  &__libelle {
+    color: v.$color-text-secondary;
+  }
+}
+
+.cdv-cta {
+  padding: v.$space-7 v.$space-4;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$space-4;
+
+  @include v.desktop {
+    padding: v.$space-8 v.$space-6;
+  }
+}

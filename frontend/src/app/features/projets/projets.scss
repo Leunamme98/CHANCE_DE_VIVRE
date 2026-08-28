@@ -1,0 +1,40 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-galerie {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-4;
+  text-align: left;
+
+  @include v.desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$space-5;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: v.$radius-lg v.$radius-lg 0 0;
+  }
+
+  &__contenu {
+    padding: v.$space-4;
+  }
+
+  &__lieu {
+    color: v.$color-text-tertiary;
+    font-size: 0.8125rem;
+    margin: v.$space-2 0 0;
+  }
+
+  h2 {
+    margin: v.$space-2 0;
+  }
+
+  p {
+    color: v.$color-text-secondary;
+    margin: 0;
+  }
+}

@@ -46,3 +46,16 @@
 - [ ] Audit Lighthouse relancé (performance / SEO / accessibilité / PWA)
 - [ ] Vérification sur mobile réel (pas seulement le simulateur navigateur)
 - [ ] Backlog (`backlog-taches.md`) mis à jour
+
+## Hypothèses de contenu à valider avec le client (Phase 1/2)
+
+Placeholders introduits dans les services `core/services/*` — à valider avant mise en ligne :
+
+- [ ] **Chiffres clés accueil** (`chiffres-cles.service.ts`) : « 27 personnes opérées », « 50 tables-bancs », « 4+ localités » — le cahier des charges ne donne que des *exemples* de type de chiffre (section 5.1), pas des valeurs confirmées
+- [ ] **Descriptions des 3 missions** (`missions.service.ts`) : faits d'activité confirmés (cahier des charges section 2), mais formulation éditoriale non validée par le client
+- [ ] **Projets de la galerie** (`projets.service.ts`) : titres, descriptions, dates et photos sont des placeholders — seules les zones géographiques (Tsévié, Kara, Agbonou, Anié) sont confirmées
+- [ ] **Logos partenaires** (`partenaires.service.ts`) : noms confirmés (cahier des charges section 2), fichiers logo réels non fournis à ce stade — chemins `assets/images/partenaires/*.png` à remplacer
+- [ ] **Endpoint Formspree** (`contact.service.ts`) : URL placeholder `https://formspree.io/f/TODO_FORM_ID` — à remplacer par l'ID de formulaire réel une fois créé
+- [ ] **Coordonnées de contact** (`organisation.service.ts`) : téléphone, email et lien Facebook sont des placeholders — seule l'adresse (Tsévié) est confirmée
+- [ ] **Textes narratifs FR** (`assets/i18n/fr.json` — histoire de l'ONG, valeurs, sous-titres) : premier jet éditorial basé sur les faits confirmés du cahier des charges, formulation non validée par le client
+- [ ] **Traductions EN/DE** (`assets/i18n/en.json`, `de.json`) : traduction assistée (pas de traducteur professionnel pour la V1, conformément au cahier des charges section 6) — à faire relire par un locuteur natif avant mise en ligne

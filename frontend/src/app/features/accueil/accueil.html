@@ -1,1 +1,45 @@
-<p>accueil works!</p>
+<section class="cdv-hero">
+  <div class="cdv-hero__contenu">
+    <h1>{{ 'ACCUEIL.HERO_TITRE' | translate }}</h1>
+    <p>{{ 'ACCUEIL.HERO_SOUS_TITRE' | translate }}</p>
+    <cdv-bouton variante="accent" routerLink="/contact">{{
+      'ACCUEIL.HERO_CTA' | translate
+    }}</cdv-bouton>
+  </div>
+</section>
+
+<section class="cdv-section">
+  <h2>{{ 'ACCUEIL.DOMAINES_TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre">{{ 'ACCUEIL.DOMAINES_SOUS_TITRE' | translate }}</p>
+
+  <div class="cdv-grille-missions">
+    @for (mission of missions$ | async; track mission.id) {
+      <cdv-carte>
+        <cdv-badge [type]="mission.pilier">{{ 'COMMON.CATEGORIE_' + mission.pilier.toUpperCase() | translate }}</cdv-badge>
+        <h3>{{ mission.titre }}</h3>
+        <p>{{ mission.description }}</p>
+        <a routerLink="/missions">{{ 'COMMON.EN_SAVOIR_PLUS' | translate }}</a>
+      </cdv-carte>
+    }
+  </div>
+</section>
+
+<section class="cdv-section cdv-section--alt">
+  <h2>{{ 'ACCUEIL.CHIFFRES_TITRE' | translate }}</h2>
+
+  <div class="cdv-grille-chiffres">
+    @for (chiffre of chiffresCles$ | async; track chiffre.id) {
+      <div class="cdv-chiffre">
+        <span class="cdv-chiffre__valeur">{{ chiffre.valeur }}</span>
+        <span class="cdv-chiffre__libelle">{{ chiffre.libelle }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<section class="cdv-cta">
+  <h2>{{ 'ACCUEIL.CTA_SECTION_TITRE' | translate }}</h2>
+  <cdv-bouton variante="primaire" routerLink="/contact">{{
+    'ACCUEIL.CTA_SECTION_BOUTON' | translate
+  }}</cdv-bouton>
+</section>

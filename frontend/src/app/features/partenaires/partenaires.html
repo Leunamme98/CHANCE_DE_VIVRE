@@ -1,1 +1,22 @@
-<p>partenaires works!</p>
+<section class="cdv-entete">
+  <h1>{{ 'PARTENAIRES.TITRE' | translate }}</h1>
+  <p>{{ 'PARTENAIRES.SOUS_TITRE' | translate }}</p>
+</section>
+
+<section class="cdv-section">
+  <div class="cdv-grille-partenaires">
+    @for (partenaire of partenaires$ | async; track partenaire.id) {
+      <cdv-carte>
+        <img
+          class="cdv-grille-partenaires__logo"
+          [src]="partenaire.logo"
+          [alt]="partenaire.logoAlt"
+          loading="lazy"
+          width="160"
+          height="80"
+        />
+        <h2>{{ partenaire.nom }}</h2>
+      </cdv-carte>
+    }
+  </div>
+</section>

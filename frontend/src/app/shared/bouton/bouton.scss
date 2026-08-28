@@ -1,0 +1,109 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-2;
+  height: 48px;
+  padding: 0 20px;
+  border-radius: v.$radius-md;
+  border: none;
+  font-family: v.$font-heading;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+
+  @include v.desktop {
+    height: 44px;
+  }
+
+  &:focus-visible {
+    @include v.focus-ring(v.$color-primary-light);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &--primaire {
+    background-color: v.$color-primary;
+    color: v.$color-surface;
+
+    &:hover:not(:disabled) {
+      background-color: v.$color-primary-dark;
+    }
+
+    &:active:not(:disabled) {
+      background-color: v.$color-primary-900;
+    }
+
+    &:disabled {
+      background-color: v.$color-border-strong;
+      color: v.$color-surface-alt;
+    }
+  }
+
+  &--secondaire {
+    background-color: transparent;
+    color: v.$color-primary;
+    border: 1px solid v.$color-primary;
+
+    &:hover:not(:disabled) {
+      background-color: v.$color-primary-light;
+      color: v.$color-primary-dark;
+      border-color: v.$color-primary-dark;
+    }
+
+    &:disabled {
+      color: v.$color-text-tertiary;
+      border-color: v.$color-border;
+    }
+  }
+
+  &--tertiaire {
+    background-color: transparent;
+    color: v.$color-primary;
+
+    &:hover:not(:disabled) {
+      background-color: v.$color-surface-alt;
+      color: v.$color-primary-dark;
+    }
+  }
+
+  &--accent {
+    background-color: v.$color-accent;
+    color: v.$color-text-primary;
+
+    &:hover:not(:disabled) {
+      background-color: v.$color-accent-dark;
+      color: v.$color-surface;
+    }
+  }
+
+  &--chargement {
+    opacity: 0.7;
+  }
+
+  &__spinner {
+    width: 16px;
+    height: 16px;
+    border-radius: v.$radius-full;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    animation: cdv-spin 0.6s linear infinite;
+  }
+}
+
+@keyframes cdv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,1 +1,82 @@
-<p>contact works!</p>
+<section class="cdv-entete">
+  <h1>{{ 'CONTACT.TITRE' | translate }}</h1>
+  <p>{{ 'CONTACT.SOUS_TITRE' | translate }}</p>
+</section>
+
+<section class="cdv-section cdv-contact">
+  <div class="cdv-contact__coordonnees">
+    <h2>{{ 'CONTACT.COORDONNEES_TITRE' | translate }}</h2>
+    @if (organisation$ | async; as org) {
+      <p>{{ org.adresse }}</p>
+      <p>
+        <a [href]="'tel:' + org.telephone">{{ org.telephone }}</a>
+      </p>
+      <p>
+        <a [href]="'mailto:' + org.email">{{ org.email }}</a>
+      </p>
+    }
+  </div>
+
+  <form class="cdv-contact__formulaire" [formGroup]="formulaire" (ngSubmit)="envoyer()" novalidate>
+    <h2>{{ 'CONTACT.FORMULAIRE_TITRE' | translate }}</h2>
+
+    <div class="cdv-champ">
+      <label for="contact-nom">{{ 'CONTACT.CHAMP_NOM' | translate }}</label>
+      <input
+        id="contact-nom"
+        type="text"
+        formControlName="nom"
+        [class.cdv-champ__input--erreur]="
+          formulaire.controls.nom.invalid && formulaire.controls.nom.touched
+        "
+        class="cdv-champ__input"
+      />
+      @if (formulaire.controls.nom.invalid && formulaire.controls.nom.touched) {
+        <span class="cdv-champ__erreur">{{ 'CONTACT.CHAMP_NOM_ERREUR' | translate }}</span>
+      }
+    </div>
+
+    <div class="cdv-champ">
+      <label for="contact-email">{{ 'CONTACT.CHAMP_EMAIL' | translate }}</label>
+      <input
+        id="contact-email"
+        type="email"
+        formControlName="email"
+        [class.cdv-champ__input--erreur]="
+          formulaire.controls.email.invalid && formulaire.controls.email.touched
+        "
+        class="cdv-champ__input"
+      />
+      @if (formulaire.controls.email.invalid && formulaire.controls.email.touched) {
+        <span class="cdv-champ__erreur">{{ 'CONTACT.CHAMP_EMAIL_ERREUR' | translate }}</span>
+      }
+    </div>
+
+    <div class="cdv-champ">
+      <label for="contact-message">{{ 'CONTACT.CHAMP_MESSAGE' | translate }}</label>
+      <textarea
+        id="contact-message"
+        rows="5"
+        formControlName="message"
+        [class.cdv-champ__input--erreur]="
+          formulaire.controls.message.invalid && formulaire.controls.message.touched
+        "
+        class="cdv-champ__input"
+      ></textarea>
+      @if (formulaire.controls.message.invalid && formulaire.controls.message.touched) {
+        <span class="cdv-champ__erreur">{{ 'CONTACT.CHAMP_MESSAGE_ERREUR' | translate }}</span>
+      }
+    </div>
+
+    @if (etat() === 'succes') {
+      <p class="cdv-alerte cdv-alerte--succes">{{ 'CONTACT.SUCCES' | translate }}</p>
+    }
+    @if (etat() === 'erreur') {
+      <p class="cdv-alerte cdv-alerte--erreur">{{ 'CONTACT.ERREUR' | translate }}</p>
+    }
+
+    <cdv-bouton type="submit" [chargement]="etat() === 'en_cours'">
+      {{ (etat() === 'en_cours' ? 'CONTACT.ENVOI_EN_COURS' : 'CONTACT.BOUTON_ENVOYER') | translate }}
+    </cdv-bouton>
+  </form>
+</section>

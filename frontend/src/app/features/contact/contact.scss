@@ -1,0 +1,90 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-contact {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-6;
+  text-align: left;
+  max-width: 960px;
+  margin: 0 auto;
+
+  @include v.desktop {
+    grid-template-columns: 1fr 1.4fr;
+    gap: v.$space-8;
+  }
+
+  &__coordonnees p {
+    color: v.$color-text-secondary;
+    margin: 0 0 v.$space-2;
+  }
+
+  &__formulaire {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-4;
+  }
+}
+
+.cdv-champ {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-1;
+
+  label {
+    font-family: v.$font-body;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: v.$color-text-primary;
+  }
+
+  &__input {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: v.$radius-md;
+    border: 1px solid v.$color-border;
+    font-family: v.$font-body;
+    font-size: 1rem;
+    color: v.$color-text-primary;
+    background-color: v.$color-surface;
+
+    &:focus {
+      outline: none;
+      border-color: v.$color-primary;
+      box-shadow: 0 0 0 3px #{v.$color-primary-light};
+    }
+
+    &--erreur {
+      background-color: v.$color-error-bg;
+      border-color: v.$color-error-border;
+    }
+  }
+
+  textarea.cdv-champ__input {
+    height: auto;
+    padding: v.$space-3 14px;
+    resize: vertical;
+  }
+
+  &__erreur {
+    font-size: 0.75rem;
+    color: v.$color-error-text;
+  }
+}
+
+.cdv-alerte {
+  padding: v.$space-4;
+  border-radius: v.$radius-md;
+  margin: 0;
+
+  &--succes {
+    background-color: v.$color-success-bg;
+    border-left: 4px solid v.$color-success-text;
+    color: v.$color-success-text;
+  }
+
+  &--erreur {
+    background-color: v.$color-error-bg;
+    border-left: 4px solid v.$color-error-text;
+    color: v.$color-error-text;
+  }
+}

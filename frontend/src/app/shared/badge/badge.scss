@@ -1,0 +1,43 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: v.$radius-full;
+  font-family: v.$font-body;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+
+  &--neutre {
+    background-color: v.$color-surface-alt;
+    color: v.$color-text-secondary;
+  }
+
+  &--education {
+    background-color: v.$color-accent-light;
+    color: v.$color-accent-dark;
+  }
+
+  &--sante {
+    background-color: v.$color-secondary-light;
+    color: v.$color-secondary-dark;
+  }
+
+  &--economie {
+    background-color: v.$color-primary-light;
+    color: v.$color-primary-dark;
+  }
+
+  &--succes {
+    background-color: v.$color-success-bg;
+    color: v.$color-success-text;
+  }
+
+  &--erreur {
+    background-color: v.$color-error-bg;
+    color: v.$color-error-text;
+  }
+}

@@ -1,0 +1,53 @@
+<header class="cdv-header">
+  <div class="cdv-header__bar">
+    <a class="cdv-header__logo" routerLink="/accueil" (click)="fermerMenu()">
+      {{ 'COMMON.NOM_ONG' | translate }}
+    </a>
+
+    <button
+      type="button"
+      class="cdv-header__burger"
+      (click)="basculerMenu()"
+      [attr.aria-expanded]="menuOuvert()"
+      [attr.aria-label]="(menuOuvert() ? 'NAV.FERMER_MENU' : 'NAV.OUVRIR_MENU') | translate"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="cdv-header__nav" [class.cdv-header__nav--ouvert]="menuOuvert()">
+      <a routerLink="/accueil" routerLinkActive="active" (click)="fermerMenu()">{{
+        'NAV.ACCUEIL' | translate
+      }}</a>
+      <a routerLink="/qui-sommes-nous" routerLinkActive="active" (click)="fermerMenu()">{{
+        'NAV.QUI_SOMMES_NOUS' | translate
+      }}</a>
+      <a routerLink="/missions" routerLinkActive="active" (click)="fermerMenu()">{{
+        'NAV.MISSIONS' | translate
+      }}</a>
+      <a routerLink="/projets" routerLinkActive="active" (click)="fermerMenu()">{{
+        'NAV.PROJETS' | translate
+      }}</a>
+      <a routerLink="/partenaires" routerLinkActive="active" (click)="fermerMenu()">{{
+        'NAV.PARTENAIRES' | translate
+      }}</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="fermerMenu()">{{
+        'NAV.CONTACT' | translate
+      }}</a>
+
+      <div class="cdv-header__langues" role="group" [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate">
+        @for (langue of langues; track langue.code) {
+          <button
+            type="button"
+            class="cdv-header__langue"
+            [class.cdv-header__langue--active]="langueActuelle() === langue.code"
+            (click)="changerLangue(langue.code)"
+          >
+            {{ langue.libelle }}
+          </button>
+        }
+      </div>
+    </nav>
+  </div>
+</header>

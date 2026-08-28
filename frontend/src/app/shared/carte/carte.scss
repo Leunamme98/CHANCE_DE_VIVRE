@@ -1,0 +1,23 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-carte {
+  background-color: v.$color-surface;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$shadow-sm;
+  // Valeurs exactes du design system section 5.2 (padding interne carte : 16px mobile / 20px desktop)
+  padding: 16px;
+  transition: box-shadow 0.15s ease;
+
+  @include v.desktop {
+    padding: 20px;
+  }
+
+  &:hover {
+    box-shadow: v.$shadow-md;
+  }
+
+  &--sans-padding {
+    padding: 0;
+  }
+}

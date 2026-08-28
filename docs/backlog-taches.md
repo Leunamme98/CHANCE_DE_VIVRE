@@ -15,19 +15,24 @@ Détails et versions exactes : voir `docs/stack-technique.md`.
 
 ## Phase 1 — Fondations (layout + design system)
 
-- ⬜ Header (logo, nav, sélecteur de langue)
-- ⬜ Footer (coordonnées, réseaux, mentions)
-- ⬜ Composants partagés : bouton, carte, badge (conformes au design system)
-- ⬜ Modèles TS : `Mission`, `Projet`, `Partenaire`, `MessageContact`
+- ✅ Header (logo, nav 6 pages, sélecteur de langue FR/EN/DE, menu mobile)
+- ✅ Footer (coordonnées, réseaux, navigation, mentions)
+- ✅ Composants partagés : `cdv-bouton` (4 variantes), `cdv-carte`, `cdv-badge` (conformes au design system)
+- ✅ Modèles TS : `Mission`, `Projet`, `Partenaire`, `MessageContact`, `Organisation`, `ChiffreCle`
+- ✅ Services associés (`missions`, `projets`, `partenaires`, `chiffres-cles`, `organisation`, `contact`, `seo`)
 
 ## Phase 2 — Pages
 
-- ⬜ Page Accueil (hero, aperçu 3 domaines, chiffres clés, CTA)
-- ⬜ Page Qui sommes-nous (histoire, valeurs, zone d'action)
-- ⬜ Page Nos missions (3 piliers + exemples réels)
-- ⬜ Page Nos projets (galerie + données réelles Facebook)
-- ⬜ Page Nos partenaires (logos + noms, séparé de l'identité ONG)
-- ⬜ Page Contact (formulaire Formspree + coordonnées)
+- ✅ Page Accueil (hero, aperçu 3 domaines, chiffres clés, CTA)
+- ✅ Page Qui sommes-nous (histoire, valeurs, zone d'action)
+- ✅ Page Nos missions (3 piliers + exemples réels)
+- ✅ Page Nos projets (galerie + données placeholder, à valider — voir `contraintes-a-verifier.md`)
+- ✅ Page Nos partenaires (logos + noms, séparé de l'identité ONG)
+- ✅ Page Contact (formulaire réactif avec validation + intégration Formspree, coordonnées)
+
+Build de production (`ng build`) et tests unitaires (`ng test`, 12/12) validés. Contenu factuel confirmé
+utilisé partout où possible ; chiffres/photos/logos/n° de téléphone/endpoint Formspree sont des
+placeholders explicitement marqués `TODO` (voir `docs/contraintes-a-verifier.md`).
 
 ## Phase 3 — Contenu
 
