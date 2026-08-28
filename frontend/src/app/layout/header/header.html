@@ -62,19 +62,6 @@
         ></span>
       </div>
 
-      <div class="cdv-header__langues" role="group" [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate">
-        @for (langue of langues; track langue.code) {
-          <button
-            type="button"
-            class="cdv-header__langue"
-            [class.cdv-header__langue--active]="langueActuelle() === langue.code"
-            (click)="changerLangue(langue.code)"
-          >
-            {{ langue.libelle }}
-          </button>
-        }
-      </div>
-
       <a
         routerLink="/contact"
         routerLinkActive="cdv-header__contact--actif"
@@ -83,6 +70,7 @@
         [attr.data-tooltip]="'COMMON.NOUS_CONTACTER' | translate"
         (click)="fermerMenu()"
       >
+        <span class="cdv-header__contact-texte">{{ 'NAV.CONTACT' | translate }}</span>
         <span class="cdv-header__contact-anneau" aria-hidden="true">
           <span class="cdv-header__contact-icone">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -95,6 +83,19 @@
           </span>
         </span>
       </a>
+
+      <div class="cdv-header__langues" role="group" [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate">
+        @for (langue of langues; track langue.code) {
+          <button
+            type="button"
+            class="cdv-header__langue"
+            [class.cdv-header__langue--active]="langueActuelle() === langue.code"
+            (click)="changerLangue(langue.code)"
+          >
+            {{ langue.libelle }}
+          </button>
+        }
+      </div>
     </nav>
   </div>
 </header>

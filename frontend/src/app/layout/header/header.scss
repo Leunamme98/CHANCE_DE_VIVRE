@@ -286,24 +286,28 @@
     }
   }
 
-  // Icône Contact — anneau tournoyant aux couleurs de la marque + tooltip
+  // Contact — texte simple en mobile, icône + anneau tournoyant/pulsant en desktop
   &__contact {
     position: relative;
     display: inline-flex;
+    align-items: center;
     align-self: flex-start;
     text-decoration: none;
 
     @include v.desktop {
+      align-self: center;
       margin-left: v.$space-2;
     }
 
-    // Tooltip "Nous contacter" (traduit) — attribut data-tooltip rempli depuis le template
+    // Tooltip "Nous contacter" (traduit) — attribut data-tooltip rempli depuis le template.
+    // Aligné à droite (et non centré) pour ne jamais déborder hors de l'écran : l'icône est
+    // proche du bord droit du header.
     &::after {
       content: attr(data-tooltip);
       position: absolute;
       top: 100%;
-      left: 50%;
-      transform: translate(-50%, 4px);
+      right: 0;
+      transform: translateY(4px);
       margin-top: v.$space-2;
       padding: v.$space-1 v.$space-3;
       border-radius: v.$radius-sm;
@@ -324,7 +328,7 @@
     &:hover::after,
     &:focus-visible::after {
       opacity: 1;
-      transform: translate(-50%, 0);
+      transform: translateY(0);
     }
 
     &--actif .cdv-header__contact-anneau {
@@ -332,23 +336,42 @@
     }
   }
 
+  // Mobile : simple lien texte, cohérent avec les 3 autres liens
+  &__contact-texte {
+    font-family: v.$font-heading;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: v.$color-text-primary;
+
+    @include v.desktop {
+      display: none;
+    }
+  }
+
+  // Desktop : icône entourée d'un anneau qui tourne ET pulse pour attirer l'œil
   &__contact-anneau {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 2px;
-    border-radius: v.$radius-full;
-    background: conic-gradient(
-      from 0deg,
-      v.$color-primary 0%,
-      v.$color-accent 33%,
-      v.$color-primary-dark 66%,
-      v.$color-primary 100%
-    );
-    animation: cdv-anneau-tourne 3.5s linear infinite;
-    transition: box-shadow 0.2s ease;
+    display: none;
+
+    @include v.desktop {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 2px;
+      border-radius: v.$radius-full;
+      background: conic-gradient(
+        from 0deg,
+        v.$color-primary 0%,
+        v.$color-accent 33%,
+        v.$color-primary-dark 66%,
+        v.$color-primary 100%
+      );
+      animation:
+        cdv-anneau-tourne 3.5s linear infinite,
+        cdv-anneau-pulse 2s ease-in-out infinite;
+      transition: box-shadow 0.2s ease;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       animation: none;
@@ -384,6 +407,16 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes cdv-anneau-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(v.$color-primary, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(v.$color-primary, 0);
   }
 }
 
