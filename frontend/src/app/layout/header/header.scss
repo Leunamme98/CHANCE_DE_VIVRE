@@ -293,42 +293,74 @@
     align-items: center;
     align-self: flex-start;
     text-decoration: none;
+    // Passe au-dessus du sélecteur de langue (qui le suit dans le DOM) : sans ceci, le
+    // tooltip se faisait recouvrir par le fond opaque de la capsule de langue.
+    z-index: 5;
 
     @include v.desktop {
       align-self: center;
       margin-left: v.$space-2;
     }
 
-    // Tooltip "Nous contacter" (traduit) — attribut data-tooltip rempli depuis le template.
-    // Aligné à droite (et non centré) pour ne jamais déborder hors de l'écran : l'icône est
-    // proche du bord droit du header.
-    &::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      top: 100%;
-      right: 0;
-      transform: translateY(4px);
-      margin-top: v.$space-2;
-      padding: v.$space-1 v.$space-3;
-      border-radius: v.$radius-sm;
-      background-color: v.$color-primary-900;
-      color: v.$color-surface;
-      font-family: v.$font-body;
-      font-size: 0.75rem;
-      font-weight: 500;
-      white-space: nowrap;
-      box-shadow: v.$shadow-md;
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        opacity 0.15s ease,
-        transform 0.15s ease;
-    }
+    // Petite flèche du tooltip — desktop uniquement (pas de tooltip en mobile, texte déjà visible)
+    @include v.desktop {
+      &::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        width: 9px;
+        height: 9px;
+        margin-top: 4px;
+        background: linear-gradient(135deg, v.$color-primary 0%, v.$color-primary-dark 100%);
+        border-radius: 2px;
+        transform: translate(-50%, 0) rotate(45deg);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.15s ease,
+          margin-top 0.15s ease;
+      }
 
-    &:hover::after,
-    &:focus-visible::after {
-      opacity: 1;
-      transform: translateY(0);
+      // Corps du tooltip, centré sur l'icône, bien lisible
+      &::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 4px);
+        margin-top: v.$space-3;
+        max-width: 220px;
+        padding: v.$space-2 v.$space-4;
+        border-radius: v.$radius-md;
+        background: linear-gradient(135deg, v.$color-primary 0%, v.$color-primary-dark 100%);
+        border: 1px solid v.$color-accent;
+        color: v.$color-surface;
+        font-family: v.$font-heading;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        line-height: 1.3;
+        text-align: center;
+        white-space: normal;
+        box-shadow: v.$shadow-lg;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      &:hover::before,
+      &:focus-visible::before {
+        opacity: 1;
+        margin-top: 8px;
+      }
+
+      &:hover::after,
+      &:focus-visible::after {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
     }
 
     &--actif .cdv-header__contact-anneau {
