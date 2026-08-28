@@ -13,7 +13,6 @@ import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { filter } from 'rxjs';
-import { Bouton } from '../../shared/bouton/bouton';
 
 interface LangueOption {
   code: 'fr' | 'en' | 'de';
@@ -26,7 +25,7 @@ interface PositionIndicateur {
 }
 
 @Component({
-  imports: [RouterLink, RouterLinkActive, TranslatePipe, Bouton],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe],
   selector: 'cdv-header',
   templateUrl: './header.html',
   styleUrl: './header.scss',
