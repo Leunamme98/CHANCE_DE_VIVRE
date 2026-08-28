@@ -1,7 +1,30 @@
 <header class="cdv-header">
   <div class="cdv-header__bar">
-    <a class="cdv-header__logo" routerLink="/accueil" (click)="fermerMenu()">
-      {{ 'COMMON.NOM_ONG' | translate }}
+    <a class="cdv-header__logo" routerLink="/" (click)="fermerMenu()">
+      <span class="cdv-header__logo-corps">
+        <span class="cdv-header__logo-eyebrow">{{ 'NAV.LOGO_EYEBROW' | translate }}</span>
+        <span class="cdv-header__logo-nom">{{ 'NAV.LOGO_NOM' | translate }}</span>
+      </span>
+      <span class="cdv-header__drapeaux" aria-hidden="true">
+        <svg viewBox="0 0 300 200" class="cdv-header__drapeau-tissu cdv-header__drapeau-tissu--togo">
+          <rect width="300" height="200" fill="#006A4E" />
+          <rect y="40" width="300" height="40" fill="#FFCE00" />
+          <rect y="120" width="300" height="40" fill="#FFCE00" />
+          <rect width="120" height="120" fill="#D21034" />
+          <polygon
+            fill="#FFFFFF"
+            points="60,45 68,68 92,68 72,82 80,105 60,91 40,105 48,82 28,68 52,68"
+          />
+        </svg>
+        <svg
+          viewBox="0 0 300 200"
+          class="cdv-header__drapeau-tissu cdv-header__drapeau-tissu--allemagne"
+        >
+          <rect width="300" height="66.6" y="0" fill="#000000" />
+          <rect width="300" height="66.6" y="66.6" fill="#DD0000" />
+          <rect width="300" height="66.8" y="133.2" fill="#FFCE00" />
+        </svg>
+      </span>
     </a>
 
     <button
@@ -17,24 +40,27 @@
     </button>
 
     <nav class="cdv-header__nav" [class.cdv-header__nav--ouvert]="menuOuvert()">
-      <a routerLink="/accueil" routerLinkActive="active" (click)="fermerMenu()">{{
-        'NAV.ACCUEIL' | translate
-      }}</a>
-      <a routerLink="/qui-sommes-nous" routerLinkActive="active" (click)="fermerMenu()">{{
-        'NAV.QUI_SOMMES_NOUS' | translate
-      }}</a>
-      <a routerLink="/missions" routerLinkActive="active" (click)="fermerMenu()">{{
-        'NAV.MISSIONS' | translate
-      }}</a>
-      <a routerLink="/projets" routerLinkActive="active" (click)="fermerMenu()">{{
-        'NAV.PROJETS' | translate
-      }}</a>
-      <a routerLink="/partenaires" routerLinkActive="active" (click)="fermerMenu()">{{
-        'NAV.PARTENAIRES' | translate
-      }}</a>
-      <a routerLink="/contact" routerLinkActive="active" (click)="fermerMenu()">{{
-        'NAV.CONTACT' | translate
-      }}</a>
+      <div class="cdv-header__liens">
+        <a
+          #navLien
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="fermerMenu()"
+          >{{ 'NAV.ACCUEIL' | translate }}</a
+        >
+        <a #navLien routerLink="/a-propos" routerLinkActive="active" (click)="fermerMenu()">{{
+          'NAV.A_PROPOS' | translate
+        }}</a>
+        <a #navLien routerLink="/projets" routerLinkActive="active" (click)="fermerMenu()">{{
+          'NAV.PROJETS' | translate
+        }}</a>
+        <span
+          class="cdv-header__indicateur"
+          [style.transform]="'translateX(' + indicateur().left + 'px)'"
+          [style.width.px]="indicateur().width"
+        ></span>
+      </div>
 
       <div class="cdv-header__langues" role="group" [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate">
         @for (langue of langues; track langue.code) {
@@ -48,6 +74,14 @@
           </button>
         }
       </div>
+
+      <cdv-bouton
+        variante="accent"
+        [routerLink]="'/contact'"
+        class="cdv-header__cta"
+        (click)="fermerMenu()"
+        >{{ 'NAV.CONTACT' | translate }}</cdv-bouton
+      >
     </nav>
   </div>
 </header>

@@ -63,13 +63,11 @@
 
 ### 5.1 MVP — Obligatoire (Version 1)
 
-**Pages** :
-1. **Accueil** — Hero avec mission en une phrase, aperçu des 3 domaines d'action, chiffres clés (ex. « 27 personnes opérées », « 50 tables-bancs offertes »), CTA vers contact
-2. **Qui sommes-nous** — Histoire de l'ONG, valeurs, zone d'action au Togo
-3. **Nos missions** — Présentation des 3 piliers (Éducation / Santé / Économie locale) avec exemples concrets réels
-4. **Nos projets** — Galerie de réalisations avec photos et descriptions
-5. **Nos partenaires** — Logos et noms des partenaires (Tukolere Wamu, Ambassade d'Allemagne, etc.), présentés séparément de l'identité visuelle propre de l'ONG
-6. **Contact** — Formulaire (nom, email, message) + coordonnées (téléphone, adresse à Tsévié)
+**Pages** — architecture simplifiée à 4 pages (décision prise en cours de développement, remplace la liste initiale à 6 pages) :
+1. **Accueil** (`/`) — Hero avec mission en une phrase, aperçu des 3 domaines d'action, chiffres clés (ex. « 27 personnes opérées », « 50 tables-bancs offertes »), CTA vers contact
+2. **À propos** (`/a-propos`) — Page fusionnée : histoire de l'ONG, valeurs, zone d'action au Togo, présentation des 3 piliers de missions (Éducation / Santé / Économie locale) avec exemples concrets réels, et logos/noms des partenaires (Tukolere Wamu, Ambassade d'Allemagne, etc.), présentés séparément de l'identité visuelle propre de l'ONG
+3. **Nos projets** (`/projets`) — Galerie de réalisations avec photos et descriptions
+4. **Contact** (`/contact`) — Formulaire (nom, email, message) + coordonnées (téléphone, adresse à Tsévié) ; mis en avant dans la navigation sous forme de bouton plein, visuellement distinct des 3 autres liens
 
 **Fonctionnalités transverses** :
 - Site responsive, mobile-first

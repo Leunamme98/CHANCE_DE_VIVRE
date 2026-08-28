@@ -23,14 +23,14 @@ Détails et versions exactes : voir `docs/stack-technique.md`.
 
 ## Phase 2 — Pages
 
-- ✅ Page Accueil (hero, aperçu 3 domaines, chiffres clés, CTA)
-- ✅ Page Qui sommes-nous (histoire, valeurs, zone d'action)
-- ✅ Page Nos missions (3 piliers + exemples réels)
-- ✅ Page Nos projets (galerie + données placeholder, à valider — voir `contraintes-a-verifier.md`)
-- ✅ Page Nos partenaires (logos + noms, séparé de l'identité ONG)
-- ✅ Page Contact (formulaire réactif avec validation + intégration Formspree, coordonnées)
+Architecture simplifiée à 4 pages (décision prise après un premier passage à 6 pages séparées) :
 
-Build de production (`ng build`) et tests unitaires (`ng test`, 12/12) validés. Contenu factuel confirmé
+- ✅ Page Accueil `/` (hero, aperçu 3 domaines, chiffres clés, CTA)
+- ✅ Page À propos `/a-propos` (fusion : histoire, valeurs, zone d'action, 3 missions + exemples réels, partenaires)
+- ✅ Page Nos projets `/projets` (galerie + données placeholder, à valider — voir `contraintes-a-verifier.md`)
+- ✅ Page Contact `/contact` (formulaire réactif avec validation + intégration Formspree, coordonnées) — mise en avant en bouton plein dans la navigation
+
+Build de production (`ng build`) et tests unitaires (`ng test`, 10/10) validés. Contenu factuel confirmé
 utilisé partout où possible ; chiffres/photos/logos/n° de téléphone/endpoint Formspree sont des
 placeholders explicitement marqués `TODO` (voir `docs/contraintes-a-verifier.md`).
 

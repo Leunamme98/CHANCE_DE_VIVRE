@@ -3,15 +3,15 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { QuiSommesNous } from './qui-sommes-nous';
+import { APropos } from './a-propos';
 
-describe('QuiSommesNous', () => {
-  let component: QuiSommesNous;
-  let fixture: ComponentFixture<QuiSommesNous>;
+describe('APropos', () => {
+  let component: APropos;
+  let fixture: ComponentFixture<APropos>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuiSommesNous],
+      imports: [APropos],
       providers: [
         provideRouter([]),
         provideHttpClient(),
@@ -23,7 +23,7 @@ describe('QuiSommesNous', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(QuiSommesNous);
+    fixture = TestBed.createComponent(APropos);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

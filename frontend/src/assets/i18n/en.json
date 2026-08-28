@@ -1,10 +1,10 @@
 {
   "NAV": {
+    "LOGO_EYEBROW": "NGO",
+    "LOGO_NOM": "Chance De Vivre",
     "ACCUEIL": "Home",
-    "QUI_SOMMES_NOUS": "About us",
-    "MISSIONS": "Our missions",
+    "A_PROPOS": "About",
     "PROJETS": "Our projects",
-    "PARTENAIRES": "Our partners",
     "CONTACT": "Contact",
     "OUVRIR_MENU": "Open menu",
     "FERMER_MENU": "Close menu"
@@ -41,10 +41,12 @@
     "CTA_SECTION_TITRE": "Want to support us or learn more?",
     "CTA_SECTION_BOUTON": "Contact us"
   },
+  "A_PROPOS": {
+    "TITRE_PAGE": "Chance de Vivre — About",
+    "DESCRIPTION_PAGE": "The story, values, area of action, missions and partners of the Chance De Vivre-Togo NGO.",
+    "TITRE": "About us"
+  },
   "QUI_SOMMES_NOUS": {
-    "TITRE_PAGE": "Chance de Vivre — About us",
-    "DESCRIPTION_PAGE": "The story, values and area of action of the Chance De Vivre-Togo NGO.",
-    "TITRE": "About us",
     "HISTOIRE_TITRE": "Our story",
     "HISTOIRE_TEXTE": "Chance De Vivre-Togo is an NGO based in Tsévié, in the Maritime Region of Togo. For several years, it has carried out concrete actions for education, health and local economic development, alongside Togolese communities.",
     "VALEURS_TITRE": "Our values",
@@ -58,8 +60,6 @@
     "ZONE_TEXTE": "Our actions take place in several localities of Togo: Tsévié (Maritime Region), Agbonou and Anié (Plateaux Region), as well as the Kara Region."
   },
   "MISSIONS": {
-    "TITRE_PAGE": "Chance de Vivre — Our missions",
-    "DESCRIPTION_PAGE": "The three pillars of action of the Chance De Vivre-Togo NGO: education, health, local economy.",
     "TITRE": "Our missions",
     "SOUS_TITRE": "Three pillars, one ambition: durably improving the lives of Togolese communities.",
     "EXEMPLES_TITRE": "Examples of actions"
@@ -71,8 +71,6 @@
     "SOUS_TITRE": "Concrete achievements, in the field, alongside communities."
   },
   "PARTENAIRES": {
-    "TITRE_PAGE": "Chance de Vivre — Our partners",
-    "DESCRIPTION_PAGE": "The institutions that support the Chance De Vivre-Togo NGO.",
     "TITRE": "Our partners",
     "SOUS_TITRE": "They trust us and support our actions in the field."
   },

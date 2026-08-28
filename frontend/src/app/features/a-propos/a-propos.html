@@ -1,0 +1,73 @@
+<section class="cdv-entete">
+  <h1>{{ 'A_PROPOS.TITRE' | translate }}</h1>
+</section>
+
+<section class="cdv-section">
+  <h2>{{ 'QUI_SOMMES_NOUS.HISTOIRE_TITRE' | translate }}</h2>
+  <p>{{ 'QUI_SOMMES_NOUS.HISTOIRE_TEXTE' | translate }}</p>
+</section>
+
+<section class="cdv-section cdv-section--alt">
+  <h2>{{ 'QUI_SOMMES_NOUS.VALEURS_TITRE' | translate }}</h2>
+  <div class="cdv-grille-valeurs">
+    <cdv-carte>
+      <h3>{{ 'QUI_SOMMES_NOUS.VALEUR_SOLIDARITE_TITRE' | translate }}</h3>
+      <p>{{ 'QUI_SOMMES_NOUS.VALEUR_SOLIDARITE_TEXTE' | translate }}</p>
+    </cdv-carte>
+    <cdv-carte>
+      <h3>{{ 'QUI_SOMMES_NOUS.VALEUR_TRANSPARENCE_TITRE' | translate }}</h3>
+      <p>{{ 'QUI_SOMMES_NOUS.VALEUR_TRANSPARENCE_TEXTE' | translate }}</p>
+    </cdv-carte>
+    <cdv-carte>
+      <h3>{{ 'QUI_SOMMES_NOUS.VALEUR_IMPACT_TITRE' | translate }}</h3>
+      <p>{{ 'QUI_SOMMES_NOUS.VALEUR_IMPACT_TEXTE' | translate }}</p>
+    </cdv-carte>
+  </div>
+</section>
+
+<section class="cdv-section">
+  <h2>{{ 'QUI_SOMMES_NOUS.ZONE_TITRE' | translate }}</h2>
+  <p>{{ 'QUI_SOMMES_NOUS.ZONE_TEXTE' | translate }}</p>
+</section>
+
+<section class="cdv-section cdv-section--alt">
+  <h2>{{ 'MISSIONS.TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre">{{ 'MISSIONS.SOUS_TITRE' | translate }}</p>
+  <div class="cdv-liste-missions">
+    @for (mission of missions$ | async; track mission.id) {
+      <cdv-carte>
+        <cdv-badge [type]="mission.pilier">{{
+          'COMMON.CATEGORIE_' + mission.pilier.toUpperCase() | translate
+        }}</cdv-badge>
+        <h3>{{ mission.titre }}</h3>
+        <p>{{ mission.description }}</p>
+        <h4>{{ 'MISSIONS.EXEMPLES_TITRE' | translate }}</h4>
+        <ul>
+          @for (exemple of mission.exemples; track exemple) {
+            <li>{{ exemple }}</li>
+          }
+        </ul>
+      </cdv-carte>
+    }
+  </div>
+</section>
+
+<section class="cdv-section">
+  <h2>{{ 'PARTENAIRES.TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre">{{ 'PARTENAIRES.SOUS_TITRE' | translate }}</p>
+  <div class="cdv-grille-partenaires">
+    @for (partenaire of partenaires$ | async; track partenaire.id) {
+      <cdv-carte>
+        <img
+          class="cdv-grille-partenaires__logo"
+          [src]="partenaire.logo"
+          [alt]="partenaire.logoAlt"
+          loading="lazy"
+          width="160"
+          height="80"
+        />
+        <h3>{{ partenaire.nom }}</h3>
+      </cdv-carte>
+    }
+  </div>
+</section>

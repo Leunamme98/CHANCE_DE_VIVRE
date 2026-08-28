@@ -1,10 +1,10 @@
 {
   "NAV": {
+    "LOGO_EYEBROW": "ONG",
+    "LOGO_NOM": "Chance De Vivre",
     "ACCUEIL": "Accueil",
-    "QUI_SOMMES_NOUS": "Qui sommes-nous",
-    "MISSIONS": "Nos missions",
+    "A_PROPOS": "À propos",
     "PROJETS": "Nos projets",
-    "PARTENAIRES": "Nos partenaires",
     "CONTACT": "Contact",
     "OUVRIR_MENU": "Ouvrir le menu",
     "FERMER_MENU": "Fermer le menu"
@@ -41,10 +41,12 @@
     "CTA_SECTION_TITRE": "Envie de nous soutenir ou d'en savoir plus ?",
     "CTA_SECTION_BOUTON": "Contactez-nous"
   },
+  "A_PROPOS": {
+    "TITRE_PAGE": "Chance de Vivre — À propos",
+    "DESCRIPTION_PAGE": "L'histoire, les valeurs, la zone d'action, les missions et les partenaires de l'ONG Chance De Vivre-Togo.",
+    "TITRE": "À propos de nous"
+  },
   "QUI_SOMMES_NOUS": {
-    "TITRE_PAGE": "Chance de Vivre — Qui sommes-nous",
-    "DESCRIPTION_PAGE": "L'histoire, les valeurs et la zone d'action de l'ONG Chance De Vivre-Togo.",
-    "TITRE": "Qui sommes-nous",
     "HISTOIRE_TITRE": "Notre histoire",
     "HISTOIRE_TEXTE": "Chance De Vivre-Togo est une ONG basée à Tsévié, dans la région Maritime du Togo. Depuis plusieurs années, elle mène des actions concrètes en faveur de l'éducation, de la santé et de l'économie locale, aux côtés des communautés togolaises.",
     "VALEURS_TITRE": "Nos valeurs",
@@ -58,8 +60,6 @@
     "ZONE_TEXTE": "Nos actions se déploient dans plusieurs localités du Togo : Tsévié (région Maritime), Agbonou et Anié (région des Plateaux), ainsi que dans la région de Kara."
   },
   "MISSIONS": {
-    "TITRE_PAGE": "Chance de Vivre — Nos missions",
-    "DESCRIPTION_PAGE": "Les trois piliers d'action de l'ONG Chance De Vivre-Togo : éducation, santé, économie locale.",
     "TITRE": "Nos missions",
     "SOUS_TITRE": "Trois piliers, une même ambition : améliorer durablement la vie des communautés togolaises.",
     "EXEMPLES_TITRE": "Exemples d'actions"
@@ -71,8 +71,6 @@
     "SOUS_TITRE": "Des réalisations concrètes, sur le terrain, aux côtés des communautés."
   },
   "PARTENAIRES": {
-    "TITRE_PAGE": "Chance de Vivre — Nos partenaires",
-    "DESCRIPTION_PAGE": "Les institutions qui soutiennent l'ONG Chance De Vivre-Togo.",
     "TITRE": "Nos partenaires",
     "SOUS_TITRE": "Ils nous font confiance et soutiennent nos actions sur le terrain."
   },

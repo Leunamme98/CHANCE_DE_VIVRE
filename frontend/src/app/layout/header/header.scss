@@ -5,7 +5,24 @@
   top: 0;
   z-index: 20;
   background-color: v.$color-surface;
+  // Double soulignement premium : un hairline neutre + un liseré dégradé (couleurs de marque uniquement)
   border-bottom: 1px solid v.$color-border;
+  box-shadow: 0 2px 0 0 v.$color-primary-light;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      v.$color-primary 0%,
+      v.$color-accent 50%,
+      v.$color-primary 100%
+    );
+  }
 
   &__bar {
     display: flex;
@@ -20,12 +37,114 @@
     }
   }
 
+  // Bloc logo — provisoire, prévu pour être remplacé par le vrai logo de l'ONG.
   &__logo {
-    font-family: v.$font-heading;
-    font-weight: 600;
-    font-size: 1.0625rem;
-    color: v.$color-text-primary;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: v.$space-2;
+    overflow: hidden;
     text-decoration: none;
+    padding: v.$space-2 v.$space-4;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-lg;
+    background-color: v.$color-surface;
+    box-shadow: v.$shadow-sm;
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.2s ease,
+      border-color 0.2s ease;
+
+    // Reflet premium qui balaie le bloc au survol
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.55) 50%,
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      transition: left 0.7s ease;
+      pointer-events: none;
+    }
+
+    &:hover {
+      box-shadow: v.$shadow-md;
+      border-color: v.$color-primary-light;
+      transform: translateY(-1px);
+
+      &::before {
+        left: 130%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__logo-corps {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  &__logo-eyebrow {
+    font-family: v.$font-body;
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: v.$color-accent-dark;
+  }
+
+  &__logo-nom {
+    font-family: v.$font-heading;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: v.$color-primary-dark;
+    white-space: nowrap;
+
+    @include v.desktop {
+      font-size: 1.0625rem;
+    }
+  }
+
+  // Petits drapeaux (Togo + Allemagne) qui "flottent" doucement — pause auto si l'utilisateur
+  // préfère moins d'animations. Emplacement provisoire en attendant le vrai logo.
+  &__drapeaux {
+    display: flex;
+    gap: 5px;
+    padding-left: v.$space-2;
+    border-left: 1px solid v.$color-border;
+  }
+
+  &__drapeau-tissu {
+    display: block;
+    width: 18px;
+    height: auto;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    transform-origin: left center;
+    animation: cdv-drapeau-flotte 2.6s ease-in-out infinite;
+
+    &--allemagne {
+      animation-delay: -0.7s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   &__burger {
@@ -68,6 +187,28 @@
       display: flex;
     }
 
+    @include v.desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: static;
+      border-bottom: none;
+      padding: 0;
+      gap: v.$space-6;
+    }
+  }
+
+  &__liens {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-3;
+
+    @include v.desktop {
+      position: relative;
+      flex-direction: row;
+      gap: v.$space-6;
+    }
+
     a {
       font-family: v.$font-heading;
       font-weight: 500;
@@ -81,63 +222,92 @@
         color: v.$color-primary;
       }
     }
+  }
+
+  // Indicateur qui glisse d'un lien à l'autre (desktop uniquement)
+  &__indicateur {
+    display: none;
 
     @include v.desktop {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      position: static;
-      border-bottom: none;
-      padding: 0;
-      gap: v.$space-6;
-
-      a {
-        position: relative;
-        padding: v.$space-2 0;
-
-        &.active::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: -2px;
-          height: 2px;
-          background-color: v.$color-primary;
-        }
-      }
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      border-radius: v.$radius-full;
+      background: linear-gradient(90deg, v.$color-primary 0%, v.$color-accent 100%);
+      transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
+  // Sélecteur de langue en capsule premium (segmented control)
   &__langues {
-    display: flex;
-    gap: v.$space-2;
+    display: inline-flex;
+    gap: 2px;
     margin-top: v.$space-3;
-    padding-top: v.$space-3;
-    border-top: 1px solid v.$color-border;
+    padding: 3px;
+    background-color: v.$color-surface-alt;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-full;
+    align-self: flex-start;
 
     @include v.desktop {
       margin-top: 0;
-      padding-top: 0;
-      border-top: none;
       margin-left: v.$space-3;
     }
   }
 
   &__langue {
     background: none;
-    border: 1px solid v.$color-border;
-    border-radius: v.$radius-sm;
-    padding: v.$space-1 v.$space-2;
-    font-family: v.$font-body;
+    border: none;
+    border-radius: v.$radius-full;
+    padding: v.$space-1 v.$space-3;
+    font-family: v.$font-heading;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     color: v.$color-text-secondary;
     cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover:not(&--active) {
+      color: v.$color-primary-dark;
+    }
 
     &--active {
-      background-color: v.$color-primary-light;
-      color: v.$color-primary-dark;
-      border-color: v.$color-primary;
+      background: linear-gradient(135deg, v.$color-primary 0%, v.$color-primary-dark 100%);
+      color: v.$color-surface;
+      box-shadow: v.$shadow-sm;
     }
+  }
+
+  // Contact reste un bouton plein — volontairement distinct des liens texte
+  &__cta {
+    align-self: flex-start;
+
+    @include v.desktop {
+      margin-left: v.$space-2;
+    }
+  }
+}
+
+@keyframes cdv-drapeau-flotte {
+  0%,
+  100% {
+    transform: rotateY(0deg) skewY(0deg);
+  }
+  25% {
+    transform: rotateY(-8deg) skewY(-2deg);
+  }
+  50% {
+    transform: rotateY(4deg) skewY(1deg);
+  }
+  75% {
+    transform: rotateY(-4deg) skewY(-1deg);
   }
 }

@@ -1,10 +1,10 @@
 {
   "NAV": {
+    "LOGO_EYEBROW": "NGO",
+    "LOGO_NOM": "Chance De Vivre",
     "ACCUEIL": "Startseite",
-    "QUI_SOMMES_NOUS": "Über uns",
-    "MISSIONS": "Unsere Missionen",
+    "A_PROPOS": "Über uns",
     "PROJETS": "Unsere Projekte",
-    "PARTENAIRES": "Unsere Partner",
     "CONTACT": "Kontakt",
     "OUVRIR_MENU": "Menü öffnen",
     "FERMER_MENU": "Menü schließen"
@@ -41,10 +41,12 @@
     "CTA_SECTION_TITRE": "Möchten Sie uns unterstützen oder mehr erfahren?",
     "CTA_SECTION_BOUTON": "Kontaktieren Sie uns"
   },
-  "QUI_SOMMES_NOUS": {
+  "A_PROPOS": {
     "TITRE_PAGE": "Chance de Vivre — Über uns",
-    "DESCRIPTION_PAGE": "Die Geschichte, Werte und das Einsatzgebiet der NGO Chance De Vivre-Togo.",
-    "TITRE": "Über uns",
+    "DESCRIPTION_PAGE": "Die Geschichte, Werte, das Einsatzgebiet, die Missionen und die Partner der NGO Chance De Vivre-Togo.",
+    "TITRE": "Über uns"
+  },
+  "QUI_SOMMES_NOUS": {
     "HISTOIRE_TITRE": "Unsere Geschichte",
     "HISTOIRE_TEXTE": "Chance De Vivre-Togo ist eine NGO mit Sitz in Tsévié, in der Region Maritime von Togo. Seit mehreren Jahren führt sie konkrete Maßnahmen für Bildung, Gesundheit und lokale Wirtschaftsförderung gemeinsam mit togoischen Gemeinden durch.",
     "VALEURS_TITRE": "Unsere Werte",
@@ -58,8 +60,6 @@
     "ZONE_TEXTE": "Unsere Maßnahmen finden in mehreren Orten Togos statt: Tsévié (Region Maritime), Agbonou und Anié (Region Plateaux) sowie in der Region Kara."
   },
   "MISSIONS": {
-    "TITRE_PAGE": "Chance de Vivre — Unsere Missionen",
-    "DESCRIPTION_PAGE": "Die drei Handlungssäulen der NGO Chance De Vivre-Togo: Bildung, Gesundheit, lokale Wirtschaft.",
     "TITRE": "Unsere Missionen",
     "SOUS_TITRE": "Drei Säulen, ein Ziel: das Leben der togoischen Gemeinden nachhaltig zu verbessern.",
     "EXEMPLES_TITRE": "Beispiele für Maßnahmen"
@@ -71,8 +71,6 @@
     "SOUS_TITRE": "Konkrete Erfolge, vor Ort, gemeinsam mit den Gemeinden."
   },
   "PARTENAIRES": {
-    "TITRE_PAGE": "Chance de Vivre — Unsere Partner",
-    "DESCRIPTION_PAGE": "Die Institutionen, die die NGO Chance De Vivre-Togo unterstützen.",
     "TITRE": "Unsere Partner",
     "SOUS_TITRE": "Sie vertrauen uns und unterstützen unsere Maßnahmen vor Ort."
   },
