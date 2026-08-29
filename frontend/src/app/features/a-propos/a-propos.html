@@ -146,15 +146,17 @@
   <p class="cdv-section__sous-titre" cdvRevele>{{ 'PARTENAIRES.SOUS_TITRE' | translate }}</p>
   <div class="cdv-grille-partenaires">
     @for (partenaire of partenaires$ | async; track partenaire.id; let i = $index) {
-      <cdv-carte cdvRevele [cdvReveleDelai]="i * 80">
-        <img
-          class="cdv-grille-partenaires__logo"
-          [src]="partenaire.logo"
-          [alt]="partenaire.logoAlt"
-          loading="lazy"
-          width="160"
-          height="80"
-        />
+      <cdv-carte [centre]="true" cdvRevele [cdvReveleDelai]="i * 80">
+        <div class="cdv-grille-partenaires__logo-zone">
+          <img
+            class="cdv-grille-partenaires__logo"
+            [src]="partenaire.logo"
+            [alt]="partenaire.logoAlt"
+            loading="lazy"
+            width="160"
+            height="80"
+          />
+        </div>
         <h3>{{ partenaire.nom }}</h3>
       </cdv-carte>
     }

@@ -351,6 +351,11 @@
       transform: translateY(-4px);
     }
 
+    &:hover .cdv-grille-partenaires__logo,
+    &:focus-within .cdv-grille-partenaires__logo {
+      transform: scale(1.06);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       transition: none;
 
@@ -361,10 +366,32 @@
     }
   }
 
+  // Zone de taille fixe et identique pour tous les logos, quel que soit leur format d'origine
+  // (portrait, paysage, carré...) — chaque logo est centré et mis à l'échelle pour y tenir,
+  // ce qui aligne proprement toutes les cartes entre elles.
+  &__logo-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 72px;
+
+    @include v.desktop {
+      height: 88px;
+    }
+  }
+
   &__logo {
     max-width: 100%;
-    height: 80px;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    transition: transform 0.25s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   h3 {
