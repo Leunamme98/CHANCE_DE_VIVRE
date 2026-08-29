@@ -23,9 +23,11 @@
   "FOOTER": {
     "COORDONNEES_TITRE": "Kontaktdaten",
     "ADRESSE": "Tsévié, Region Maritime, Togo",
+    "ADRESSE_LIBELLE": "Adresse",
     "TELEPHONE_LIBELLE": "Telefon",
     "EMAIL_LIBELLE": "E-Mail",
-    "LIENS_TITRE": "Navigation",
+    "WHATSAPP_LIBELLE": "WhatsApp",
+    "MESSENGER_LIBELLE": "Messenger",
     "RESEAUX_TITRE": "Folgen Sie uns",
     "FACEBOOK": "Facebook",
     "MENTIONS": "Chance De Vivre-Togo. Alle Rechte vorbehalten."

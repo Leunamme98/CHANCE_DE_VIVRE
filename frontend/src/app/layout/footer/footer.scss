@@ -15,39 +15,164 @@
     gap: v.$space-6;
 
     @include v.desktop {
-      grid-template-columns: repeat(4, 1fr);
-      gap: v.$space-5;
+      grid-template-columns: repeat(3, 1fr);
+      gap: v.$space-6;
     }
   }
 
   &__bloc {
     h4 {
       color: v.$color-surface;
-      margin-bottom: v.$space-3;
-    }
-
-    p {
-      margin: 0 0 v.$space-2;
-      color: v.$color-primary-light;
+      margin-bottom: v.$space-4;
     }
   }
 
   &__label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: v.$color-primary-light;
-    margin-right: v.$space-1;
+    opacity: 0.7;
   }
 
-  &__liens {
+  &__contacts {
     display: flex;
     flex-direction: column;
-    gap: v.$space-2;
+    gap: v.$space-4;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  a {
+  &__contact {
+    display: inline-flex;
+    align-items: center;
+    gap: v.$space-3;
     color: v.$color-surface;
 
-    &:hover {
+    &:hover .cdv-footer__icone,
+    &:focus-visible .cdv-footer__icone {
+      transform: scale(1.12) rotate(-6deg);
+    }
+
+    &:hover .cdv-footer__icone--adresse,
+    &:focus-visible .cdv-footer__icone--adresse,
+    &:hover .cdv-footer__icone--telephone,
+    &:focus-visible .cdv-footer__icone--telephone,
+    &:hover .cdv-footer__icone--email,
+    &:focus-visible .cdv-footer__icone--email {
+      background-color: v.$color-primary;
+      color: v.$color-surface;
+    }
+
+    &:hover .cdv-footer__icone--whatsapp,
+    &:focus-visible .cdv-footer__icone--whatsapp {
+      background-color: #25d366;
+      color: v.$color-surface;
+    }
+
+    &:hover .cdv-footer__icone--facebook,
+    &:focus-visible .cdv-footer__icone--facebook {
+      background-color: #1877f2;
+      color: v.$color-surface;
+    }
+
+    &:hover .cdv-footer__icone--messenger,
+    &:focus-visible .cdv-footer__icone--messenger {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+  }
+
+  &__contact-texte {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    line-height: 1.3;
+  }
+
+  // Badge circulaire premium : couleur de marque au survol + halo pulsé continu
+  // (subtil, désactivé si l'utilisateur préfère moins d'animations).
+  &__icone {
+    position: relative;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: v.$radius-full;
+    background-color: rgba(255, 255, 255, 0.08);
+    transition:
+      transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    svg {
+      position: relative;
+      z-index: 1;
+      width: 18px;
+      height: 18px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1.5px solid currentColor;
+      opacity: 0;
+      animation: cdv-footer-pulse 2.6s ease-out infinite;
+    }
+
+    &--adresse {
       color: v.$color-primary-light;
+    }
+
+    &--telephone {
+      color: v.$color-primary-light;
+
+      &::after {
+        animation-delay: 0.45s;
+      }
+    }
+
+    &--email {
+      color: v.$color-primary-light;
+
+      &::after {
+        animation-delay: 0.9s;
+      }
+    }
+
+    &--whatsapp {
+      color: #25d366;
+
+      &::after {
+        animation-delay: 1.35s;
+      }
+    }
+
+    &--messenger {
+      color: v.$color-surface;
+      background: linear-gradient(135deg, #00b2ff, #2e6bff 45%, #b429f9 75%, #f94879);
+
+      &::after {
+        animation-delay: 1.8s;
+      }
+    }
+
+    &--facebook {
+      color: #1877f2;
+
+      &::after {
+        animation-delay: 2.25s;
+      }
     }
   }
 
@@ -57,5 +182,29 @@
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     font-size: 0.8125rem;
     color: v.$color-primary-light;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cdv-footer__icone,
+    .cdv-footer__contact {
+      transition: none;
+    }
+
+    .cdv-footer__icone::after {
+      animation: none;
+      display: none;
+    }
+  }
+}
+
+@keyframes cdv-footer-pulse {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.55);
   }
 }
