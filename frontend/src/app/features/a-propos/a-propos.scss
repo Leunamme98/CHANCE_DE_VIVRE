@@ -1,11 +1,29 @@
 @use '../../../styles/mixins' as v;
 
+// Icône décorative au-dessus du titre "Notre histoire" — même badge circulaire que les autres
+// icônes du site, sans lien de couleur avec un pilier particulier (teinte primaire neutre).
+.cdv-entete-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: v.$space-4;
+  border-radius: v.$radius-full;
+  background-color: v.$color-primary-light;
+  color: v.$color-primary-dark;
+
+  svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
 .cdv-grille-valeurs {
   display: grid;
   grid-template-columns: 1fr;
   gap: v.$space-4;
   margin-top: v.$space-6;
-  text-align: left;
 
   @include v.desktop {
     grid-template-columns: repeat(3, 1fr);
@@ -19,6 +37,104 @@
   p {
     color: v.$color-text-secondary;
     margin: 0;
+  }
+
+  // Même soulèvement + icône qui pivote légèrement au survol que les cartes "Nos domaines
+  // d'action" de l'accueil, pour une cohérence de langage d'interaction sur tout le site.
+  cdv-carte {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-6px);
+    }
+
+    &:hover .cdv-icone-valeur,
+    &:focus-within .cdv-icone-valeur {
+      transform: scale(1.12) rotate(-8deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-within {
+        transform: none;
+      }
+    }
+  }
+}
+
+.cdv-icone-valeur {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  margin-bottom: v.$space-3;
+  border-radius: v.$radius-full;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  &--solidarite {
+    background-color: v.$color-accent-light;
+    color: v.$color-accent-dark;
+  }
+
+  &--transparence {
+    background-color: v.$color-secondary-light;
+    color: v.$color-secondary-dark;
+  }
+
+  &--impact {
+    background-color: v.$color-primary-light;
+    color: v.$color-primary-dark;
+  }
+
+  @include v.desktop {
+    width: 64px;
+    height: 64px;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+// Puces des localités citées dans le paragraphe "Notre zone d'action" — un repère visuel
+// rapide en plus du texte, pas un remplacement.
+.cdv-puces-localites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-2;
+  margin: v.$space-4 0 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    gap: v.$space-1;
+    padding: v.$space-1 v.$space-3 v.$space-1 v.$space-2;
+    border-radius: v.$radius-full;
+    background-color: v.$color-surface;
+    border: 1px solid v.$color-border;
+    font-family: v.$font-body;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: v.$color-primary-dark;
+
+    svg {
+      width: 15px;
+      height: 15px;
+      color: v.$color-primary;
+    }
   }
 }
 
@@ -226,6 +342,23 @@
     flex-direction: column;
     align-items: center;
     gap: v.$space-3;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-4px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-within {
+        transform: none;
+      }
+    }
   }
 
   &__logo {

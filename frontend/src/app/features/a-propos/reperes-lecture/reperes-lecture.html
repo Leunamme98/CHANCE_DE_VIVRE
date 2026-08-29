@@ -1,0 +1,17 @@
+<div class="cdv-reperes__barre" aria-hidden="true">
+  <div class="cdv-reperes__barre-remplie" [style.width.%]="progression()"></div>
+</div>
+
+<nav class="cdv-reperes__nav" [attr.aria-label]="'A_PROPOS.SOMMAIRE' | translate">
+  @for (section of sections; track section.id) {
+    <button
+      type="button"
+      class="cdv-reperes__item"
+      [class.cdv-reperes__item--actif]="sectionActive() === section.id"
+      (click)="allerA(section.id)"
+    >
+      <span class="cdv-reperes__point"></span>
+      <span class="cdv-reperes__libelle">{{ section.libelleCle | translate }}</span>
+    </button>
+  }
+</nav>

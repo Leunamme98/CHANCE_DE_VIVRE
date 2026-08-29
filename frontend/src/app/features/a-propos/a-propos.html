@@ -1,19 +1,27 @@
+<cdv-reperes-lecture />
+
 <section class="cdv-entete">
   <h1>{{ 'A_PROPOS.TITRE' | translate }}</h1>
 </section>
 
-<section class="cdv-section">
-  <h2>{{ 'QUI_SOMMES_NOUS.HISTOIRE_TITRE' | translate }}</h2>
-  <p>{{ 'QUI_SOMMES_NOUS.HISTOIRE_TEXTE' | translate }}</p>
+<section class="cdv-section" id="histoire">
+  <div class="cdv-entete-icone" cdvRevele aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  </div>
+  <h2 cdvRevele>{{ 'QUI_SOMMES_NOUS.HISTOIRE_TITRE' | translate }}</h2>
+  <p cdvRevele>{{ 'QUI_SOMMES_NOUS.HISTOIRE_TEXTE' | translate }}</p>
 </section>
 
-<section class="cdv-section cdv-section--alt">
-  <h2>{{ 'MISSIONS.TITRE' | translate }}</h2>
-  <p class="cdv-section__sous-titre">{{ 'MISSIONS.SOUS_TITRE' | translate }}</p>
+<section class="cdv-section cdv-section--alt" id="missions">
+  <h2 cdvRevele>{{ 'MISSIONS.TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre" cdvRevele>{{ 'MISSIONS.SOUS_TITRE' | translate }}</p>
 
   <ol class="cdv-timeline-missions">
-    @for (mission of missions$ | async; track mission.id; let dernier = $last) {
-      <li class="cdv-timeline-missions__etape">
+    @for (mission of missions$ | async; track mission.id; let dernier = $last; let i = $index) {
+      <li class="cdv-timeline-missions__etape" cdvRevele [cdvReveleDelai]="i * 120">
         <div class="cdv-timeline-missions__rail">
           <span class="cdv-timeline-missions__point cdv-timeline-missions__point--{{ mission.pilier }}" aria-hidden="true">
             @switch (mission.icone) {
@@ -61,34 +69,65 @@
   </ol>
 </section>
 
-<section class="cdv-section">
-  <h2>{{ 'QUI_SOMMES_NOUS.VALEURS_TITRE' | translate }}</h2>
+<section class="cdv-section" id="valeurs">
+  <h2 cdvRevele>{{ 'QUI_SOMMES_NOUS.VALEURS_TITRE' | translate }}</h2>
   <div class="cdv-grille-valeurs">
-    <cdv-carte>
+    <cdv-carte [centre]="true" cdvRevele>
+      <div class="cdv-icone-valeur cdv-icone-valeur--solidarite" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      </div>
       <h3>{{ 'QUI_SOMMES_NOUS.VALEUR_SOLIDARITE_TITRE' | translate }}</h3>
       <p>{{ 'QUI_SOMMES_NOUS.VALEUR_SOLIDARITE_TEXTE' | translate }}</p>
     </cdv-carte>
-    <cdv-carte>
+    <cdv-carte [centre]="true" cdvRevele [cdvReveleDelai]="120">
+      <div class="cdv-icone-valeur cdv-icone-valeur--transparence" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+      </div>
       <h3>{{ 'QUI_SOMMES_NOUS.VALEUR_TRANSPARENCE_TITRE' | translate }}</h3>
       <p>{{ 'QUI_SOMMES_NOUS.VALEUR_TRANSPARENCE_TEXTE' | translate }}</p>
     </cdv-carte>
-    <cdv-carte>
+    <cdv-carte [centre]="true" cdvRevele [cdvReveleDelai]="240">
+      <div class="cdv-icone-valeur cdv-icone-valeur--impact" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3C7 3 3 8 3 13a7 7 0 0 0 7 7c5 0 9-6 9-13 0-1.5-.1-3-.3-4.3C16.5 3.3 14.3 3 12 3Z" />
+          <path d="M6 18c3-4 6-7 12-13" />
+        </svg>
+      </div>
       <h3>{{ 'QUI_SOMMES_NOUS.VALEUR_IMPACT_TITRE' | translate }}</h3>
       <p>{{ 'QUI_SOMMES_NOUS.VALEUR_IMPACT_TEXTE' | translate }}</p>
     </cdv-carte>
   </div>
 </section>
 
-<section class="cdv-section cdv-section--alt">
-  <h2>{{ 'QUI_SOMMES_NOUS.ZONE_TITRE' | translate }}</h2>
-  <p>{{ 'QUI_SOMMES_NOUS.ZONE_TEXTE' | translate }}</p>
+<section class="cdv-section cdv-section--alt" id="zone">
+  <h2 cdvRevele>{{ 'QUI_SOMMES_NOUS.ZONE_TITRE' | translate }}</h2>
+  <p cdvRevele>{{ 'QUI_SOMMES_NOUS.ZONE_TEXTE' | translate }}</p>
+  <ul class="cdv-puces-localites" cdvRevele [cdvReveleDelai]="120">
+    @for (localite of localites; track localite) {
+      <li class="cdv-puces-localites__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        {{ localite | translate }}
+      </li>
+    }
+  </ul>
 </section>
 
-<section class="cdv-section">
-  <h2>{{ 'A_PROPOS.GALERIE_TITRE' | translate }}</h2>
+<section class="cdv-section" id="galerie">
+  <h2 cdvRevele>{{ 'A_PROPOS.GALERIE_TITRE' | translate }}</h2>
   <div class="cdv-galerie-photos">
-    @for (photo of galeriePhotos$ | async; track photo.image) {
-      <figure class="cdv-galerie-photos__item">
+    @for (photo of galeriePhotos$ | async; track photo.image; let i = $index) {
+      <figure class="cdv-galerie-photos__item" cdvRevele [cdvReveleDelai]="i * 100">
         <img
           [src]="cheminImage(photo.image)"
           [alt]="photo.legende | translate"
@@ -102,12 +141,12 @@
   </div>
 </section>
 
-<section class="cdv-section cdv-section--alt">
-  <h2>{{ 'PARTENAIRES.TITRE' | translate }}</h2>
-  <p class="cdv-section__sous-titre">{{ 'PARTENAIRES.SOUS_TITRE' | translate }}</p>
+<section class="cdv-section cdv-section--alt" id="partenaires">
+  <h2 cdvRevele>{{ 'PARTENAIRES.TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre" cdvRevele>{{ 'PARTENAIRES.SOUS_TITRE' | translate }}</p>
   <div class="cdv-grille-partenaires">
-    @for (partenaire of partenaires$ | async; track partenaire.id) {
-      <cdv-carte>
+    @for (partenaire of partenaires$ | async; track partenaire.id; let i = $index) {
+      <cdv-carte cdvRevele [cdvReveleDelai]="i * 80">
         <img
           class="cdv-grille-partenaires__logo"
           [src]="partenaire.logo"

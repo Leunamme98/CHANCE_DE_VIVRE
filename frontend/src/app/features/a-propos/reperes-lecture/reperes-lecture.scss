@@ -1,0 +1,99 @@
+@use '../../../../styles/mixins' as v;
+
+// Fine barre de progression de lecture tout en haut du viewport (au-dessus du header sticky,
+// motif classique repris de nombreux sites éditoriaux) : donne un repère immédiat de
+// l'avancement sur une page qui peut être longue.
+.cdv-reperes__barre {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 30;
+  background-color: rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+}
+
+.cdv-reperes__barre-remplie {
+  height: 100%;
+  background-color: v.$color-accent;
+  transition: width 0.1s linear;
+}
+
+// Sommaire flottant à droite, cliquable, qui met en évidence la section actuellement lue —
+// seulement sur desktop (assez de place ; sur mobile, la barre de progression suffit).
+.cdv-reperes__nav {
+  display: none;
+
+  @include v.desktop {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-3;
+    position: fixed;
+    right: v.$space-5;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+  }
+}
+
+.cdv-reperes__item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: v.$space-2;
+  border: none;
+  background: none;
+  padding: v.$space-1 0;
+  cursor: pointer;
+  color: v.$color-text-tertiary;
+
+  &:focus-visible {
+    @include v.focus-ring(v.$color-primary-light);
+  }
+}
+
+.cdv-reperes__point {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: v.$radius-full;
+  background-color: v.$color-border-strong;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cdv-reperes__libelle {
+  font-family: v.$font-body;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-width 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.cdv-reperes__item:hover .cdv-reperes__libelle,
+.cdv-reperes__item--actif .cdv-reperes__libelle {
+  max-width: 160px;
+  opacity: 1;
+}
+
+.cdv-reperes__item--actif {
+  color: v.$color-primary-dark;
+
+  .cdv-reperes__point {
+    background-color: v.$color-accent;
+    transform: scale(1.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cdv-reperes__barre-remplie {
+    transition: none;
+  }
+}

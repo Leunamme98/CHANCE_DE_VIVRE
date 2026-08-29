@@ -61,6 +61,7 @@
     "TITRE_PAGE": "Chance de Vivre — À propos",
     "DESCRIPTION_PAGE": "L'histoire, les valeurs, la zone d'action, les missions et les partenaires de l'ONG Chance De Vivre-Togo.",
     "TITRE": "À propos de nous",
+    "SOMMAIRE": "Sommaire de la page",
     "GALERIE_TITRE": "Nos partenaires sur le terrain",
     "GALERIE_PHOTO_1": "Nos partenaires internationaux à nos côtés lors d'une séance de sensibilisation",
     "GALERIE_PHOTO_2": "Visite de nos partenaires auprès des communautés bénéficiaires",
@@ -77,7 +78,11 @@
     "VALEUR_IMPACT_TITRE": "Impact durable",
     "VALEUR_IMPACT_TEXTE": "Privilégier des actions qui changent durablement le quotidien.",
     "ZONE_TITRE": "Notre zone d'action",
-    "ZONE_TEXTE": "Nos actions se déploient dans plusieurs localités du Togo : Tsévié (région Maritime), Agbonou et Anié (région des Plateaux), ainsi que dans la région de Kara."
+    "ZONE_TEXTE": "Nos actions se déploient dans plusieurs localités du Togo : Tsévié (région Maritime), Agbonou et Anié (région des Plateaux), ainsi que dans la région de Kara.",
+    "ZONE_LOCALITE_TSEVIE": "Tsévié",
+    "ZONE_LOCALITE_AGBONOU": "Agbonou",
+    "ZONE_LOCALITE_ANIE": "Anié",
+    "ZONE_LOCALITE_KARA": "Kara"
   },
   "MISSIONS": {
     "TITRE": "Nos missions",

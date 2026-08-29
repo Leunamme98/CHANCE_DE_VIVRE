@@ -61,6 +61,7 @@
     "TITRE_PAGE": "Chance de Vivre — About",
     "DESCRIPTION_PAGE": "The story, values, area of action, missions and partners of the Chance De Vivre-Togo NGO.",
     "TITRE": "About us",
+    "SOMMAIRE": "Page contents",
     "GALERIE_TITRE": "Our partners in the field",
     "GALERIE_PHOTO_1": "Our international partners alongside us during an awareness session",
     "GALERIE_PHOTO_2": "A partner visit to the communities we support",
@@ -77,7 +78,11 @@
     "VALEUR_IMPACT_TITRE": "Lasting impact",
     "VALEUR_IMPACT_TEXTE": "Favouring actions that durably improve everyday life.",
     "ZONE_TITRE": "Our area of action",
-    "ZONE_TEXTE": "Our actions take place in several localities of Togo: Tsévié (Maritime Region), Agbonou and Anié (Plateaux Region), as well as the Kara Region."
+    "ZONE_TEXTE": "Our actions take place in several localities of Togo: Tsévié (Maritime Region), Agbonou and Anié (Plateaux Region), as well as the Kara Region.",
+    "ZONE_LOCALITE_TSEVIE": "Tsévié",
+    "ZONE_LOCALITE_AGBONOU": "Agbonou",
+    "ZONE_LOCALITE_ANIE": "Anié",
+    "ZONE_LOCALITE_KARA": "Kara"
   },
   "MISSIONS": {
     "TITRE": "Our missions",
