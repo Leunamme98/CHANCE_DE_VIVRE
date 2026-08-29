@@ -112,6 +112,7 @@
 .cdv-puces-localites {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: v.$space-2;
   margin: v.$space-4 0 0;
   padding: 0;
