@@ -1,21 +1,21 @@
-import { Component, DestroyRef, PLATFORM_ID, inject, signal } from '@angular/core';
+import { Component, DestroyRef, PLATFORM_ID, effect, inject, input, signal } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
-import { HeroCarouselService } from '../../../core/services/hero-carousel.service';
-import { HeroSlide } from '../../../core/models/hero-slide.model';
-import { cheminImage } from '../../../core/config/image.config';
+import { HeroSlide } from '../../core/models/hero-slide.model';
+import { cheminImage } from '../../core/config/image.config';
 
 const DUREE_AFFICHAGE_MS = 6000;
 const SEUIL_SWIPE_PX = 40;
 
+export type CarouselPhotosTaille = 'hero' | 'compact';
+
 @Component({
   imports: [TranslatePipe],
-  selector: 'cdv-hero-carousel',
-  templateUrl: './hero-carousel.html',
-  styleUrl: './hero-carousel.scss',
+  selector: 'cdv-carousel-photos',
+  templateUrl: './carousel-photos.html',
+  styleUrl: './carousel-photos.scss',
 })
-export class HeroCarousel {
-  private readonly heroCarouselService = inject(HeroCarouselService);
+export class CarouselPhotos {
   private readonly destroyRef = inject(DestroyRef);
   private readonly estNavigateur = isPlatformBrowser(inject(PLATFORM_ID));
   private readonly reduitMouvement =
@@ -26,13 +26,17 @@ export class HeroCarousel {
   private minuteur?: ReturnType<typeof setTimeout>;
   private touchDepartX = 0;
 
-  readonly slides = signal<HeroSlide[]>([]);
+  readonly slides = input<HeroSlide[]>([]);
+  readonly taille = input<CarouselPhotosTaille>('hero');
+  readonly libelleRegion = input.required<string>();
+
   readonly indexActif = signal(0);
   readonly enPause = signal(false);
 
   constructor() {
-    this.heroCarouselService.getAll().subscribe((slides) => {
-      this.slides.set(slides);
+    effect(() => {
+      this.slides();
+      this.indexActif.set(0);
       this.redemarrerMinuteur();
     });
 

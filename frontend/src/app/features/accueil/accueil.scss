@@ -4,6 +4,19 @@
   width: 100%;
 }
 
+// Duo de mini-carrousels sous le hero : même traitement plein cadre / plein-largeur,
+// pour rester dans la continuité visuelle du carrousel principal juste au-dessus.
+.cdv-galerie-duo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-1;
+  width: 100%;
+
+  @include v.desktop {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .cdv-hero {
   background-color: v.$color-primary-900;
   padding: v.$space-7 v.$space-4;

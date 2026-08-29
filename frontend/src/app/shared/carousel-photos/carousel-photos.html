@@ -1,8 +1,9 @@
 <section
-  class="cdv-hero-carousel"
+  class="cdv-carousel-photos"
+  [class.cdv-carousel-photos--compact]="taille() === 'compact'"
   role="region"
   aria-roledescription="carousel"
-  [attr.aria-label]="'HERO.REGION' | translate"
+  [attr.aria-label]="libelleRegion() | translate"
   tabindex="0"
   (mouseenter)="onSurvolEntree()"
   (mouseleave)="onSurvolSortie()"
@@ -10,11 +11,11 @@
   (touchend)="onTouchEnd($event)"
   (keydown)="onToucheClavier($event)"
 >
-  <div class="cdv-hero-carousel__scene">
+  <div class="cdv-carousel-photos__scene">
     @for (slide of slides(); track slide.image; let i = $index) {
       <figure
-        class="cdv-hero-carousel__diapo"
-        [class.cdv-hero-carousel__diapo--active]="i === indexActif()"
+        class="cdv-carousel-photos__diapo"
+        [class.cdv-carousel-photos__diapo--active]="i === indexActif()"
         [attr.aria-hidden]="i === indexActif() ? null : true"
         [style.background-image]="'url(' + cheminImage(slide.image) + ')'"
       >
@@ -26,15 +27,15 @@
           width="1600"
           height="900"
         />
-        <div class="cdv-hero-carousel__degrade" aria-hidden="true"></div>
-        <figcaption class="cdv-hero-carousel__legende">{{ slide.legende | translate }}</figcaption>
+        <div class="cdv-carousel-photos__degrade" aria-hidden="true"></div>
+        <figcaption class="cdv-carousel-photos__legende">{{ slide.legende | translate }}</figcaption>
       </figure>
     }
   </div>
 
   <button
     type="button"
-    class="cdv-hero-carousel__fleche cdv-hero-carousel__fleche--prev"
+    class="cdv-carousel-photos__fleche cdv-carousel-photos__fleche--prev"
     [attr.aria-label]="'HERO.PRECEDENT' | translate"
     (click)="precedent()"
   >
@@ -45,7 +46,7 @@
 
   <button
     type="button"
-    class="cdv-hero-carousel__fleche cdv-hero-carousel__fleche--next"
+    class="cdv-carousel-photos__fleche cdv-carousel-photos__fleche--next"
     [attr.aria-label]="'HERO.SUIVANT' | translate"
     (click)="suivant()"
   >
@@ -54,21 +55,21 @@
     </svg>
   </button>
 
-  <div class="cdv-hero-carousel__points">
+  <div class="cdv-carousel-photos__points">
     @for (slide of slides(); track slide.image; let i = $index) {
       <button
         type="button"
-        class="cdv-hero-carousel__point"
-        [class.cdv-hero-carousel__point--actif]="i === indexActif()"
-        [class.cdv-hero-carousel__point--passe]="i < indexActif()"
+        class="cdv-carousel-photos__point"
+        [class.cdv-carousel-photos__point--actif]="i === indexActif()"
+        [class.cdv-carousel-photos__point--passe]="i < indexActif()"
         [attr.aria-label]="'HERO.ALLER_SLIDE' | translate: { n: i + 1 }"
         [attr.aria-current]="i === indexActif() ? true : null"
         (click)="allerA(i)"
       >
         @if (i === indexActif()) {
           <span
-            class="cdv-hero-carousel__point-remplissage"
-            [class.cdv-hero-carousel__point-remplissage--pause]="enPause()"
+            class="cdv-carousel-photos__point-remplissage"
+            [class.cdv-carousel-photos__point-remplissage--pause]="enPause()"
           ></span>
         }
       </button>

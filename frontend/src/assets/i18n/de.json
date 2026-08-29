@@ -42,7 +42,9 @@
     "DOMAINES_SOUS_TITRE": "Drei Säulen für eine nachhaltige Wirkung",
     "CHIFFRES_TITRE": "Unsere Wirkung in Zahlen",
     "CTA_SECTION_TITRE": "Möchten Sie uns unterstützen oder mehr erfahren?",
-    "CTA_SECTION_BOUTON": "Kontaktieren Sie uns"
+    "CTA_SECTION_BOUTON": "Kontaktieren Sie uns",
+    "GALERIE_APROPOS_REGION": "Diaschau: unsere Partner vor Ort",
+    "GALERIE_PROJETS_REGION": "Diaschau: unsere Erfolge vor Ort"
   },
   "HERO": {
     "SLIDE_1": "Hunderte Kinder versammelt zur Eröffnung einer renovierten Schule",
@@ -85,7 +87,10 @@
     "TITRE_PAGE": "Chance de Vivre — Unsere Projekte",
     "DESCRIPTION_PAGE": "Entdecken Sie die konkreten Erfolge der NGO Chance De Vivre-Togo vor Ort.",
     "TITRE": "Unsere Projekte",
-    "SOUS_TITRE": "Konkrete Erfolge, vor Ort, gemeinsam mit den Gemeinden."
+    "SOUS_TITRE": "Konkrete Erfolge, vor Ort, gemeinsam mit den Gemeinden.",
+    "GALERIE_PHOTO_1": "Renovierung einer Schule: jeder Sack Zement ist ein Schritt zu würdigen Klassenzimmern",
+    "GALERIE_PHOTO_2": "Sensibilisierung von Frauen zur Stärkung ihrer wirtschaftlichen Eigenständigkeit",
+    "GALERIE_PHOTO_3": "Eröffnung einer Gesundheitskampagne im Dienst der Gemeinden"
   },
   "PARTENAIRES": {
     "TITRE": "Unsere Partner",

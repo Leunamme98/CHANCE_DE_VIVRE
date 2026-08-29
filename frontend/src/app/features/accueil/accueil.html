@@ -1,7 +1,3 @@
-<section class="cdv-hero-carousel-conteneur">
-  <cdv-hero-carousel />
-</section>
-
 <section class="cdv-hero">
   <div class="cdv-hero__contenu">
     <h1>{{ 'ACCUEIL.HERO_TITRE' | translate }}</h1>
@@ -10,6 +6,25 @@
       'ACCUEIL.HERO_CTA' | translate
     }}</cdv-bouton>
   </div>
+</section>
+
+<section class="cdv-hero-carousel-conteneur">
+  <cdv-carousel-photos [slides]="(heroSlides$ | async) ?? []" libelleRegion="HERO.REGION" />
+</section>
+
+<section class="cdv-galerie-duo">
+  <cdv-carousel-photos
+    class="cdv-galerie-duo__item"
+    taille="compact"
+    [slides]="(galerieAPropos$ | async) ?? []"
+    libelleRegion="ACCUEIL.GALERIE_APROPOS_REGION"
+  />
+  <cdv-carousel-photos
+    class="cdv-galerie-duo__item"
+    taille="compact"
+    [slides]="(galerieProjets$ | async) ?? []"
+    libelleRegion="ACCUEIL.GALERIE_PROJETS_REGION"
+  />
 </section>
 
 <section class="cdv-section">

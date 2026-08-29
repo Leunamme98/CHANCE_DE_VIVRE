@@ -2,15 +2,23 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HeroCarousel } from './hero-carousel';
+import { CarouselPhotos } from './carousel-photos';
+import { HeroSlide } from '../../core/models/hero-slide.model';
 
-describe('HeroCarousel', () => {
-  let component: HeroCarousel;
-  let fixture: ComponentFixture<HeroCarousel>;
+const SLIDES: HeroSlide[] = [
+  { image: 'slide-1', legende: 'HERO.SLIDE_1' },
+  { image: 'slide-2', legende: 'HERO.SLIDE_2' },
+  { image: 'slide-3', legende: 'HERO.SLIDE_3' },
+  { image: 'slide-4', legende: 'HERO.SLIDE_4' },
+];
+
+describe('CarouselPhotos', () => {
+  let component: CarouselPhotos;
+  let fixture: ComponentFixture<CarouselPhotos>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeroCarousel],
+      imports: [CarouselPhotos],
       providers: [
         provideHttpClient(),
         provideTranslateService({
@@ -21,8 +29,10 @@ describe('HeroCarousel', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(HeroCarousel);
+    fixture = TestBed.createComponent(CarouselPhotos);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('slides', SLIDES);
+    fixture.componentRef.setInput('libelleRegion', 'HERO.REGION');
     await fixture.whenStable();
   });
 
@@ -30,7 +40,7 @@ describe('HeroCarousel', () => {
     expect(component).toBeTruthy();
   });
 
-  it('loads the 4 slides from the service', () => {
+  it('reçoit ses diapositives via l\'input slides', () => {
     expect(component.slides().length).toBe(4);
   });
 

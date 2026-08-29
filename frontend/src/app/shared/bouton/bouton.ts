@@ -1,10 +1,11 @@
 import { Component, input } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 export type BoutonVariante = 'primaire' | 'secondaire' | 'tertiaire' | 'accent';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, NgTemplateOutlet],
   selector: 'cdv-bouton',
   templateUrl: './bouton.html',
   styleUrl: './bouton.scss',

@@ -1,9 +1,14 @@
+
+<ng-template #contenuProjete>
+  <ng-content />
+</ng-template>
+
 @if (routerLink()) {
   <a
     class="cdv-bouton cdv-bouton--{{ variante() }}"
     [routerLink]="routerLink()"
   >
-    <ng-content />
+    <ng-container [ngTemplateOutlet]="contenuProjete" />
   </a>
 } @else {
   <button
@@ -15,6 +20,6 @@
     @if (chargement()) {
       <span class="cdv-bouton__spinner" aria-hidden="true"></span>
     }
-    <ng-content />
+    <ng-container [ngTemplateOutlet]="contenuProjete" />
   </button>
 }

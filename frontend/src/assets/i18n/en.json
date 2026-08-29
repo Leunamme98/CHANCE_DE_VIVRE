@@ -42,7 +42,9 @@
     "DOMAINES_SOUS_TITRE": "Three pillars for a lasting impact",
     "CHIFFRES_TITRE": "Our impact in numbers",
     "CTA_SECTION_TITRE": "Want to support us or learn more?",
-    "CTA_SECTION_BOUTON": "Contact us"
+    "CTA_SECTION_BOUTON": "Contact us",
+    "GALERIE_APROPOS_REGION": "Slideshow: our partners in the field",
+    "GALERIE_PROJETS_REGION": "Slideshow: our achievements in the field"
   },
   "HERO": {
     "SLIDE_1": "Hundreds of children gathered for the opening of a renovated school",
@@ -85,7 +87,10 @@
     "TITRE_PAGE": "Chance de Vivre — Our projects",
     "DESCRIPTION_PAGE": "Discover the concrete achievements of the Chance De Vivre-Togo NGO in the field.",
     "TITRE": "Our projects",
-    "SOUS_TITRE": "Concrete achievements, in the field, alongside communities."
+    "SOUS_TITRE": "Concrete achievements, in the field, alongside communities.",
+    "GALERIE_PHOTO_1": "Renovating a school: every bag of cement is a step towards decent classrooms",
+    "GALERIE_PHOTO_2": "Raising awareness among women to strengthen their economic independence",
+    "GALERIE_PHOTO_3": "Launching a health campaign in service of the communities"
   },
   "PARTENAIRES": {
     "TITRE": "Our partners",

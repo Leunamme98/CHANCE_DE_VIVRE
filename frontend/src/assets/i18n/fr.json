@@ -42,7 +42,9 @@
     "DOMAINES_SOUS_TITRE": "Trois piliers pour un impact durable",
     "CHIFFRES_TITRE": "Notre impact en chiffres",
     "CTA_SECTION_TITRE": "Envie de nous soutenir ou d'en savoir plus ?",
-    "CTA_SECTION_BOUTON": "Contactez-nous"
+    "CTA_SECTION_BOUTON": "Contactez-nous",
+    "GALERIE_APROPOS_REGION": "Diaporama : nos partenaires sur le terrain",
+    "GALERIE_PROJETS_REGION": "Diaporama : nos réalisations sur le terrain"
   },
   "HERO": {
     "SLIDE_1": "Des centaines d'enfants rassemblés pour l'ouverture d'une école rénovée",
@@ -85,7 +87,10 @@
     "TITRE_PAGE": "Chance de Vivre — Nos projets",
     "DESCRIPTION_PAGE": "Découvrez les réalisations concrètes de l'ONG Chance De Vivre-Togo sur le terrain.",
     "TITRE": "Nos projets",
-    "SOUS_TITRE": "Des réalisations concrètes, sur le terrain, aux côtés des communautés."
+    "SOUS_TITRE": "Des réalisations concrètes, sur le terrain, aux côtés des communautés.",
+    "GALERIE_PHOTO_1": "Rénovation d'une école : chaque sac de ciment est un pas vers des salles de classe dignes",
+    "GALERIE_PHOTO_2": "Sensibiliser les femmes pour renforcer leur autonomie économique",
+    "GALERIE_PHOTO_3": "Inauguration d'une campagne de santé au service des communautés"
   },
   "PARTENAIRES": {
     "TITRE": "Nos partenaires",
