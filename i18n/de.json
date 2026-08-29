@@ -1,0 +1,133 @@
+{
+  "NAV": {
+    "LOGO_EYEBROW": "NGO",
+    "LOGO_NOM": "Chance De Vivre",
+    "ACCUEIL": "Startseite",
+    "CONTACT_TOOLTIP": "Kontaktieren Sie uns und handeln Sie jetzt!",
+    "A_PROPOS": "Über uns",
+    "PROJETS": "Unsere Projekte",
+    "CONTACT": "Kontakt",
+    "OUVRIR_MENU": "Menü öffnen",
+    "FERMER_MENU": "Menü schließen"
+  },
+  "COMMON": {
+    "NOM_ONG": "Chance De Vivre-Togo",
+    "EN_SAVOIR_PLUS": "Mehr erfahren",
+    "VOIR_TOUS_LES_PROJETS": "Alle Projekte ansehen",
+    "NOUS_CONTACTER": "Kontaktieren Sie uns",
+    "CHANGER_LANGUE": "Sprache ändern",
+    "FERMER": "Schließen",
+    "CATEGORIE_EDUCATION": "Bildung",
+    "CATEGORIE_SANTE": "Gesundheit",
+    "CATEGORIE_ECONOMIE": "Lokale Wirtschaft"
+  },
+  "FOOTER": {
+    "COORDONNEES_TITRE": "Kontaktdaten",
+    "ADRESSE": "Tsévié, Region Maritime, Togo",
+    "ADRESSE_LIBELLE": "Adresse",
+    "TELEPHONE_LIBELLE": "Telefon",
+    "EMAIL_LIBELLE": "E-Mail",
+    "WHATSAPP_LIBELLE": "WhatsApp",
+    "MESSENGER_LIBELLE": "Messenger",
+    "RESEAUX_TITRE": "Folgen Sie uns",
+    "FACEBOOK": "Facebook",
+    "MENTIONS": "Chance De Vivre-Togo. Alle Rechte vorbehalten."
+  },
+  "ACCUEIL": {
+    "TITRE_PAGE": "Chance de Vivre — Startseite",
+    "DESCRIPTION_PAGE": "NGO Chance De Vivre-Togo: Bildung, Gesundheit und lokale Wirtschaft in Tsévié und mehreren Regionen Togos.",
+    "HERO_TITRE": "Jede Geste zählt, um ein Leben zu verändern",
+    "HERO_SOUS_TITRE": "Chance De Vivre-Togo engagiert sich für Bildung, Gesundheit und lokale Wirtschaftsförderung in mehreren Teilen Togos.",
+    "HERO_CTA": "Kontaktieren Sie uns",
+    "DOMAINES_TITRE": "Unsere Handlungsfelder",
+    "DOMAINES_SOUS_TITRE": "Drei Säulen für eine nachhaltige Wirkung",
+    "CHIFFRES_TITRE": "Unsere Wirkung in Zahlen",
+    "CTA_SECTION_TITRE": "Möchten Sie uns unterstützen oder mehr erfahren?",
+    "CTA_SECTION_BOUTON": "Kontaktieren Sie uns",
+    "GALERIE_APROPOS_REGION": "Diaschau: unsere Partner vor Ort",
+    "GALERIE_PROJETS_REGION": "Diaschau: unsere Erfolge vor Ort"
+  },
+  "HERO": {
+    "SLIDE_1": "Hunderte Kinder versammelt zur Eröffnung einer renovierten Schule",
+    "SLIDE_2": "Jede gespendete Schulbank ist eine weitere Chance zu lernen",
+    "SLIDE_3": "Die Stärke unserer Arbeit ist die Gemeinschaft, die sie trägt",
+    "SLIDE_4": "Sensibilisierung für Hygiene zum Schutz der Gesundheit aller",
+    "PRECEDENT": "Vorherige Folie",
+    "SUIVANT": "Nächste Folie",
+    "ALLER_SLIDE": "Zur Folie {{n}} gehen",
+    "REGION": "Präsentations-Diashow"
+  },
+  "A_PROPOS": {
+    "TITRE_PAGE": "Chance de Vivre — Über uns",
+    "DESCRIPTION_PAGE": "Die Geschichte, Werte, das Einsatzgebiet, die Missionen und die Partner der NGO Chance De Vivre-Togo.",
+    "TITRE": "Über uns",
+    "SOMMAIRE": "Seiteninhalt",
+    "GALERIE_TITRE": "Unsere Partner vor Ort",
+    "GALERIE_PHOTO_1": "Unsere internationalen Partner an unserer Seite bei einer Sensibilisierungsveranstaltung",
+    "GALERIE_PHOTO_2": "Besuch unserer Partner bei den begünstigten Gemeinden",
+    "GALERIE_PHOTO_3": "Übergabe einer Ehrenurkunde im Rahmen einer Covid-19-Sensibilisierungskampagne"
+  },
+  "QUI_SOMMES_NOUS": {
+    "HISTOIRE_TITRE": "Unsere Geschichte",
+    "HISTOIRE_TEXTE": "Chance De Vivre-Togo ist eine NGO mit Sitz in Tsévié, in der Region Maritime von Togo. Seit mehreren Jahren führt sie konkrete Maßnahmen für Bildung, Gesundheit und lokale Wirtschaftsförderung gemeinsam mit togoischen Gemeinden durch.",
+    "VALEURS_TITRE": "Unsere Werte",
+    "VALEUR_SOLIDARITE_TITRE": "Solidarität",
+    "VALEUR_SOLIDARITE_TEXTE": "Gemeinsam mit den Gemeinden handeln, mit ihnen und für sie.",
+    "VALEUR_TRANSPARENCE_TITRE": "Transparenz",
+    "VALEUR_TRANSPARENCE_TEXTE": "Unseren Partnern und der Öffentlichkeit gegenüber Rechenschaft ablegen.",
+    "VALEUR_IMPACT_TITRE": "Nachhaltige Wirkung",
+    "VALEUR_IMPACT_TEXTE": "Maßnahmen bevorzugen, die den Alltag dauerhaft verbessern.",
+    "ZONE_TITRE": "Unser Einsatzgebiet",
+    "ZONE_TEXTE": "Unsere Maßnahmen finden in mehreren Orten Togos statt: Tsévié (Region Maritime), Agbonou und Anié (Region Plateaux) sowie in der Region Kara.",
+    "ZONE_LOCALITE_TSEVIE": "Tsévié",
+    "ZONE_LOCALITE_AGBONOU": "Agbonou",
+    "ZONE_LOCALITE_ANIE": "Anié",
+    "ZONE_LOCALITE_KARA": "Kara"
+  },
+  "MISSIONS": {
+    "TITRE": "Unsere Missionen",
+    "SOUS_TITRE": "Drei Säulen, ein Ziel: das Leben der togoischen Gemeinden nachhaltig zu verbessern.",
+    "EXEMPLES_TITRE": "Beispiele für Maßnahmen"
+  },
+  "PROJETS": {
+    "TITRE_PAGE": "Chance de Vivre — Unsere Projekte",
+    "DESCRIPTION_PAGE": "Entdecken Sie die konkreten Erfolge der NGO Chance De Vivre-Togo vor Ort.",
+    "TITRE": "Unsere Projekte",
+    "SOUS_TITRE": "Konkrete Erfolge, vor Ort, gemeinsam mit den Gemeinden.",
+    "FILTRER_PAR": "Projekte nach Bereich filtern",
+    "FILTRE_TOUS": "Alle",
+    "AUCUN_RESULTAT": "Noch keine Projekte in diesem Bereich.",
+    "CTA_TITRE": "Ein Projekt vorzuschlagen oder eine Frage zu unserer Arbeit?",
+    "GALERIE_PHOTO_1": "Renovierung einer Schule: jeder Sack Zement ist ein Schritt zu würdigen Klassenzimmern",
+    "GALERIE_PHOTO_2": "Sensibilisierung von Frauen zur Stärkung ihrer wirtschaftlichen Eigenständigkeit",
+    "GALERIE_PHOTO_3": "Eröffnung einer Gesundheitskampagne im Dienst der Gemeinden"
+  },
+  "PARTENAIRES": {
+    "TITRE": "Unsere Partner",
+    "SOUS_TITRE": "Sie vertrauen uns und unterstützen unsere Maßnahmen vor Ort."
+  },
+  "CONTACT": {
+    "TITRE_PAGE": "Chance de Vivre — Kontakt",
+    "DESCRIPTION_PAGE": "Kontaktieren Sie die NGO Chance De Vivre-Togo in Tsévié.",
+    "TITRE": "Kontakt",
+    "SOUS_TITRE": "Eine Frage, ein Projekt oder möchten Sie uns unterstützen? Schreiben Sie uns.",
+    "COORDONNEES_TITRE": "Unsere Kontaktdaten",
+    "FORMULAIRE_TITRE": "Senden Sie uns eine Nachricht",
+    "CHAMP_NOM": "Name",
+    "CHAMP_EMAIL": "E-Mail",
+    "CHAMP_TELEPHONE": "Telefon (optional)",
+    "CHAMP_TELEPHONE_FORMAT": "Internationales Format, z. B. +228 90 19 25 82",
+    "CHAMP_OBJET": "Betreff",
+    "CHAMP_MESSAGE": "Nachricht",
+    "CHAMP_NOM_ERREUR": "Bitte geben Sie Ihren Namen an.",
+    "CHAMP_EMAIL_ERREUR": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+    "CHAMP_TELEPHONE_ERREUR": "Ungültiges Format — bitte mit Landesvorwahl, z. B. +228 90 19 25 82.",
+    "CHAMP_OBJET_ERREUR": "Bitte geben Sie den Betreff Ihrer Nachricht an.",
+    "CHAMP_MESSAGE_ERREUR": "Bitte verfassen Sie eine Nachricht.",
+    "BOUTON_ENVOYER": "Senden",
+    "ENVOI_EN_COURS": "Wird gesendet…",
+    "SUCCES": "Ihre Nachricht wurde gesendet. Vielen Dank!",
+    "ERREUR_TITRE": "Ihre Nachricht konnte nicht gesendet werden",
+    "ERREUR": "Beim Senden ist ein Fehler aufgetreten. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut, oder kontaktieren Sie uns direkt per Telefon oder WhatsApp."
+  }
+}

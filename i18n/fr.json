@@ -1,0 +1,133 @@
+{
+  "NAV": {
+    "LOGO_EYEBROW": "ONG",
+    "LOGO_NOM": "Chance De Vivre",
+    "ACCUEIL": "Accueil",
+    "CONTACT_TOOLTIP": "Nous contacter pour agir maintenant !",
+    "A_PROPOS": "À propos",
+    "PROJETS": "Nos projets",
+    "CONTACT": "Contact",
+    "OUVRIR_MENU": "Ouvrir le menu",
+    "FERMER_MENU": "Fermer le menu"
+  },
+  "COMMON": {
+    "NOM_ONG": "Chance De Vivre-Togo",
+    "EN_SAVOIR_PLUS": "En savoir plus",
+    "VOIR_TOUS_LES_PROJETS": "Voir tous les projets",
+    "NOUS_CONTACTER": "Nous contacter",
+    "CHANGER_LANGUE": "Changer de langue",
+    "FERMER": "Fermer",
+    "CATEGORIE_EDUCATION": "Éducation",
+    "CATEGORIE_SANTE": "Santé",
+    "CATEGORIE_ECONOMIE": "Économie locale"
+  },
+  "FOOTER": {
+    "COORDONNEES_TITRE": "Coordonnées",
+    "ADRESSE": "Tsévié, région Maritime, Togo",
+    "ADRESSE_LIBELLE": "Adresse",
+    "TELEPHONE_LIBELLE": "Téléphone",
+    "EMAIL_LIBELLE": "Email",
+    "WHATSAPP_LIBELLE": "WhatsApp",
+    "MESSENGER_LIBELLE": "Messenger",
+    "RESEAUX_TITRE": "Suivez-nous",
+    "FACEBOOK": "Facebook",
+    "MENTIONS": "Chance De Vivre-Togo. Tous droits réservés."
+  },
+  "ACCUEIL": {
+    "TITRE_PAGE": "Chance de Vivre — Accueil",
+    "DESCRIPTION_PAGE": "ONG Chance De Vivre-Togo : éducation, santé et économie locale à Tsévié et dans plusieurs régions du Togo.",
+    "HERO_TITRE": "Chaque geste compte pour changer une vie",
+    "HERO_SOUS_TITRE": "Chance De Vivre-Togo agit pour l'éducation, la santé et l'économie locale dans plusieurs localités du Togo.",
+    "HERO_CTA": "Nous contacter",
+    "DOMAINES_TITRE": "Nos domaines d'action",
+    "DOMAINES_SOUS_TITRE": "Trois piliers pour un impact durable",
+    "CHIFFRES_TITRE": "Notre impact en chiffres",
+    "CTA_SECTION_TITRE": "Envie de nous soutenir ou d'en savoir plus ?",
+    "CTA_SECTION_BOUTON": "Contactez-nous",
+    "GALERIE_APROPOS_REGION": "Diaporama : nos partenaires sur le terrain",
+    "GALERIE_PROJETS_REGION": "Diaporama : nos réalisations sur le terrain"
+  },
+  "HERO": {
+    "SLIDE_1": "Des centaines d'enfants rassemblés pour l'ouverture d'une école rénovée",
+    "SLIDE_2": "Chaque table-banc offerte, c'est une chance de plus d'apprendre",
+    "SLIDE_3": "La force de nos actions, c'est la communauté qui les porte",
+    "SLIDE_4": "Sensibiliser à l'hygiène pour protéger la santé de tous",
+    "PRECEDENT": "Diapositive précédente",
+    "SUIVANT": "Diapositive suivante",
+    "ALLER_SLIDE": "Aller à la diapositive {{n}}",
+    "REGION": "Diaporama de présentation"
+  },
+  "A_PROPOS": {
+    "TITRE_PAGE": "Chance de Vivre — À propos",
+    "DESCRIPTION_PAGE": "L'histoire, les valeurs, la zone d'action, les missions et les partenaires de l'ONG Chance De Vivre-Togo.",
+    "TITRE": "À propos de nous",
+    "SOMMAIRE": "Sommaire de la page",
+    "GALERIE_TITRE": "Nos partenaires sur le terrain",
+    "GALERIE_PHOTO_1": "Nos partenaires internationaux à nos côtés lors d'une séance de sensibilisation",
+    "GALERIE_PHOTO_2": "Visite de nos partenaires auprès des communautés bénéficiaires",
+    "GALERIE_PHOTO_3": "Remise d'un certificat d'honneur lors d'une campagne de sensibilisation à la Covid-19"
+  },
+  "QUI_SOMMES_NOUS": {
+    "HISTOIRE_TITRE": "Notre histoire",
+    "HISTOIRE_TEXTE": "Chance De Vivre-Togo est une ONG basée à Tsévié, dans la région Maritime du Togo. Depuis plusieurs années, elle mène des actions concrètes en faveur de l'éducation, de la santé et de l'économie locale, aux côtés des communautés togolaises.",
+    "VALEURS_TITRE": "Nos valeurs",
+    "VALEUR_SOLIDARITE_TITRE": "Solidarité",
+    "VALEUR_SOLIDARITE_TEXTE": "Agir aux côtés des communautés, avec et pour elles.",
+    "VALEUR_TRANSPARENCE_TITRE": "Transparence",
+    "VALEUR_TRANSPARENCE_TEXTE": "Rendre compte de nos actions à nos partenaires et au public.",
+    "VALEUR_IMPACT_TITRE": "Impact durable",
+    "VALEUR_IMPACT_TEXTE": "Privilégier des actions qui changent durablement le quotidien.",
+    "ZONE_TITRE": "Notre zone d'action",
+    "ZONE_TEXTE": "Nos actions se déploient dans plusieurs localités du Togo : Tsévié (région Maritime), Agbonou et Anié (région des Plateaux), ainsi que dans la région de Kara.",
+    "ZONE_LOCALITE_TSEVIE": "Tsévié",
+    "ZONE_LOCALITE_AGBONOU": "Agbonou",
+    "ZONE_LOCALITE_ANIE": "Anié",
+    "ZONE_LOCALITE_KARA": "Kara"
+  },
+  "MISSIONS": {
+    "TITRE": "Nos missions",
+    "SOUS_TITRE": "Trois piliers, une même ambition : améliorer durablement la vie des communautés togolaises.",
+    "EXEMPLES_TITRE": "Exemples d'actions"
+  },
+  "PROJETS": {
+    "TITRE_PAGE": "Chance de Vivre — Nos projets",
+    "DESCRIPTION_PAGE": "Découvrez les réalisations concrètes de l'ONG Chance De Vivre-Togo sur le terrain.",
+    "TITRE": "Nos projets",
+    "SOUS_TITRE": "Des réalisations concrètes, sur le terrain, aux côtés des communautés.",
+    "FILTRER_PAR": "Filtrer les projets par domaine",
+    "FILTRE_TOUS": "Tous",
+    "AUCUN_RESULTAT": "Aucun projet dans ce domaine pour le moment.",
+    "CTA_TITRE": "Un projet à nous proposer ou une question sur nos actions ?",
+    "GALERIE_PHOTO_1": "Rénovation d'une école : chaque sac de ciment est un pas vers des salles de classe dignes",
+    "GALERIE_PHOTO_2": "Sensibiliser les femmes pour renforcer leur autonomie économique",
+    "GALERIE_PHOTO_3": "Inauguration d'une campagne de santé au service des communautés"
+  },
+  "PARTENAIRES": {
+    "TITRE": "Nos partenaires",
+    "SOUS_TITRE": "Ils nous font confiance et soutiennent nos actions sur le terrain."
+  },
+  "CONTACT": {
+    "TITRE_PAGE": "Chance de Vivre — Contact",
+    "DESCRIPTION_PAGE": "Contactez l'ONG Chance De Vivre-Togo à Tsévié.",
+    "TITRE": "Contact",
+    "SOUS_TITRE": "Une question, un projet, une envie de nous soutenir ? Écrivez-nous.",
+    "COORDONNEES_TITRE": "Nos coordonnées",
+    "FORMULAIRE_TITRE": "Envoyez-nous un message",
+    "CHAMP_NOM": "Nom",
+    "CHAMP_EMAIL": "Email",
+    "CHAMP_TELEPHONE": "Téléphone (facultatif)",
+    "CHAMP_TELEPHONE_FORMAT": "Format international, ex. +228 90 19 25 82",
+    "CHAMP_OBJET": "Objet",
+    "CHAMP_MESSAGE": "Message",
+    "CHAMP_NOM_ERREUR": "Merci d'indiquer votre nom.",
+    "CHAMP_EMAIL_ERREUR": "Merci d'indiquer une adresse email valide.",
+    "CHAMP_TELEPHONE_ERREUR": "Format invalide — indiquez l'indicatif pays, ex. +228 90 19 25 82.",
+    "CHAMP_OBJET_ERREUR": "Merci d'indiquer l'objet de votre message.",
+    "CHAMP_MESSAGE_ERREUR": "Merci de rédiger un message.",
+    "BOUTON_ENVOYER": "Envoyer",
+    "ENVOI_EN_COURS": "Envoi en cours…",
+    "SUCCES": "Votre message a bien été envoyé. Merci !",
+    "ERREUR_TITRE": "Le message n'a pas pu être envoyé",
+    "ERREUR": "Une erreur est survenue lors de l'envoi. Vérifiez votre connexion et réessayez, ou contactez-nous directement par téléphone ou WhatsApp."
+  }
+}

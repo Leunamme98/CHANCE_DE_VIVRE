@@ -1,0 +1,125 @@
+{
+  "configVersion": 1,
+  "timestamp": 1788017272201,
+  "index": "/index.csr.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/chunk-BfO_Qm6D.js",
+        "/chunk-BuzjWs96.js",
+        "/chunk-CBVhMcxx.js",
+        "/chunk-Cei0secB.js",
+        "/chunk-Dg1q23aD.js",
+        "/chunk-DoKir668.js",
+        "/chunk-I9YP_g5I.js",
+        "/chunk-PK2TyA16.js",
+        "/chunk-Tg8hVeyf.js",
+        "/favicon.ico",
+        "/index.csr.html",
+        "/index.html",
+        "/main-2BME2WKB.js",
+        "/manifest.webmanifest",
+        "/styles-UFVW2RWE.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/icons/icon-128x128.png",
+        "/icons/icon-144x144.png",
+        "/icons/icon-152x152.png",
+        "/icons/icon-192x192.png",
+        "/icons/icon-384x384.png",
+        "/icons/icon-512x512.png",
+        "/icons/icon-72x72.png",
+        "/icons/icon-96x96.png",
+        "/images/accueil/apropos-01-partenaires-terrain.jpg",
+        "/images/accueil/apropos-02-partenaire-visite.jpg",
+        "/images/accueil/apropos-03-certificat-covid.jpg",
+        "/images/accueil/hero-01-foule-ecole.jpg",
+        "/images/accueil/hero-02-enfants-tables-bancs.jpg",
+        "/images/accueil/hero-03-danse-communaute.jpg",
+        "/images/accueil/hero-04-lavage-mains.jpg",
+        "/images/accueil/projets-01-ciment-construction.jpg",
+        "/images/accueil/projets-02-sensibilisation.jpg",
+        "/images/accueil/projets-03-inauguration-sante.jpg",
+        "/images/partenaires/ambassade-allemagne.jpg",
+        "/images/partenaires/ministere-sante-togo.png",
+        "/images/partenaires/pnso.jpg",
+        "/images/partenaires/tukolere-wamu.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/chunk-BfO_Qm6D.js": "cf62b4f727ffa7762daaf9bccfc96aa4dba90a47",
+    "/chunk-BuzjWs96.js": "13eb502463cc25f6351affc128b9b816d1aaeb75",
+    "/chunk-CBVhMcxx.js": "6381f48f18d79b3e673c0ec9117f1225edccb96c",
+    "/chunk-Cei0secB.js": "c93b84199b15c4efe75d4f1e338f959b4c71c512",
+    "/chunk-Dg1q23aD.js": "b0d66f3d0ba70ecbca360df8e4d7919beee1a57c",
+    "/chunk-DoKir668.js": "61c9f708cf7603195518235d0ba917a6277e4ebb",
+    "/chunk-I9YP_g5I.js": "58ea78bac0ecc89562be2885e2b36833efc6095d",
+    "/chunk-PK2TyA16.js": "aaf69f2eacaa9b90879d25d56bde46ef16776467",
+    "/chunk-Tg8hVeyf.js": "dba9d258194b7c77effc9787314efab0059a4b43",
+    "/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "/images/accueil/apropos-01-partenaires-terrain.jpg": "078bc52b58af9ef47f497d6d38640011358ec08b",
+    "/images/accueil/apropos-02-partenaire-visite.jpg": "09fc920cf72ffee224cb9d6e8e170f4987ea8ab8",
+    "/images/accueil/apropos-03-certificat-covid.jpg": "3617c98e567d1fbdef249178b0cf9acdc94520df",
+    "/images/accueil/hero-01-foule-ecole.jpg": "0ef3deb403428a42731603151f540c93fe0ef35d",
+    "/images/accueil/hero-02-enfants-tables-bancs.jpg": "a48d08d64334bff0e96bb513b53a84adfad6a33f",
+    "/images/accueil/hero-03-danse-communaute.jpg": "c2575f8022513b4defdfbf530f47d28df488a9a3",
+    "/images/accueil/hero-04-lavage-mains.jpg": "34d52e5cc8fe1e4066d3115ae544267f3ccdc2f8",
+    "/images/accueil/projets-01-ciment-construction.jpg": "fde30a8c0e33110b8bb3abc80ada24103d3e34b0",
+    "/images/accueil/projets-02-sensibilisation.jpg": "8fc0a248e806a16c42d7f0849daaabe8895e047b",
+    "/images/accueil/projets-03-inauguration-sante.jpg": "31a917e0bd877845fc808c24e3135ecbf683af05",
+    "/images/partenaires/ambassade-allemagne.jpg": "d0c4fe1143f5e9d331d5be43112d398404b4801a",
+    "/images/partenaires/ministere-sante-togo.png": "bf823a75579e7b963eeefc521ef9cd0620746f98",
+    "/images/partenaires/pnso.jpg": "ba498bda8dac7562ed155298a7c1c8c98b6380c5",
+    "/images/partenaires/tukolere-wamu.png": "f77cae24a4cec63fc123dbd0d763e0724c13d44d",
+    "/index.csr.html": "2f0022b02bc6b5bf44082f8dbf647d9b67370d5a",
+    "/index.html": "712757d2af9c168070204b2af45bac174002fb4c",
+    "/main-2BME2WKB.js": "03d85115cbc9cdb2627c9df7addd23b568e3e6e1",
+    "/manifest.webmanifest": "1dd007aeb014457de0734cbf074803181c1ee6f3",
+    "/styles-UFVW2RWE.css": "50002a4c0bf3c34ec2ac27b6358ede67c19eb35b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

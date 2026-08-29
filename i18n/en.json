@@ -1,0 +1,133 @@
+{
+  "NAV": {
+    "LOGO_EYEBROW": "NGO",
+    "LOGO_NOM": "Chance De Vivre",
+    "ACCUEIL": "Home",
+    "CONTACT_TOOLTIP": "Contact us to act now!",
+    "A_PROPOS": "About",
+    "PROJETS": "Our projects",
+    "CONTACT": "Contact",
+    "OUVRIR_MENU": "Open menu",
+    "FERMER_MENU": "Close menu"
+  },
+  "COMMON": {
+    "NOM_ONG": "Chance De Vivre-Togo",
+    "EN_SAVOIR_PLUS": "Learn more",
+    "VOIR_TOUS_LES_PROJETS": "View all projects",
+    "NOUS_CONTACTER": "Contact us",
+    "CHANGER_LANGUE": "Change language",
+    "FERMER": "Close",
+    "CATEGORIE_EDUCATION": "Education",
+    "CATEGORIE_SANTE": "Health",
+    "CATEGORIE_ECONOMIE": "Local economy"
+  },
+  "FOOTER": {
+    "COORDONNEES_TITRE": "Contact details",
+    "ADRESSE": "Tsévié, Maritime Region, Togo",
+    "ADRESSE_LIBELLE": "Address",
+    "TELEPHONE_LIBELLE": "Phone",
+    "EMAIL_LIBELLE": "Email",
+    "WHATSAPP_LIBELLE": "WhatsApp",
+    "MESSENGER_LIBELLE": "Messenger",
+    "RESEAUX_TITRE": "Follow us",
+    "FACEBOOK": "Facebook",
+    "MENTIONS": "Chance De Vivre-Togo. All rights reserved."
+  },
+  "ACCUEIL": {
+    "TITRE_PAGE": "Chance de Vivre — Home",
+    "DESCRIPTION_PAGE": "Chance De Vivre-Togo NGO: education, health and local economy in Tsévié and several regions of Togo.",
+    "HERO_TITRE": "Every action counts to change a life",
+    "HERO_SOUS_TITRE": "Chance De Vivre-Togo works for education, health and local economic development in several parts of Togo.",
+    "HERO_CTA": "Contact us",
+    "DOMAINES_TITRE": "Our areas of action",
+    "DOMAINES_SOUS_TITRE": "Three pillars for a lasting impact",
+    "CHIFFRES_TITRE": "Our impact in numbers",
+    "CTA_SECTION_TITRE": "Want to support us or learn more?",
+    "CTA_SECTION_BOUTON": "Contact us",
+    "GALERIE_APROPOS_REGION": "Slideshow: our partners in the field",
+    "GALERIE_PROJETS_REGION": "Slideshow: our achievements in the field"
+  },
+  "HERO": {
+    "SLIDE_1": "Hundreds of children gathered for the opening of a renovated school",
+    "SLIDE_2": "Every desk donated is one more chance to learn",
+    "SLIDE_3": "The strength of our work is the community that carries it",
+    "SLIDE_4": "Raising awareness about hygiene to protect everyone's health",
+    "PRECEDENT": "Previous slide",
+    "SUIVANT": "Next slide",
+    "ALLER_SLIDE": "Go to slide {{n}}",
+    "REGION": "Showcase slideshow"
+  },
+  "A_PROPOS": {
+    "TITRE_PAGE": "Chance de Vivre — About",
+    "DESCRIPTION_PAGE": "The story, values, area of action, missions and partners of the Chance De Vivre-Togo NGO.",
+    "TITRE": "About us",
+    "SOMMAIRE": "Page contents",
+    "GALERIE_TITRE": "Our partners in the field",
+    "GALERIE_PHOTO_1": "Our international partners alongside us during an awareness session",
+    "GALERIE_PHOTO_2": "A partner visit to the communities we support",
+    "GALERIE_PHOTO_3": "Presenting a certificate of recognition during a Covid-19 awareness campaign"
+  },
+  "QUI_SOMMES_NOUS": {
+    "HISTOIRE_TITRE": "Our story",
+    "HISTOIRE_TEXTE": "Chance De Vivre-Togo is an NGO based in Tsévié, in the Maritime Region of Togo. For several years, it has carried out concrete actions for education, health and local economic development, alongside Togolese communities.",
+    "VALEURS_TITRE": "Our values",
+    "VALEUR_SOLIDARITE_TITRE": "Solidarity",
+    "VALEUR_SOLIDARITE_TEXTE": "Acting alongside communities, with them and for them.",
+    "VALEUR_TRANSPARENCE_TITRE": "Transparency",
+    "VALEUR_TRANSPARENCE_TEXTE": "Being accountable to our partners and the public for our actions.",
+    "VALEUR_IMPACT_TITRE": "Lasting impact",
+    "VALEUR_IMPACT_TEXTE": "Favouring actions that durably improve everyday life.",
+    "ZONE_TITRE": "Our area of action",
+    "ZONE_TEXTE": "Our actions take place in several localities of Togo: Tsévié (Maritime Region), Agbonou and Anié (Plateaux Region), as well as the Kara Region.",
+    "ZONE_LOCALITE_TSEVIE": "Tsévié",
+    "ZONE_LOCALITE_AGBONOU": "Agbonou",
+    "ZONE_LOCALITE_ANIE": "Anié",
+    "ZONE_LOCALITE_KARA": "Kara"
+  },
+  "MISSIONS": {
+    "TITRE": "Our missions",
+    "SOUS_TITRE": "Three pillars, one ambition: durably improving the lives of Togolese communities.",
+    "EXEMPLES_TITRE": "Examples of actions"
+  },
+  "PROJETS": {
+    "TITRE_PAGE": "Chance de Vivre — Our projects",
+    "DESCRIPTION_PAGE": "Discover the concrete achievements of the Chance De Vivre-Togo NGO in the field.",
+    "TITRE": "Our projects",
+    "SOUS_TITRE": "Concrete achievements, in the field, alongside communities.",
+    "FILTRER_PAR": "Filter projects by area",
+    "FILTRE_TOUS": "All",
+    "AUCUN_RESULTAT": "No projects in this area yet.",
+    "CTA_TITRE": "A project to suggest, or a question about our work?",
+    "GALERIE_PHOTO_1": "Renovating a school: every bag of cement is a step towards decent classrooms",
+    "GALERIE_PHOTO_2": "Raising awareness among women to strengthen their economic independence",
+    "GALERIE_PHOTO_3": "Launching a health campaign in service of the communities"
+  },
+  "PARTENAIRES": {
+    "TITRE": "Our partners",
+    "SOUS_TITRE": "They trust us and support our actions in the field."
+  },
+  "CONTACT": {
+    "TITRE_PAGE": "Chance de Vivre — Contact",
+    "DESCRIPTION_PAGE": "Contact the Chance De Vivre-Togo NGO in Tsévié.",
+    "TITRE": "Contact",
+    "SOUS_TITRE": "A question, a project, or want to support us? Write to us.",
+    "COORDONNEES_TITRE": "Our contact details",
+    "FORMULAIRE_TITRE": "Send us a message",
+    "CHAMP_NOM": "Name",
+    "CHAMP_EMAIL": "Email",
+    "CHAMP_TELEPHONE": "Phone (optional)",
+    "CHAMP_TELEPHONE_FORMAT": "International format, e.g. +228 90 19 25 82",
+    "CHAMP_OBJET": "Subject",
+    "CHAMP_MESSAGE": "Message",
+    "CHAMP_NOM_ERREUR": "Please enter your name.",
+    "CHAMP_EMAIL_ERREUR": "Please enter a valid email address.",
+    "CHAMP_TELEPHONE_ERREUR": "Invalid format — include the country code, e.g. +228 90 19 25 82.",
+    "CHAMP_OBJET_ERREUR": "Please enter the subject of your message.",
+    "CHAMP_MESSAGE_ERREUR": "Please write a message.",
+    "BOUTON_ENVOYER": "Send",
+    "ENVOI_EN_COURS": "Sending…",
+    "SUCCES": "Your message has been sent. Thank you!",
+    "ERREUR_TITRE": "Your message could not be sent",
+    "ERREUR": "An error occurred while sending. Check your connection and try again, or contact us directly by phone or WhatsApp."
+  }
+}
