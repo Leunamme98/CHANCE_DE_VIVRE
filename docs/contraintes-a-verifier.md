@@ -51,7 +51,8 @@
 
 Placeholders introduits dans les services `core/services/*` — à valider avant mise en ligne :
 
-- [ ] **Chiffres clés accueil** (`chiffres-cles.service.ts`) : « 27 personnes opérées », « 50 tables-bancs », « 4+ localités » — le cahier des charges ne donne que des *exemples* de type de chiffre (section 5.1), pas des valeurs confirmées
+- [ ] **Chiffres clés accueil** (`chiffres-cles.service.ts`) : « 500+ personnes soignées », « 80+ bâtiments et équipements scolaires », « 4+ localités » — le cahier des charges ne donne que des *exemples* de type de chiffre, formulés de façon plus large ici (santé/éducation au sens large plutôt qu'un seul type d'acte), valeurs à confirmer avec le client
+- [ ] **Année de création de l'ONG** (`chiffres-cles.service.ts`, constante `ANNEE_CREATION`) : fixée à 2015 à titre provisoire (non documentée dans le projet) — détermine le chiffre « Années d'engagement au Togo », recalculé automatiquement chaque année une fois la vraie date confirmée
 - [ ] **Descriptions des 3 missions** (`missions.service.ts`) : faits d'activité confirmés (cahier des charges section 2), mais formulation éditoriale non validée par le client
 - [ ] **Projets de la galerie** (`projets.service.ts`) : titres, descriptions et dates sont des placeholders — seules les zones géographiques (Tsévié, Kara, Agbonou, Anié) sont confirmées. Les 4 photos réelles fournies par le client ont été associées aux projets par correspondance visuelle (contenu de la photo vs. sujet du projet), pas par confirmation explicite du client — à valider que chaque photo illustre bien le bon projet (le don de tables-bancs à Anié réutilise la photo `hero-02-enfants-tables-bancs`, faute de photo dédiée)
 - [ ] **Galerie photos "À propos"** (`a-propos-galerie.service.ts`, 3 photos `apropos-01/02/03`) : légendes rédigées par Claude à partir du contenu visuel des photos (aucune information sur la date, le lieu exact ou les personnes présentes) — à faire valider par le client

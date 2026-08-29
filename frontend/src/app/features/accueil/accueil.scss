@@ -150,19 +150,38 @@
 
 .cdv-grille-chiffres {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: v.$space-5;
   margin-top: v.$space-6;
 
   @include v.desktop {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
 .cdv-chiffre {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: v.$space-1;
+  text-align: center;
+
+  &__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: v.$space-2;
+    border-radius: v.$radius-full;
+    background-color: v.$color-primary-light;
+    color: v.$color-primary-dark;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 
   &__valeur {
     font-family: v.$font-heading;
