@@ -1,5 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ContactService } from '../../core/services/contact.service';
@@ -10,7 +10,6 @@ import { Modale } from '../../shared/modale/modale';
 import { CoordonneesCarousel } from './coordonnees-carousel/coordonnees-carousel';
 import { CoordonneeAffichee } from '../../core/models/coordonnee-affichee.model';
 import { Organisation } from '../../core/models/organisation.model';
-import { INDICATIFS_TELEPHONIQUES } from '../../core/config/indicatifs-telephoniques.config';
 
 type EtatEnvoi = 'inactif' | 'en_cours' | 'succes' | 'erreur';
 
@@ -18,6 +17,19 @@ type EtatEnvoi = 'inactif' | 'en_cours' | 'succes' | 'erreur';
 // pour <input type="email">) — plus rigoureuse que le simple Validators.email d'Angular.
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+// Impossible de lister tous les indicatifs pays de façon exhaustive : on exige à la place un
+// format international (+ suivi de 7 à 15 chiffres, espaces/points/tirets tolérés à la saisie).
+const TELEPHONE_REGEX = /^\+[1-9]\d{6,14}$/;
+
+function validateurTelephone(control: AbstractControl): ValidationErrors | null {
+  const valeur = (control.value ?? '').trim();
+  if (!valeur) {
+    return null;
+  }
+  const nettoye = valeur.replace(/[\s.-]/g, '');
+  return TELEPHONE_REGEX.test(nettoye) ? null : { formatInvalide: true };
+}
 
 function construireCoordonnees(org: Organisation): CoordonneeAffichee[] {
   return [
@@ -84,7 +96,6 @@ export class Contact {
   private readonly organisationService = inject(OrganisationService);
   private readonly seo = inject(SeoService);
 
-  readonly indicatifs = INDICATIFS_TELEPHONIQUES;
   readonly etat = signal<EtatEnvoi>('inactif');
 
   private readonly organisation = toSignal(this.organisationService.getInfo());
@@ -96,8 +107,7 @@ export class Contact {
   readonly formulaire = this.fb.nonNullable.group({
     nom: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.pattern(EMAIL_REGEX)]],
-    indicatif: [this.indicatifs[0].indicatif, [Validators.required]],
-    telephoneNumero: ['', [Validators.pattern(/^[0-9 ]{6,15}$/)]],
+    telephone: ['', [validateurTelephone]],
     objet: ['', [Validators.required]],
     message: ['', [Validators.required]],
   });
@@ -116,14 +126,13 @@ export class Contact {
       return;
     }
 
-    const { nom, email, indicatif, telephoneNumero, objet, message } = this.formulaire.getRawValue();
-    const telephone = telephoneNumero.trim() ? `${indicatif} ${telephoneNumero.trim()}` : '';
+    const { nom, email, telephone, objet, message } = this.formulaire.getRawValue();
 
     this.etat.set('en_cours');
-    this.contactService.envoyer({ nom, email, telephone, objet, message }).subscribe({
+    this.contactService.envoyer({ nom, email, telephone: telephone.trim(), objet, message }).subscribe({
       next: () => {
         this.etat.set('succes');
-        this.formulaire.reset({ indicatif: this.indicatifs[0].indicatif });
+        this.formulaire.reset();
       },
       error: () => {
         this.etat.set('erreur');

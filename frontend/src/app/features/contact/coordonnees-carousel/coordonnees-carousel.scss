@@ -1,33 +1,33 @@
 @use '../../../../styles/mixins' as v;
 
+// Le panneau parent (.cdv-contact__panel--coordonnees) fournit déjà le fond vert foncé, les
+// coins arrondis et le padding : ce composant n'est qu'une zone de contenu qui s'étire dedans.
 .cdv-coord-carousel {
   position: relative;
   width: 100%;
-  padding: v.$space-6 v.$space-5;
-  border-radius: v.$radius-lg;
-  background-color: v.$color-surface;
-  border: 1px solid v.$color-border;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   outline: none;
 
   &:focus-visible {
-    @include v.focus-ring(v.$color-primary-light);
+    @include v.focus-ring(rgba(255, 255, 255, 0.4));
+    border-radius: v.$radius-md;
   }
 
   &__scene {
     position: relative;
     width: 100%;
-    min-height: 168px;
+    min-height: 96px;
   }
 
   &__item {
     position: absolute;
     inset: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: v.$space-2;
-    text-align: center;
+    gap: v.$space-4;
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
@@ -46,56 +46,106 @@
     }
   }
 
+  // Badge circulaire agrandi, même langage visuel que le footer (fond translucide clair,
+  // couleurs de marque pour WhatsApp/Messenger/Facebook, halo qui pulse doucement).
   &__icone {
+    position: relative;
+    flex: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
+    // Plus compacte sur mobile pour laisser assez de place à la valeur sur une seule ligne
+    // (ex: l'adresse complète) sans la tronquer.
+    width: 60px;
+    height: 60px;
     border-radius: v.$radius-full;
-    background-color: v.$color-primary-light;
-    color: v.$color-primary-dark;
-    margin-bottom: v.$space-1;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: v.$color-surface;
 
     cdv-icone-contact {
-      width: 26px;
-      height: 26px;
+      position: relative;
+      z-index: 1;
+      width: 28px;
+      height: 28px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1.5px solid currentColor;
+      opacity: 0;
+      animation: cdv-coord-pulse 2.4s ease-out infinite;
     }
 
     &--whatsapp {
-      background-color: #d9f2e3;
-      color: #1f9d55;
+      color: #25d366;
     }
 
     &--messenger {
-      background: linear-gradient(135deg, #00b2ff, #2e6bff 45%, #b429f9 75%, #f94879);
       color: v.$color-surface;
+      background: linear-gradient(135deg, #00b2ff, #2e6bff 45%, #b429f9 75%, #f94879);
     }
 
     &--facebook {
-      background-color: #dbeafe;
-      color: #1877f2;
+      color: #6ca9f7;
     }
+
+    @include v.desktop {
+      width: 88px;
+      height: 88px;
+
+      cdv-icone-contact {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &::after {
+        animation: none;
+        display: none;
+      }
+    }
+  }
+
+  &__texte {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-1;
+    min-width: 0;
   }
 
   &__titre {
     font-family: v.$font-body;
     font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: v.$color-text-tertiary;
+    color: v.$color-primary-light;
+    opacity: 0.75;
   }
 
+  // La valeur reste sur une seule ligne (jamais de retour à la ligne) — au-delà de l'espace
+  // disponible, elle est proprement tronquée avec des points de suspension.
   &__valeur {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     font-family: v.$font-heading;
-    font-size: 1.0625rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: v.$color-text-primary;
-    word-break: break-word;
+    color: v.$color-surface;
+
+    @include v.desktop {
+      font-size: 1.1875rem;
+    }
 
     &:where(a) {
-      color: v.$color-primary;
+      color: v.$color-accent;
       text-decoration: none;
 
       &:hover {
@@ -103,7 +153,7 @@
       }
 
       &:focus-visible {
-        @include v.focus-ring(v.$color-primary-light);
+        @include v.focus-ring(rgba(255, 255, 255, 0.4));
       }
     }
   }
@@ -111,9 +161,8 @@
   &__points {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: v.$space-2;
-    margin-top: v.$space-5;
+    margin-top: v.$space-6;
   }
 
   &__point {
@@ -122,21 +171,35 @@
     padding: 0;
     border: none;
     border-radius: v.$radius-full;
-    background-color: v.$color-border-strong;
+    background-color: rgba(255, 255, 255, 0.25);
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
 
     &:hover {
-      background-color: v.$color-primary-light;
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
     &--actif {
-      background-color: v.$color-primary;
+      background-color: v.$color-accent;
       transform: scale(1.25);
     }
 
     &:focus-visible {
-      @include v.focus-ring(v.$color-primary-light);
+      @include v.focus-ring(rgba(255, 255, 255, 0.4));
     }
+  }
+}
+
+@keyframes cdv-coord-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
   }
 }

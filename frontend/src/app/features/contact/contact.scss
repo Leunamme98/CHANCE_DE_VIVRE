@@ -3,35 +3,60 @@
 .cdv-contact {
   display: grid;
   grid-template-columns: 1fr;
-  gap: v.$space-6;
+  align-items: stretch;
+  gap: v.$space-5;
   text-align: left;
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
 
   @include v.desktop {
-    grid-template-columns: 1fr 1.4fr;
-    gap: v.$space-8;
+    grid-template-columns: 1fr 1.3fr;
+    gap: v.$space-6;
+  }
+}
+
+// Les deux blocs partagent le même habillage "carte premium" (fond, ombre, coins arrondis)
+// et s'étirent sur toute la hauteur de la rangée — CSS Grid égalise déjà cette hauteur, il
+// suffit que chaque panneau la remplisse au lieu de ne prendre que la hauteur de son contenu.
+.cdv-contact__panel {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: v.$space-6 v.$space-5;
+  border-radius: v.$radius-xl;
+  background-color: v.$color-surface;
+  border: 1px solid v.$color-border;
+  box-shadow: v.$shadow-md;
+
+  @include v.desktop {
+    padding: v.$space-7 v.$space-6;
   }
 
-  &__coordonnees {
-    // min-width: 0 annule le min-width: auto par défaut d'une piste de grille 1fr, qui sinon
-    // refuse de rétrécir sous la largeur intrinsèque de son contenu (ex: le <select> pays) et
-    // fait déborder toute la grille horizontalement sur mobile.
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
+  h2 {
+    margin: 0 0 v.$space-5;
+  }
+
+  &--coordonnees {
+    background-color: v.$color-primary-900;
+    border-color: v.$color-primary-900;
+    color: v.$color-surface;
 
     h2 {
-      margin: 0 0 v.$space-4;
+      color: v.$color-surface;
+    }
+
+    cdv-coordonnees-carousel {
+      flex: 1;
+      display: flex;
     }
   }
+}
 
-  &__formulaire {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-4;
-  }
+.cdv-contact__formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: v.$space-4;
 }
 
 .cdv-champ {
@@ -42,24 +67,56 @@
   label {
     font-family: v.$font-body;
     font-size: 0.8125rem;
-    font-weight: 500;
+    font-weight: 600;
     color: v.$color-text-primary;
   }
 
+  // Zone de saisie avec icône intégrée : l'icône flotte à l'intérieur du champ plutôt
+  // qu'à côté, pour un rendu "premium" plus compact et cohérent entre les champs.
+  &__zone {
+    position: relative;
+
+    &--texte .cdv-champ__icone {
+      top: v.$space-3;
+      transform: none;
+    }
+  }
+
+  &__icone {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 19px;
+    color: v.$color-text-tertiary;
+    pointer-events: none;
+    transition: color 0.15s ease;
+  }
+
   &__input {
-    height: 44px;
-    padding: 0 14px;
+    width: 100%;
+    height: 46px;
+    padding: 0 14px 0 44px;
     border-radius: v.$radius-md;
     border: 1px solid v.$color-border;
     font-family: v.$font-body;
     font-size: 1rem;
     color: v.$color-text-primary;
     background-color: v.$color-surface;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease;
 
     &:focus {
       outline: none;
       border-color: v.$color-primary;
       box-shadow: 0 0 0 3px #{v.$color-primary-light};
+    }
+
+    &:focus + .cdv-champ__icone,
+    &:focus ~ .cdv-champ__icone {
+      color: v.$color-primary;
     }
 
     &--erreur {
@@ -70,32 +127,19 @@
 
   textarea.cdv-champ__input {
     height: auto;
-    padding: v.$space-3 14px;
+    min-height: 128px;
+    padding: v.$space-3 14px v.$space-3 44px;
     resize: vertical;
-  }
-
-  &__telephone {
-    display: flex;
-    gap: v.$space-2;
-    min-width: 0;
-  }
-
-  &__indicatif {
-    flex: 0 0 auto;
-    width: 132px;
-    min-width: 0;
-    padding-right: v.$space-1;
-    cursor: pointer;
-  }
-
-  &__numero {
-    flex: 1;
-    min-width: 0;
   }
 
   &__erreur {
     font-size: 0.75rem;
     color: v.$color-error-text;
+  }
+
+  &__astuce {
+    font-size: 0.75rem;
+    color: v.$color-text-tertiary;
   }
 }
 

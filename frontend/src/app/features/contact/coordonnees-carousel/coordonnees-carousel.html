@@ -18,19 +18,21 @@
         <span class="cdv-coord-carousel__icone cdv-coord-carousel__icone--{{ item.icone }}" aria-hidden="true">
           <cdv-icone-contact [type]="item.icone" />
         </span>
-        <span class="cdv-coord-carousel__titre">{{ item.titreCle | translate }}</span>
-        @if (item.lien) {
-          <a
-            class="cdv-coord-carousel__valeur"
-            [href]="item.lien"
-            [attr.target]="item.externe ? '_blank' : null"
-            [attr.rel]="item.externe ? 'noopener noreferrer' : null"
-          >
-            {{ item.valeur }}
-          </a>
-        } @else {
-          <span class="cdv-coord-carousel__valeur">{{ item.valeur }}</span>
-        }
+        <span class="cdv-coord-carousel__texte">
+          <span class="cdv-coord-carousel__titre">{{ item.titreCle | translate }}</span>
+          @if (item.lien) {
+            <a
+              class="cdv-coord-carousel__valeur"
+              [href]="item.lien"
+              [attr.target]="item.externe ? '_blank' : null"
+              [attr.rel]="item.externe ? 'noopener noreferrer' : null"
+            >
+              {{ item.valeur }}
+            </a>
+          } @else {
+            <span class="cdv-coord-carousel__valeur">{{ item.valeur }}</span>
+          }
+        </span>
       </div>
     }
   </div>
