@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Partenaire } from '../models/partenaire.model';
 
-// Partenaires confirmés (cahier des charges section 2). Logos non fournis à ce stade :
-// TODO: contenu à valider avec le client — obtenir les fichiers logo réels (voir docs/contraintes-a-verifier.md).
+// Partenaires confirmés (cahier des charges section 2). Logos fournis par le client :
+// TODO: voir docs/contraintes-a-verifier.md — deux fichiers sont des substituts imparfaits
+// (bulletin recadré pour Tukolere Wamu, photo de drapeau pour l'ambassade), à remplacer par
+// de vrais logos dès qu'ils seront disponibles.
 @Injectable({ providedIn: 'root' })
 export class PartenairesService {
   private readonly partenaires: Partenaire[] = [
@@ -18,8 +20,8 @@ export class PartenairesService {
       id: 'ambassade-allemagne-togo',
       nom: "Ambassade d'Allemagne au Togo",
       description: 'Partenaire institutionnel.',
-      logo: 'images/partenaires/ambassade-allemagne.png',
-      logoAlt: "Logo de l'Ambassade d'Allemagne au Togo",
+      logo: 'images/partenaires/ambassade-allemagne.jpg',
+      logoAlt: "Drapeau de l'Allemagne, représentant l'Ambassade d'Allemagne au Togo",
     },
     {
       id: 'ministere-sante-togo',
@@ -32,7 +34,7 @@ export class PartenairesService {
       id: 'pnso',
       nom: 'Programme National de Santé Oculaire (PNSO)',
       description: 'Partenaire institutionnel.',
-      logo: 'images/partenaires/pnso.png',
+      logo: 'images/partenaires/pnso.jpg',
       logoAlt: 'Logo du Programme National de Santé Oculaire',
     },
   ];
