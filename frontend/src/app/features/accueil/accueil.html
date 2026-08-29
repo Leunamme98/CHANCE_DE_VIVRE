@@ -33,7 +33,7 @@
 
   <div class="cdv-grille-missions">
     @for (mission of missions$ | async; track mission.id) {
-      <cdv-carte>
+      <cdv-carte [centre]="true">
         <div class="cdv-icone-domaine cdv-icone-domaine--{{ mission.pilier }}" aria-hidden="true">
           @switch (mission.icone) {
             @case ('school') {
@@ -57,7 +57,6 @@
             }
           }
         </div>
-        <cdv-badge [type]="mission.pilier">{{ 'COMMON.CATEGORIE_' + mission.pilier.toUpperCase() | translate }}</cdv-badge>
         <h3>{{ mission.titre }}</h3>
         <p>{{ mission.description }}</p>
         <a routerLink="/a-propos">{{ 'COMMON.EN_SAVOIR_PLUS' | translate }}</a>

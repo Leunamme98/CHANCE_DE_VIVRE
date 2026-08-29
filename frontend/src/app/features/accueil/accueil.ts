@@ -9,12 +9,11 @@ import { HeroCarouselService } from '../../core/services/hero-carousel.service';
 import { AProposGalerieService } from '../../core/services/a-propos-galerie.service';
 import { ProjetsGalerieService } from '../../core/services/projets-galerie.service';
 import { Carte } from '../../shared/carte/carte';
-import { Badge } from '../../shared/badge/badge';
 import { Bouton } from '../../shared/bouton/bouton';
 import { CarouselPhotos } from '../../shared/carousel-photos/carousel-photos';
 
 @Component({
-  imports: [AsyncPipe, RouterLink, TranslatePipe, Carte, Badge, Bouton, CarouselPhotos],
+  imports: [AsyncPipe, RouterLink, TranslatePipe, Carte, Bouton, CarouselPhotos],
   selector: 'cdv-accueil',
   templateUrl: './accueil.html',
   styleUrl: './accueil.scss',

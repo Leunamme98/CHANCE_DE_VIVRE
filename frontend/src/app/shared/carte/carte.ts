@@ -8,4 +8,5 @@ import { Component, input } from '@angular/core';
 })
 export class Carte {
   padded = input<boolean>(true);
+  centre = input<boolean>(false);
 }

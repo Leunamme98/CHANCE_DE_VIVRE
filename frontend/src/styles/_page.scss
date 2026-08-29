@@ -24,11 +24,15 @@
   }
 
   &__sous-titre {
+    max-width: 560px;
+    margin: v.$space-2 auto 0;
     color: v.$color-text-secondary;
-    margin-top: v.$space-2;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    text-align: center;
   }
 
-  > p {
+  > p:not(.cdv-section__sous-titre) {
     max-width: 720px;
     margin: v.$space-4 auto 0;
     color: v.$color-text-secondary;

@@ -1,6 +1,13 @@
 @use '../../../styles/mixins' as v;
 
 .cdv-carte {
+  display: flex;
+  flex-direction: column;
+  // Remplit toute la hauteur de la cellule de grille (le hôte cdv-carte est étiré par
+  // align-items: stretch de la grille) : toutes les cartes d'une même rangée ont la même
+  // hauteur, quelle que soit la longueur de leur contenu.
+  height: 100%;
+  box-sizing: border-box;
   background-color: v.$color-surface;
   border: 1px solid v.$color-border;
   border-radius: v.$radius-lg;
@@ -19,5 +26,10 @@
 
   &--sans-padding {
     padding: 0;
+  }
+
+  &--centre {
+    align-items: center;
+    text-align: center;
   }
 }
