@@ -57,7 +57,7 @@
   }
 
   h3 {
-    margin: v.$space-3 0 v.$space-2;
+    margin: 0;
   }
 
   p {
@@ -70,23 +70,56 @@
   a {
     margin-top: auto;
   }
+
+  // Carte qui se soulève légèrement au survol, en plus de l'ombre déjà gérée par cdv-carte.
+  cdv-carte {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-6px);
+    }
+
+    &:hover .cdv-icone-domaine,
+    &:focus-within .cdv-icone-domaine {
+      transform: scale(1.12) rotate(-8deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-within {
+        transform: none;
+      }
+    }
+  }
 }
 
-// Icône ronde par domaine, mêmes tons que le badge de catégorie juste en dessous
+// Icône + nom du domaine sur une même ligne, centrés en bloc dans la carte.
+.cdv-domaine-entete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$space-3;
+  margin-bottom: v.$space-3;
+}
+
+// Icône ronde par domaine, mêmes tons que le badge de catégorie utilisé ailleurs sur le site
 // (charte : accent = éducation, secondaire = santé, primaire = économie).
 .cdv-icone-domaine {
   display: flex;
   align-items: center;
   justify-content: center;
   flex: none;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   border-radius: v.$radius-full;
-  margin-bottom: v.$space-3;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
 
   &--education {
@@ -105,12 +138,12 @@
   }
 
   @include v.desktop {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
 
     svg {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
     }
   }
 }
