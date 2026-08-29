@@ -1,0 +1,97 @@
+@use '../../../styles/mixins' as v;
+
+.cdv-modale__fond {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: v.$space-4;
+  background-color: v.$overlay-modal;
+  animation: cdv-modale-fond-entree 0.2s ease-out;
+}
+
+.cdv-modale {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: v.$space-6 v.$space-5 v.$space-5;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-surface;
+  box-shadow: v.$shadow-lg;
+  outline: none;
+  animation: cdv-modale-boite-entree 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @include v.desktop {
+    padding: v.$space-7 v.$space-6 v.$space-6;
+  }
+
+  &:focus-visible {
+    @include v.focus-ring(v.$color-primary-light);
+  }
+
+  &__fermer {
+    position: absolute;
+    top: v.$space-3;
+    right: v.$space-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: v.$radius-full;
+    background-color: transparent;
+    color: v.$color-text-secondary;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &:hover {
+      background-color: v.$color-surface-alt;
+      color: v.$color-text-primary;
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+  }
+
+  &__titre {
+    margin: 0 v.$space-5 v.$space-3 0;
+    color: v.$color-error-text;
+  }
+
+  &__contenu {
+    color: v.$color-text-secondary;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+@keyframes cdv-modale-fond-entree {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes cdv-modale-boite-entree {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cdv-modale__fond,
+  .cdv-modale {
+    animation: none;
+  }
+}

@@ -16,6 +16,7 @@
     "VOIR_TOUS_LES_PROJETS": "Voir tous les projets",
     "NOUS_CONTACTER": "Nous contacter",
     "CHANGER_LANGUE": "Changer de langue",
+    "FERMER": "Fermer",
     "CATEGORIE_EDUCATION": "Éducation",
     "CATEGORIE_SANTE": "Santé",
     "CATEGORIE_ECONOMIE": "Économie locale"
@@ -105,13 +106,19 @@
     "FORMULAIRE_TITRE": "Envoyez-nous un message",
     "CHAMP_NOM": "Nom",
     "CHAMP_EMAIL": "Email",
+    "CHAMP_TELEPHONE": "Téléphone (facultatif)",
+    "CHAMP_INDICATIF": "Indicatif téléphonique",
+    "CHAMP_OBJET": "Objet",
     "CHAMP_MESSAGE": "Message",
     "CHAMP_NOM_ERREUR": "Merci d'indiquer votre nom.",
     "CHAMP_EMAIL_ERREUR": "Merci d'indiquer une adresse email valide.",
+    "CHAMP_TELEPHONE_ERREUR": "Merci d'indiquer un numéro de téléphone valide.",
+    "CHAMP_OBJET_ERREUR": "Merci d'indiquer l'objet de votre message.",
     "CHAMP_MESSAGE_ERREUR": "Merci de rédiger un message.",
     "BOUTON_ENVOYER": "Envoyer",
     "ENVOI_EN_COURS": "Envoi en cours…",
     "SUCCES": "Votre message a bien été envoyé. Merci !",
-    "ERREUR": "Une erreur est survenue. Merci de réessayer ou de nous contacter par téléphone."
+    "ERREUR_TITRE": "Le message n'a pas pu être envoyé",
+    "ERREUR": "Une erreur est survenue lors de l'envoi. Vérifiez votre connexion et réessayez, ou contactez-nous directement par téléphone ou WhatsApp."
   }
 }

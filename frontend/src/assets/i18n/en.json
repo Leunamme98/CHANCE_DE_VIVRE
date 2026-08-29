@@ -16,6 +16,7 @@
     "VOIR_TOUS_LES_PROJETS": "View all projects",
     "NOUS_CONTACTER": "Contact us",
     "CHANGER_LANGUE": "Change language",
+    "FERMER": "Close",
     "CATEGORIE_EDUCATION": "Education",
     "CATEGORIE_SANTE": "Health",
     "CATEGORIE_ECONOMIE": "Local economy"
@@ -105,13 +106,19 @@
     "FORMULAIRE_TITRE": "Send us a message",
     "CHAMP_NOM": "Name",
     "CHAMP_EMAIL": "Email",
+    "CHAMP_TELEPHONE": "Phone (optional)",
+    "CHAMP_INDICATIF": "Calling code",
+    "CHAMP_OBJET": "Subject",
     "CHAMP_MESSAGE": "Message",
     "CHAMP_NOM_ERREUR": "Please enter your name.",
     "CHAMP_EMAIL_ERREUR": "Please enter a valid email address.",
+    "CHAMP_TELEPHONE_ERREUR": "Please enter a valid phone number.",
+    "CHAMP_OBJET_ERREUR": "Please enter the subject of your message.",
     "CHAMP_MESSAGE_ERREUR": "Please write a message.",
     "BOUTON_ENVOYER": "Send",
     "ENVOI_EN_COURS": "Sending…",
     "SUCCES": "Your message has been sent. Thank you!",
-    "ERREUR": "An error occurred. Please try again or contact us by phone."
+    "ERREUR_TITRE": "Your message could not be sent",
+    "ERREUR": "An error occurred while sending. Check your connection and try again, or contact us directly by phone or WhatsApp."
   }
 }

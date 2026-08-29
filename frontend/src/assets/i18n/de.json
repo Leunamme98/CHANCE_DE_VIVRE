@@ -16,6 +16,7 @@
     "VOIR_TOUS_LES_PROJETS": "Alle Projekte ansehen",
     "NOUS_CONTACTER": "Kontaktieren Sie uns",
     "CHANGER_LANGUE": "Sprache ändern",
+    "FERMER": "Schließen",
     "CATEGORIE_EDUCATION": "Bildung",
     "CATEGORIE_SANTE": "Gesundheit",
     "CATEGORIE_ECONOMIE": "Lokale Wirtschaft"
@@ -105,13 +106,19 @@
     "FORMULAIRE_TITRE": "Senden Sie uns eine Nachricht",
     "CHAMP_NOM": "Name",
     "CHAMP_EMAIL": "E-Mail",
+    "CHAMP_TELEPHONE": "Telefon (optional)",
+    "CHAMP_INDICATIF": "Vorwahl",
+    "CHAMP_OBJET": "Betreff",
     "CHAMP_MESSAGE": "Nachricht",
     "CHAMP_NOM_ERREUR": "Bitte geben Sie Ihren Namen an.",
     "CHAMP_EMAIL_ERREUR": "Bitte geben Sie eine gültige E-Mail-Adresse an.",
+    "CHAMP_TELEPHONE_ERREUR": "Bitte geben Sie eine gültige Telefonnummer an.",
+    "CHAMP_OBJET_ERREUR": "Bitte geben Sie den Betreff Ihrer Nachricht an.",
     "CHAMP_MESSAGE_ERREUR": "Bitte verfassen Sie eine Nachricht.",
     "BOUTON_ENVOYER": "Senden",
     "ENVOI_EN_COURS": "Wird gesendet…",
     "SUCCES": "Ihre Nachricht wurde gesendet. Vielen Dank!",
-    "ERREUR": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch."
+    "ERREUR_TITRE": "Ihre Nachricht konnte nicht gesendet werden",
+    "ERREUR": "Beim Senden ist ein Fehler aufgetreten. Überprüfen Sie Ihre Verbindung und versuchen Sie es erneut, oder kontaktieren Sie uns direkt per Telefon oder WhatsApp."
   }
 }

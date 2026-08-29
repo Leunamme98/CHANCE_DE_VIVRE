@@ -13,12 +13,21 @@
     gap: v.$space-8;
   }
 
-  &__coordonnees p {
-    color: v.$color-text-secondary;
-    margin: 0 0 v.$space-2;
+  &__coordonnees {
+    // min-width: 0 annule le min-width: auto par défaut d'une piste de grille 1fr, qui sinon
+    // refuse de rétrécir sous la largeur intrinsèque de son contenu (ex: le <select> pays) et
+    // fait déborder toute la grille horizontalement sur mobile.
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin: 0 0 v.$space-4;
+    }
   }
 
   &__formulaire {
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: v.$space-4;
@@ -65,6 +74,25 @@
     resize: vertical;
   }
 
+  &__telephone {
+    display: flex;
+    gap: v.$space-2;
+    min-width: 0;
+  }
+
+  &__indicatif {
+    flex: 0 0 auto;
+    width: 132px;
+    min-width: 0;
+    padding-right: v.$space-1;
+    cursor: pointer;
+  }
+
+  &__numero {
+    flex: 1;
+    min-width: 0;
+  }
+
   &__erreur {
     font-size: 0.75rem;
     color: v.$color-error-text;
@@ -80,11 +108,5 @@
     background-color: v.$color-success-bg;
     border-left: 4px solid v.$color-success-text;
     color: v.$color-success-text;
-  }
-
-  &--erreur {
-    background-color: v.$color-error-bg;
-    border-left: 4px solid v.$color-error-text;
-    color: v.$color-error-text;
   }
 }

@@ -1,0 +1,33 @@
+@if (ouverte()) {
+  <div class="cdv-modale__fond" (click)="onFondClick()">
+    <div
+      #boite
+      class="cdv-modale"
+      role="alertdialog"
+      aria-modal="true"
+      [attr.aria-label]="titre()"
+      tabindex="-1"
+      (click)="$event.stopPropagation()"
+      (keydown)="onToucheClavier($event)"
+    >
+      <button
+        type="button"
+        class="cdv-modale__fermer"
+        [attr.aria-label]="'COMMON.FERMER' | translate"
+        (click)="fermer.emit()"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      @if (titre()) {
+        <h3 class="cdv-modale__titre">{{ titre() }}</h3>
+      }
+
+      <div class="cdv-modale__contenu">
+        <ng-content />
+      </div>
+    </div>
+  </div>
+}

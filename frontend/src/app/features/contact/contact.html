@@ -6,15 +6,7 @@
 <section class="cdv-section cdv-contact">
   <div class="cdv-contact__coordonnees">
     <h2>{{ 'CONTACT.COORDONNEES_TITRE' | translate }}</h2>
-    @if (organisation$ | async; as org) {
-      <p>{{ org.adresse }}</p>
-      <p>
-        <a [href]="'tel:' + org.telephone">{{ org.telephone }}</a>
-      </p>
-      <p>
-        <a [href]="'mailto:' + org.email">{{ org.email }}</a>
-      </p>
-    }
+    <cdv-coordonnees-carousel [items]="coordonnees()" libelleRegion="CONTACT.COORDONNEES_TITRE" />
   </div>
 
   <form class="cdv-contact__formulaire" [formGroup]="formulaire" (ngSubmit)="envoyer()" novalidate>
@@ -53,6 +45,50 @@
     </div>
 
     <div class="cdv-champ">
+      <label for="contact-telephone-numero">{{ 'CONTACT.CHAMP_TELEPHONE' | translate }}</label>
+      <div class="cdv-champ__telephone">
+        <select
+          id="contact-telephone-indicatif"
+          formControlName="indicatif"
+          class="cdv-champ__input cdv-champ__indicatif"
+          [attr.aria-label]="'CONTACT.CHAMP_INDICATIF' | translate"
+        >
+          @for (pays of indicatifs; track pays.code) {
+            <option [value]="pays.indicatif">{{ pays.nom }} ({{ pays.indicatif }})</option>
+          }
+        </select>
+        <input
+          id="contact-telephone-numero"
+          type="tel"
+          formControlName="telephoneNumero"
+          [class.cdv-champ__input--erreur]="
+            formulaire.controls.telephoneNumero.invalid && formulaire.controls.telephoneNumero.touched
+          "
+          class="cdv-champ__input cdv-champ__numero"
+        />
+      </div>
+      @if (formulaire.controls.telephoneNumero.invalid && formulaire.controls.telephoneNumero.touched) {
+        <span class="cdv-champ__erreur">{{ 'CONTACT.CHAMP_TELEPHONE_ERREUR' | translate }}</span>
+      }
+    </div>
+
+    <div class="cdv-champ">
+      <label for="contact-objet">{{ 'CONTACT.CHAMP_OBJET' | translate }}</label>
+      <input
+        id="contact-objet"
+        type="text"
+        formControlName="objet"
+        [class.cdv-champ__input--erreur]="
+          formulaire.controls.objet.invalid && formulaire.controls.objet.touched
+        "
+        class="cdv-champ__input"
+      />
+      @if (formulaire.controls.objet.invalid && formulaire.controls.objet.touched) {
+        <span class="cdv-champ__erreur">{{ 'CONTACT.CHAMP_OBJET_ERREUR' | translate }}</span>
+      }
+    </div>
+
+    <div class="cdv-champ">
       <label for="contact-message">{{ 'CONTACT.CHAMP_MESSAGE' | translate }}</label>
       <textarea
         id="contact-message"
@@ -71,12 +107,13 @@
     @if (etat() === 'succes') {
       <p class="cdv-alerte cdv-alerte--succes">{{ 'CONTACT.SUCCES' | translate }}</p>
     }
-    @if (etat() === 'erreur') {
-      <p class="cdv-alerte cdv-alerte--erreur">{{ 'CONTACT.ERREUR' | translate }}</p>
-    }
 
     <cdv-bouton type="submit" [chargement]="etat() === 'en_cours'">
       {{ (etat() === 'en_cours' ? 'CONTACT.ENVOI_EN_COURS' : 'CONTACT.BOUTON_ENVOYER') | translate }}
     </cdv-bouton>
   </form>
 </section>
+
+<cdv-modale [ouverte]="etat() === 'erreur'" [titre]="'CONTACT.ERREUR_TITRE' | translate" (fermer)="fermerErreur()">
+  <p>{{ 'CONTACT.ERREUR' | translate }}</p>
+</cdv-modale>

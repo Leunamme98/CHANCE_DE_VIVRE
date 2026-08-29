@@ -1,0 +1,142 @@
+@use '../../../../styles/mixins' as v;
+
+.cdv-coord-carousel {
+  position: relative;
+  width: 100%;
+  padding: v.$space-6 v.$space-5;
+  border-radius: v.$radius-lg;
+  background-color: v.$color-surface;
+  border: 1px solid v.$color-border;
+  outline: none;
+
+  &:focus-visible {
+    @include v.focus-ring(v.$color-primary-light);
+  }
+
+  &__scene {
+    position: relative;
+    width: 100%;
+    min-height: 168px;
+  }
+
+  &__item {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: v.$space-2;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+
+    &--active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &__icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: v.$radius-full;
+    background-color: v.$color-primary-light;
+    color: v.$color-primary-dark;
+    margin-bottom: v.$space-1;
+
+    cdv-icone-contact {
+      width: 26px;
+      height: 26px;
+    }
+
+    &--whatsapp {
+      background-color: #d9f2e3;
+      color: #1f9d55;
+    }
+
+    &--messenger {
+      background: linear-gradient(135deg, #00b2ff, #2e6bff 45%, #b429f9 75%, #f94879);
+      color: v.$color-surface;
+    }
+
+    &--facebook {
+      background-color: #dbeafe;
+      color: #1877f2;
+    }
+  }
+
+  &__titre {
+    font-family: v.$font-body;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: v.$color-text-tertiary;
+  }
+
+  &__valeur {
+    font-family: v.$font-heading;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: v.$color-text-primary;
+    word-break: break-word;
+
+    &:where(a) {
+      color: v.$color-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:focus-visible {
+        @include v.focus-ring(v.$color-primary-light);
+      }
+    }
+  }
+
+  &__points {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: v.$space-2;
+    margin-top: v.$space-5;
+  }
+
+  &__point {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: v.$radius-full;
+    background-color: v.$color-border-strong;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: v.$color-primary-light;
+    }
+
+    &--actif {
+      background-color: v.$color-primary;
+      transform: scale(1.25);
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+  }
+}

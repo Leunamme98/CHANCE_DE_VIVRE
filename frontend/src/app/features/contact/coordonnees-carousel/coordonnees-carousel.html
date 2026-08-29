@@ -1,0 +1,50 @@
+<div
+  class="cdv-coord-carousel"
+  role="region"
+  aria-roledescription="carousel"
+  [attr.aria-label]="libelleRegion() | translate"
+  tabindex="0"
+  (mouseenter)="onSurvolEntree()"
+  (mouseleave)="onSurvolSortie()"
+  (keydown)="onToucheClavier($event)"
+>
+  <div class="cdv-coord-carousel__scene">
+    @for (item of items(); track item.id; let i = $index) {
+      <div
+        class="cdv-coord-carousel__item"
+        [class.cdv-coord-carousel__item--active]="i === indexActif()"
+        [attr.aria-hidden]="i === indexActif() ? null : true"
+      >
+        <span class="cdv-coord-carousel__icone cdv-coord-carousel__icone--{{ item.icone }}" aria-hidden="true">
+          <cdv-icone-contact [type]="item.icone" />
+        </span>
+        <span class="cdv-coord-carousel__titre">{{ item.titreCle | translate }}</span>
+        @if (item.lien) {
+          <a
+            class="cdv-coord-carousel__valeur"
+            [href]="item.lien"
+            [attr.target]="item.externe ? '_blank' : null"
+            [attr.rel]="item.externe ? 'noopener noreferrer' : null"
+          >
+            {{ item.valeur }}
+          </a>
+        } @else {
+          <span class="cdv-coord-carousel__valeur">{{ item.valeur }}</span>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="cdv-coord-carousel__points">
+    @for (item of items(); track item.id; let i = $index) {
+      <button
+        type="button"
+        class="cdv-coord-carousel__point"
+        [class.cdv-coord-carousel__point--actif]="i === indexActif()"
+        [attr.aria-label]="'HERO.ALLER_SLIDE' | translate: { n: i + 1 }"
+        [attr.aria-current]="i === indexActif() ? true : null"
+        (click)="allerA(i)"
+      ></button>
+    }
+  </div>
+</div>

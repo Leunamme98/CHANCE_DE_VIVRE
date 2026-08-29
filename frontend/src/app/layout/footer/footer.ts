@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AsyncPipe } from '@angular/common';
 import { OrganisationService } from '../../core/services/organisation.service';
+import { IconeContact } from '../../shared/icone-contact/icone-contact';
 
 @Component({
-  imports: [TranslatePipe, AsyncPipe],
+  imports: [TranslatePipe, AsyncPipe, IconeContact],
   selector: 'cdv-footer',
   templateUrl: './footer.html',
   styleUrl: './footer.scss',

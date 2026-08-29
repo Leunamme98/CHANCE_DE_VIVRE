@@ -1,0 +1,14 @@
+// Le composant se dimensionne via sa propre taille d'hôte (ex: cdv-icone-contact { width: 18px; height: 18px; }
+// depuis le CSS du composant appelant) — le SVG interne remplit simplement cet espace.
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
