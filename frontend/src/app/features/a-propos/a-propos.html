@@ -30,6 +30,24 @@
   <p>{{ 'QUI_SOMMES_NOUS.ZONE_TEXTE' | translate }}</p>
 </section>
 
+<section class="cdv-section">
+  <h2>{{ 'A_PROPOS.GALERIE_TITRE' | translate }}</h2>
+  <div class="cdv-galerie-photos">
+    @for (photo of galeriePhotos$ | async; track photo.image) {
+      <figure class="cdv-galerie-photos__item">
+        <img
+          [src]="cheminImage(photo.image)"
+          [alt]="photo.legende | translate"
+          loading="lazy"
+          width="480"
+          height="360"
+        />
+        <figcaption>{{ photo.legende | translate }}</figcaption>
+      </figure>
+    }
+  </div>
+</section>
+
 <section class="cdv-section cdv-section--alt">
   <h2>{{ 'MISSIONS.TITRE' | translate }}</h2>
   <p class="cdv-section__sous-titre">{{ 'MISSIONS.SOUS_TITRE' | translate }}</p>

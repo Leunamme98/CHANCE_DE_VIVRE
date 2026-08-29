@@ -42,10 +42,24 @@
     "CTA_SECTION_TITRE": "Möchten Sie uns unterstützen oder mehr erfahren?",
     "CTA_SECTION_BOUTON": "Kontaktieren Sie uns"
   },
+  "HERO": {
+    "SLIDE_1": "Hunderte Kinder versammelt zur Eröffnung einer renovierten Schule",
+    "SLIDE_2": "Jede gespendete Schulbank ist eine weitere Chance zu lernen",
+    "SLIDE_3": "Die Stärke unserer Arbeit ist die Gemeinschaft, die sie trägt",
+    "SLIDE_4": "Sensibilisierung für Hygiene zum Schutz der Gesundheit aller",
+    "PRECEDENT": "Vorherige Folie",
+    "SUIVANT": "Nächste Folie",
+    "ALLER_SLIDE": "Zur Folie {{n}} gehen",
+    "REGION": "Präsentations-Diashow"
+  },
   "A_PROPOS": {
     "TITRE_PAGE": "Chance de Vivre — Über uns",
     "DESCRIPTION_PAGE": "Die Geschichte, Werte, das Einsatzgebiet, die Missionen und die Partner der NGO Chance De Vivre-Togo.",
-    "TITRE": "Über uns"
+    "TITRE": "Über uns",
+    "GALERIE_TITRE": "Unsere Partner vor Ort",
+    "GALERIE_PHOTO_1": "Unsere internationalen Partner an unserer Seite bei einer Sensibilisierungsveranstaltung",
+    "GALERIE_PHOTO_2": "Besuch unserer Partner bei den begünstigten Gemeinden",
+    "GALERIE_PHOTO_3": "Übergabe einer Ehrenurkunde im Rahmen einer Covid-19-Sensibilisierungskampagne"
   },
   "QUI_SOMMES_NOUS": {
     "HISTOIRE_TITRE": "Unsere Geschichte",

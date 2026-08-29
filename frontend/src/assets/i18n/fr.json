@@ -42,10 +42,24 @@
     "CTA_SECTION_TITRE": "Envie de nous soutenir ou d'en savoir plus ?",
     "CTA_SECTION_BOUTON": "Contactez-nous"
   },
+  "HERO": {
+    "SLIDE_1": "Des centaines d'enfants rassemblés pour l'ouverture d'une école rénovée",
+    "SLIDE_2": "Chaque table-banc offerte, c'est une chance de plus d'apprendre",
+    "SLIDE_3": "La force de nos actions, c'est la communauté qui les porte",
+    "SLIDE_4": "Sensibiliser à l'hygiène pour protéger la santé de tous",
+    "PRECEDENT": "Diapositive précédente",
+    "SUIVANT": "Diapositive suivante",
+    "ALLER_SLIDE": "Aller à la diapositive {{n}}",
+    "REGION": "Diaporama de présentation"
+  },
   "A_PROPOS": {
     "TITRE_PAGE": "Chance de Vivre — À propos",
     "DESCRIPTION_PAGE": "L'histoire, les valeurs, la zone d'action, les missions et les partenaires de l'ONG Chance De Vivre-Togo.",
-    "TITRE": "À propos de nous"
+    "TITRE": "À propos de nous",
+    "GALERIE_TITRE": "Nos partenaires sur le terrain",
+    "GALERIE_PHOTO_1": "Nos partenaires internationaux à nos côtés lors d'une séance de sensibilisation",
+    "GALERIE_PHOTO_2": "Visite de nos partenaires auprès des communautés bénéficiaires",
+    "GALERIE_PHOTO_3": "Remise d'un certificat d'honneur lors d'une campagne de sensibilisation à la Covid-19"
   },
   "QUI_SOMMES_NOUS": {
     "HISTOIRE_TITRE": "Notre histoire",

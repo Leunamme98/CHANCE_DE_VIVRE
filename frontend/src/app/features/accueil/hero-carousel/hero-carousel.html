@@ -1,0 +1,77 @@
+<section
+  class="cdv-hero-carousel"
+  role="region"
+  aria-roledescription="carousel"
+  [attr.aria-label]="'HERO.REGION' | translate"
+  tabindex="0"
+  (mouseenter)="onSurvolEntree()"
+  (mouseleave)="onSurvolSortie()"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+  (keydown)="onToucheClavier($event)"
+>
+  <div class="cdv-hero-carousel__scene">
+    @for (slide of slides(); track slide.image; let i = $index) {
+      <figure
+        class="cdv-hero-carousel__diapo"
+        [class.cdv-hero-carousel__diapo--active]="i === indexActif()"
+        [attr.aria-hidden]="i === indexActif() ? null : true"
+        [style.background-image]="'url(' + cheminImage(slide.image) + ')'"
+      >
+        <img
+          [src]="cheminImage(slide.image)"
+          [alt]="slide.legende | translate"
+          [attr.loading]="i === 0 ? 'eager' : 'lazy'"
+          [attr.fetchpriority]="i === 0 ? 'high' : null"
+          width="1600"
+          height="900"
+        />
+        <div class="cdv-hero-carousel__degrade" aria-hidden="true"></div>
+        <figcaption class="cdv-hero-carousel__legende">{{ slide.legende | translate }}</figcaption>
+      </figure>
+    }
+  </div>
+
+  <button
+    type="button"
+    class="cdv-hero-carousel__fleche cdv-hero-carousel__fleche--prev"
+    [attr.aria-label]="'HERO.PRECEDENT' | translate"
+    (click)="precedent()"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15 6l-6 6 6 6" />
+    </svg>
+  </button>
+
+  <button
+    type="button"
+    class="cdv-hero-carousel__fleche cdv-hero-carousel__fleche--next"
+    [attr.aria-label]="'HERO.SUIVANT' | translate"
+    (click)="suivant()"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 6l6 6-6 6" />
+    </svg>
+  </button>
+
+  <div class="cdv-hero-carousel__points">
+    @for (slide of slides(); track slide.image; let i = $index) {
+      <button
+        type="button"
+        class="cdv-hero-carousel__point"
+        [class.cdv-hero-carousel__point--actif]="i === indexActif()"
+        [class.cdv-hero-carousel__point--passe]="i < indexActif()"
+        [attr.aria-label]="'HERO.ALLER_SLIDE' | translate: { n: i + 1 }"
+        [attr.aria-current]="i === indexActif() ? true : null"
+        (click)="allerA(i)"
+      >
+        @if (i === indexActif()) {
+          <span
+            class="cdv-hero-carousel__point-remplissage"
+            [class.cdv-hero-carousel__point-remplissage--pause]="enPause()"
+          ></span>
+        }
+      </button>
+    }
+  </div>
+</section>

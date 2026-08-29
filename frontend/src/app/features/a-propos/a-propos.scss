@@ -54,6 +54,73 @@
   }
 }
 
+.cdv-galerie-photos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$space-4;
+  margin-top: v.$space-6;
+  text-align: left;
+
+  @include v.desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: v.$space-5;
+  }
+
+  &__item {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: v.$radius-lg;
+    overflow: hidden;
+    background-color: v.$color-surface-alt;
+    box-shadow: 0 4px 16px rgba(15, 23, 20, 0.12);
+    transition: box-shadow 0.3s ease;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    // Légende en overlay dégradé, comme le carousel hero, pour un rendu premium cohérent.
+    figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      padding: v.$space-6 v.$space-4 v.$space-4;
+      background: linear-gradient(to top, rgba(21, 92, 62, 0.88) 0%, rgba(21, 92, 62, 0.45) 60%, transparent 100%);
+      color: v.$color-surface;
+      font-family: v.$font-heading;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      line-height: 1.4;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    }
+
+    &:hover {
+      box-shadow: 0 10px 28px rgba(15, 23, 20, 0.2);
+
+      img {
+        transform: scale(1.06);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      img {
+        transition: none;
+      }
+
+      &:hover img {
+        transform: none;
+      }
+    }
+  }
+}
+
 .cdv-grille-partenaires {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

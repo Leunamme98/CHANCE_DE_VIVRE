@@ -42,10 +42,24 @@
     "CTA_SECTION_TITRE": "Want to support us or learn more?",
     "CTA_SECTION_BOUTON": "Contact us"
   },
+  "HERO": {
+    "SLIDE_1": "Hundreds of children gathered for the opening of a renovated school",
+    "SLIDE_2": "Every desk donated is one more chance to learn",
+    "SLIDE_3": "The strength of our work is the community that carries it",
+    "SLIDE_4": "Raising awareness about hygiene to protect everyone's health",
+    "PRECEDENT": "Previous slide",
+    "SUIVANT": "Next slide",
+    "ALLER_SLIDE": "Go to slide {{n}}",
+    "REGION": "Showcase slideshow"
+  },
   "A_PROPOS": {
     "TITRE_PAGE": "Chance de Vivre — About",
     "DESCRIPTION_PAGE": "The story, values, area of action, missions and partners of the Chance De Vivre-Togo NGO.",
-    "TITRE": "About us"
+    "TITRE": "About us",
+    "GALERIE_TITRE": "Our partners in the field",
+    "GALERIE_PHOTO_1": "Our international partners alongside us during an awareness session",
+    "GALERIE_PHOTO_2": "A partner visit to the communities we support",
+    "GALERIE_PHOTO_3": "Presenting a certificate of recognition during a Covid-19 awareness campaign"
   },
   "QUI_SOMMES_NOUS": {
     "HISTOIRE_TITRE": "Our story",

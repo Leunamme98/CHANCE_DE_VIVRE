@@ -8,9 +8,10 @@ import { SeoService } from '../../core/services/seo.service';
 import { Carte } from '../../shared/carte/carte';
 import { Badge } from '../../shared/badge/badge';
 import { Bouton } from '../../shared/bouton/bouton';
+import { HeroCarousel } from './hero-carousel/hero-carousel';
 
 @Component({
-  imports: [AsyncPipe, RouterLink, TranslatePipe, Carte, Badge, Bouton],
+  imports: [AsyncPipe, RouterLink, TranslatePipe, Carte, Badge, Bouton, HeroCarousel],
   selector: 'cdv-accueil',
   templateUrl: './accueil.html',
   styleUrl: './accueil.scss',

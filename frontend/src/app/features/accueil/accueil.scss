@@ -1,6 +1,9 @@
 @use '../../../styles/mixins' as v;
 
-// TODO: contenu à valider avec le client — ajouter une photo de terrain en fond de hero (Phase 3)
+.cdv-hero-carousel-conteneur {
+  width: 100%;
+}
+
 .cdv-hero {
   background-color: v.$color-primary-900;
   padding: v.$space-7 v.$space-4;

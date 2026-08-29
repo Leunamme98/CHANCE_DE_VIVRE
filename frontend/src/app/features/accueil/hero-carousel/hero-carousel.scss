@@ -1,0 +1,249 @@
+@use '../../../../styles/mixins' as v;
+
+.cdv-hero-carousel {
+  position: relative;
+  width: 100%;
+  // Hauteur plafonnée (plutôt qu'un 16:9 plein-largeur, trop haut sur grand écran) :
+  // le carousel reste visible sans avoir à défiler la page.
+  height: 300px;
+  overflow: hidden;
+  background-color: v.$color-surface-alt;
+  outline: none;
+
+  @include v.desktop {
+    height: min(58vh, 540px);
+  }
+
+  &:focus-visible {
+    @include v.focus-ring(v.$color-primary-light);
+  }
+
+  &__scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__diapo {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 700ms ease-in-out;
+
+    img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      // Plein cadre : la photo couvre toujours 100% du conteneur, jamais de pilier
+      // flouté ni d'aperçu de la diapo voisine sur les côtés.
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &--active {
+      opacity: 1;
+      z-index: 1;
+
+      // Léger zoom continu ("Ken Burns") pendant l'affichage — désactivé si l'utilisateur
+      // préfère moins d'animations.
+      img {
+        animation: cdv-hero-kenburns 6800ms ease-out forwards;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      img {
+        animation: none;
+      }
+    }
+  }
+
+  // Dégradé bas de l'image : seul élément assurant la lisibilité du texte, posé
+  // directement sur la photo (aucun fond propre autour de la légende).
+  &__degrade {
+    position: absolute;
+    inset: auto 0 0 0;
+    z-index: 2;
+    height: 33%;
+    background: linear-gradient(
+      to top,
+      rgba(21, 92, 62, 0.65) 0%,
+      rgba(21, 92, 62, 0.35) 40%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  &__legende {
+    position: absolute;
+    left: v.$space-5;
+    right: v.$space-5;
+    bottom: v.$space-5;
+    z-index: 3;
+    margin: 0;
+    color: v.$color-surface;
+    font-family: v.$font-heading;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+    @include v.desktop {
+      left: v.$space-8;
+      right: v.$space-8;
+      bottom: v.$space-7;
+      max-width: 640px;
+      font-size: 1.0625rem;
+    }
+  }
+
+  &__fleche {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: v.$radius-full;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: v.$color-primary-dark;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.6;
+    transition:
+      opacity 0.2s ease,
+      background-color 0.2s ease;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &--prev {
+      left: v.$space-3;
+    }
+
+    &--next {
+      right: v.$space-3;
+    }
+
+    &:hover {
+      background-color: v.$color-surface;
+    }
+
+    &:focus-visible {
+      opacity: 1;
+      @include v.focus-ring(v.$color-primary-light);
+    }
+
+    @include v.desktop {
+      opacity: 0;
+      width: 44px;
+      height: 44px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  // Desktop : les flèches, discrètes, se révèlent au survol/focus du carousel
+  @include v.desktop {
+    &:hover &__fleche,
+    &:focus-within &__fleche {
+      opacity: 0.9;
+    }
+  }
+
+  // Barre de progression façon "Stories" : segments alignés en haut de l'image.
+  &__points {
+    position: absolute;
+    top: v.$space-3;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: v.$space-1;
+    padding: 0 v.$space-4;
+
+    @include v.desktop {
+      top: v.$space-4;
+      padding: 0 v.$space-8;
+    }
+  }
+
+  &__point {
+    position: relative;
+    flex: 1;
+    height: 3px;
+    padding: 0;
+    border: none;
+    border-radius: v.$radius-full;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-surface);
+    }
+
+    // Segment déjà défilé : plein blanc.
+    &--passe {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  // Remplissage façon "story" : se vide/remplit sur la durée d'affichage réelle (accent doré)
+  &__point-remplissage {
+    position: absolute;
+    inset: 0;
+    width: 0%;
+    background-color: v.$color-accent;
+    border-radius: inherit;
+    animation: cdv-hero-progression 6000ms linear forwards;
+
+    &--pause {
+      animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      width: 100%;
+    }
+  }
+}
+
+@keyframes cdv-hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes cdv-hero-progression {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
