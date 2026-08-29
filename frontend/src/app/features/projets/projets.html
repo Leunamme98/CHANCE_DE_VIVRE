@@ -4,26 +4,77 @@
 </section>
 
 <section class="cdv-section">
-  <div class="cdv-galerie">
-    @for (projet of projets$ | async; track projet.id) {
-      <cdv-carte [padded]="false">
-        <img
-          class="cdv-galerie__image"
-          [src]="projet.image"
-          [alt]="projet.imageAlt"
-          loading="lazy"
-          width="400"
-          height="300"
-        />
-        <div class="cdv-galerie__contenu">
-          <cdv-badge [type]="projet.categorie">{{
-            'COMMON.CATEGORIE_' + projet.categorie.toUpperCase() | translate
-          }}</cdv-badge>
-          <h2>{{ projet.titre }}</h2>
-          <p>{{ projet.description }}</p>
-          <p class="cdv-galerie__lieu">{{ projet.lieu }} · {{ projet.date }}</p>
-        </div>
-      </cdv-carte>
+  <div class="cdv-filtres" role="group" [attr.aria-label]="'PROJETS.FILTRER_PAR' | translate" cdvRevele>
+    @for (filtre of filtres; track filtre) {
+      <button
+        type="button"
+        class="cdv-filtres__item"
+        [class.cdv-filtres__item--actif]="filtreActif() === filtre"
+        [class.cdv-filtres__item--education]="filtre === 'education'"
+        [class.cdv-filtres__item--sante]="filtre === 'sante'"
+        [class.cdv-filtres__item--economie]="filtre === 'economie'"
+        [attr.aria-pressed]="filtreActif() === filtre"
+        (click)="choisirFiltre(filtre)"
+      >
+        {{ (filtre === 'tous' ? 'PROJETS.FILTRE_TOUS' : 'COMMON.CATEGORIE_' + filtre.toUpperCase()) | translate }}
+      </button>
     }
   </div>
+
+  @if (projetsFiltres().length === 0) {
+    <p class="cdv-galerie__vide" cdvRevele>{{ 'PROJETS.AUCUN_RESULTAT' | translate }}</p>
+  } @else {
+    <div class="cdv-galerie">
+      @for (projet of projetsFiltres(); track projet.id; let i = $index) {
+        <cdv-carte [padded]="false" cdvRevele [cdvReveleDelai]="i * 90">
+          <div class="cdv-galerie__media">
+            <img
+              class="cdv-galerie__image"
+              [src]="projet.image"
+              [alt]="projet.imageAlt"
+              loading="lazy"
+              width="400"
+              height="300"
+            />
+            <span class="cdv-galerie__icone cdv-galerie__icone--{{ projet.categorie }}" aria-hidden="true">
+              @switch (projet.categorie) {
+                @case ('education') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                    <path d="M6 10.5V16c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5" />
+                    <path d="M22 8v6" />
+                  </svg>
+                }
+                @case ('sante') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20.5s-7-4.3-9.3-8.7C1.2 9 2.5 5.8 5.6 5.8c1.9 0 3.2 1 4 2.1.8-1.1 2.1-2.1 4-2.1 3.1 0 4.4 3.2 2.9 6-2.3 4.4-9.3 8.7-9.3 8.7z" />
+                    <path d="M3.8 12h2.6l1.6-2.6 1.8 4.6 1.6-3.4 1.2 1.4h4.2" />
+                  </svg>
+                }
+                @case ('economie') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="2 17 9.5 9.5 14 14 22 5" />
+                    <polyline points="15 5 22 5 22 12" />
+                  </svg>
+                }
+              }
+            </span>
+          </div>
+          <div class="cdv-galerie__contenu">
+            <cdv-badge [type]="projet.categorie">{{
+              'COMMON.CATEGORIE_' + projet.categorie.toUpperCase() | translate
+            }}</cdv-badge>
+            <h2>{{ projet.titre }}</h2>
+            <p>{{ projet.description }}</p>
+            <p class="cdv-galerie__lieu">{{ projet.lieu }} · {{ projet.date }}</p>
+          </div>
+        </cdv-carte>
+      }
+    </div>
+  }
+</section>
+
+<section class="cdv-cta" cdvRevele>
+  <h2>{{ 'PROJETS.CTA_TITRE' | translate }}</h2>
+  <cdv-bouton variante="primaire" routerLink="/contact">{{ 'COMMON.NOUS_CONTACTER' | translate }}</cdv-bouton>
 </section>

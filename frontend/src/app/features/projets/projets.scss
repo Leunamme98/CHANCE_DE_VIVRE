@@ -1,5 +1,67 @@
 @use '../../../styles/mixins' as v;
 
+// Filtres par catégorie — réutilise le getByCategorie() déjà présent dans ProjetsService
+// (jamais branché à l'UI jusqu'ici) pour un tri client instantané.
+.cdv-filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-2;
+  margin-bottom: v.$space-6;
+
+  &__item {
+    height: 36px;
+    padding: 0 v.$space-4;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-full;
+    background-color: v.$color-surface;
+    color: v.$color-text-secondary;
+    font-family: v.$font-body;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      border-color: v.$color-border-strong;
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+
+    &--actif {
+      border-color: transparent;
+      background-color: v.$color-text-primary;
+      color: v.$color-surface;
+    }
+
+    &--education.cdv-filtres__item--actif {
+      background-color: v.$color-accent-dark;
+    }
+
+    &--sante.cdv-filtres__item--actif {
+      background-color: v.$color-secondary-dark;
+    }
+
+    &--economie.cdv-filtres__item--actif {
+      background-color: v.$color-primary-dark;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
 .cdv-galerie {
   display: grid;
   grid-template-columns: 1fr;
@@ -11,12 +73,83 @@
     gap: v.$space-5;
   }
 
+  cdv-carte {
+    overflow: hidden;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-6px);
+    }
+
+    &:hover .cdv-galerie__image,
+    &:focus-within .cdv-galerie__image {
+      transform: scale(1.07);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+
+      &:hover,
+      &:focus-within {
+        transform: none;
+      }
+    }
+  }
+
+  &__media {
+    position: relative;
+    overflow: hidden;
+  }
+
   &__image {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: v.$radius-lg v.$radius-lg 0 0;
+    transition: transform 0.5s ease;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  // Badge d'icône flottant sur la photo, même code couleur que le badge de catégorie
+  // en dessous — repère visuel immédiat avant même de lire le texte.
+  &__icone {
+    position: absolute;
+    top: v.$space-3;
+    left: v.$space-3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: v.$radius-full;
+    box-shadow: 0 2px 8px rgba(15, 23, 20, 0.25);
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    &--education {
+      background-color: v.$color-accent-light;
+      color: v.$color-accent-dark;
+    }
+
+    &--sante {
+      background-color: v.$color-secondary-light;
+      color: v.$color-secondary-dark;
+    }
+
+    &--economie {
+      background-color: v.$color-primary-light;
+      color: v.$color-primary-dark;
+    }
   }
 
   &__contenu {
@@ -27,6 +160,12 @@
     color: v.$color-text-tertiary;
     font-size: 0.8125rem;
     margin: v.$space-2 0 0;
+  }
+
+  &__vide {
+    color: v.$color-text-secondary;
+    text-align: center;
+    padding: v.$space-6 0;
   }
 
   h2 {
