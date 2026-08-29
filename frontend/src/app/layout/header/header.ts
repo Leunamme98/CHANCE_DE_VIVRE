@@ -56,6 +56,12 @@ export class Header implements AfterViewInit {
     this.router.events.pipe(filter((e) => e instanceof NavigationEnd)).subscribe(() => {
       requestAnimationFrame(() => this.positionnerIndicateur());
     });
+
+    // La largeur des liens change avec la langue (ex: "Nos projets" -> "Unsere Projekte") :
+    // sans ceci, l'indicateur gardait la largeur calculée pour l'ancienne langue.
+    this.translate.onLangChange.subscribe(() => {
+      requestAnimationFrame(() => this.positionnerIndicateur());
+    });
   }
 
   ngAfterViewInit(): void {
