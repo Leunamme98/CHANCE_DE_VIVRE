@@ -22,12 +22,15 @@
   }
 }
 
-.cdv-liste-missions {
+// Timeline verticale : un rail (point + ligne) à gauche de chaque carte, la ligne relie
+// chaque point au suivant pour suggérer une progression entre les 3 piliers.
+.cdv-timeline-missions {
   display: flex;
   flex-direction: column;
-  gap: v.$space-5;
   max-width: 720px;
   margin: v.$space-6 auto 0;
+  padding: 0;
+  list-style: none;
   text-align: left;
 
   h3 {
@@ -51,6 +54,84 @@
     li {
       margin-bottom: v.$space-1;
     }
+  }
+
+  &__etape {
+    display: flex;
+    align-items: stretch;
+    gap: v.$space-4;
+
+    @include v.desktop {
+      gap: v.$space-5;
+    }
+  }
+
+  &__rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: none;
+    width: 48px;
+
+    @include v.desktop {
+      width: 56px;
+    }
+  }
+
+  &__point {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 48px;
+    height: 48px;
+    border-radius: v.$radius-full;
+    // Anneau de la même couleur que le fond de la section (cdv-section--alt) pour que le
+    // point "perce" proprement la ligne verticale continue.
+    box-shadow: 0 0 0 4px v.$color-surface-alt;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    &--education {
+      background-color: v.$color-accent-light;
+      color: v.$color-accent-dark;
+    }
+
+    &--sante {
+      background-color: v.$color-secondary-light;
+      color: v.$color-secondary-dark;
+    }
+
+    &--economie {
+      background-color: v.$color-primary-light;
+      color: v.$color-primary-dark;
+    }
+
+    @include v.desktop {
+      width: 56px;
+      height: 56px;
+
+      svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+
+  &__ligne {
+    flex: 1;
+    width: 2px;
+    margin: v.$space-1 0;
+    background-color: v.$color-border-strong;
+  }
+
+  &__contenu {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: v.$space-6;
   }
 }
 
@@ -127,6 +208,13 @@
   gap: v.$space-4;
   margin-top: v.$space-6;
   text-align: center;
+
+  // min-width: 0 annule le min-width: auto par défaut d'une piste de grille, qui sinon
+  // refuse de rétrécir sous la largeur intrinsèque du <img width="160"> et fait déborder
+  // la grille horizontalement sur mobile.
+  cdv-carte {
+    min-width: 0;
+  }
 
   @include v.desktop {
     grid-template-columns: repeat(4, 1fr);

@@ -8,6 +8,60 @@
 </section>
 
 <section class="cdv-section cdv-section--alt">
+  <h2>{{ 'MISSIONS.TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre">{{ 'MISSIONS.SOUS_TITRE' | translate }}</p>
+
+  <ol class="cdv-timeline-missions">
+    @for (mission of missions$ | async; track mission.id; let dernier = $last) {
+      <li class="cdv-timeline-missions__etape">
+        <div class="cdv-timeline-missions__rail">
+          <span class="cdv-timeline-missions__point cdv-timeline-missions__point--{{ mission.pilier }}" aria-hidden="true">
+            @switch (mission.icone) {
+              @case ('school') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                  <path d="M6 10.5V16c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5" />
+                  <path d="M22 8v6" />
+                </svg>
+              }
+              @case ('health') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20.5s-7-4.3-9.3-8.7C1.2 9 2.5 5.8 5.6 5.8c1.9 0 3.2 1 4 2.1.8-1.1 2.1-2.1 4-2.1 3.1 0 4.4 3.2 2.9 6-2.3 4.4-9.3 8.7-9.3 8.7z" />
+                  <path d="M3.8 12h2.6l1.6-2.6 1.8 4.6 1.6-3.4 1.2 1.4h4.2" />
+                </svg>
+              }
+              @case ('economy') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="2 17 9.5 9.5 14 14 22 5" />
+                  <polyline points="15 5 22 5 22 12" />
+                </svg>
+              }
+            }
+          </span>
+          @if (!dernier) {
+            <span class="cdv-timeline-missions__ligne" aria-hidden="true"></span>
+          }
+        </div>
+
+        <cdv-carte class="cdv-timeline-missions__contenu">
+          <cdv-badge [type]="mission.pilier">{{
+            'COMMON.CATEGORIE_' + mission.pilier.toUpperCase() | translate
+          }}</cdv-badge>
+          <h3>{{ mission.titre }}</h3>
+          <p>{{ mission.description }}</p>
+          <h4>{{ 'MISSIONS.EXEMPLES_TITRE' | translate }}</h4>
+          <ul>
+            @for (exemple of mission.exemples; track exemple) {
+              <li>{{ exemple }}</li>
+            }
+          </ul>
+        </cdv-carte>
+      </li>
+    }
+  </ol>
+</section>
+
+<section class="cdv-section">
   <h2>{{ 'QUI_SOMMES_NOUS.VALEURS_TITRE' | translate }}</h2>
   <div class="cdv-grille-valeurs">
     <cdv-carte>
@@ -25,7 +79,7 @@
   </div>
 </section>
 
-<section class="cdv-section">
+<section class="cdv-section cdv-section--alt">
   <h2>{{ 'QUI_SOMMES_NOUS.ZONE_TITRE' | translate }}</h2>
   <p>{{ 'QUI_SOMMES_NOUS.ZONE_TEXTE' | translate }}</p>
 </section>
@@ -49,28 +103,6 @@
 </section>
 
 <section class="cdv-section cdv-section--alt">
-  <h2>{{ 'MISSIONS.TITRE' | translate }}</h2>
-  <p class="cdv-section__sous-titre">{{ 'MISSIONS.SOUS_TITRE' | translate }}</p>
-  <div class="cdv-liste-missions">
-    @for (mission of missions$ | async; track mission.id) {
-      <cdv-carte>
-        <cdv-badge [type]="mission.pilier">{{
-          'COMMON.CATEGORIE_' + mission.pilier.toUpperCase() | translate
-        }}</cdv-badge>
-        <h3>{{ mission.titre }}</h3>
-        <p>{{ mission.description }}</p>
-        <h4>{{ 'MISSIONS.EXEMPLES_TITRE' | translate }}</h4>
-        <ul>
-          @for (exemple of mission.exemples; track exemple) {
-            <li>{{ exemple }}</li>
-          }
-        </ul>
-      </cdv-carte>
-    }
-  </div>
-</section>
-
-<section class="cdv-section">
   <h2>{{ 'PARTENAIRES.TITRE' | translate }}</h2>
   <p class="cdv-section__sous-titre">{{ 'PARTENAIRES.SOUS_TITRE' | translate }}</p>
   <div class="cdv-grille-partenaires">
