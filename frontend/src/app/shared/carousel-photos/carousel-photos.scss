@@ -24,13 +24,16 @@
     height: 100%;
   }
 
+  // Chaque diapo est positionnée par un translateX (calculé dans le composant) au lieu d'un
+  // fondu : la diapo suivante glisse depuis la droite et pousse l'actuelle vers la gauche
+  // (l'inverse en reculant), jamais de fondu croisé.
   &__diapo {
     position: absolute;
     inset: 0;
     margin: 0;
-    opacity: 0;
     overflow: hidden;
-    transition: opacity 700ms ease-in-out;
+    transition: transform 600ms ease-in-out;
+    will-change: transform;
 
     img {
       position: relative;
@@ -39,20 +42,15 @@
       width: 100%;
       height: 100%;
       // Plein cadre : la photo couvre toujours 100% du conteneur, jamais de pilier
-      // flouté ni d'aperçu de la diapo voisine sur les côtés.
+      // flouté ni d'aperçu de la diapo voisine sur les côtés. object-position est
+      // fourni par diapo (voir template) pour garder le sujet visible au recadrage.
       object-fit: cover;
-      object-position: center;
     }
 
-    &--active {
-      opacity: 1;
-      z-index: 1;
-
+    &--active img {
       // Léger zoom continu ("Ken Burns") pendant l'affichage — désactivé si l'utilisateur
       // préfère moins d'animations.
-      img {
-        animation: cdv-carousel-photos-kenburns 6800ms ease-out forwards;
-      }
+      animation: cdv-carousel-photos-kenburns 6800ms ease-out forwards;
     }
 
     @media (prefers-reduced-motion: reduce) {

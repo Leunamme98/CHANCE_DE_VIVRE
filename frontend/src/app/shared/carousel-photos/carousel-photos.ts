@@ -1,4 +1,4 @@
-import { Component, DestroyRef, PLATFORM_ID, effect, inject, input, signal } from '@angular/core';
+import { Component, DestroyRef, PLATFORM_ID, effect, inject, input, signal, untracked } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslatePipe } from '@ngx-translate/core';
 import { HeroSlide } from '../../core/models/hero-slide.model';
@@ -35,9 +35,12 @@ export class CarouselPhotos {
 
   constructor() {
     effect(() => {
+      // Ne dépendre que de `slides` : redemarrerMinuteur() lit enPause() en interne, et
+      // l'appeler sans untracked() ferait dépendre cet effect de enPause — provoquant une
+      // remise à 0 de la diapo active à chaque survol de souris (voir bug initial).
       this.slides();
       this.indexActif.set(0);
-      this.redemarrerMinuteur();
+      untracked(() => this.redemarrerMinuteur());
     });
 
     this.destroyRef.onDestroy(() => this.arreterMinuteur());
@@ -45,6 +48,24 @@ export class CarouselPhotos {
 
   cheminImage(nom: string): string {
     return cheminImage(nom);
+  }
+
+  // Décalage (en multiples de 100%) de la diapo i par rapport à la diapo active, en choisissant
+  // toujours le sens le plus court sur l'anneau des diapos — c'est ce qui fait glisser la nouvelle
+  // diapo depuis le bon côté (droite en avançant, gauche en reculant), y compris en bouclant du
+  // dernier au premier élément.
+  decalage(i: number): number {
+    const total = this.slides().length;
+    if (total === 0) {
+      return 0;
+    }
+    let d = i - this.indexActif();
+    if (d > total / 2) {
+      d -= total;
+    } else if (d < -total / 2) {
+      d += total;
+    }
+    return d;
   }
 
   suivant(): void {

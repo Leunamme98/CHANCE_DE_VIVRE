@@ -17,11 +17,12 @@
         class="cdv-carousel-photos__diapo"
         [class.cdv-carousel-photos__diapo--active]="i === indexActif()"
         [attr.aria-hidden]="i === indexActif() ? null : true"
-        [style.background-image]="'url(' + cheminImage(slide.image) + ')'"
+        [style.transform]="'translateX(' + decalage(i) * 100 + '%)'"
       >
         <img
           [src]="cheminImage(slide.image)"
           [alt]="slide.legende | translate"
+          [style.object-position]="slide.position || 'center'"
           [attr.loading]="i === 0 ? 'eager' : 'lazy'"
           [attr.fetchpriority]="i === 0 ? 'high' : null"
           width="1600"

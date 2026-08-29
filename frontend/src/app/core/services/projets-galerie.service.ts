@@ -7,9 +7,9 @@ import { GaleriePhoto } from '../models/galerie-photo.model';
 @Injectable({ providedIn: 'root' })
 export class ProjetsGalerieService {
   private readonly photos: GaleriePhoto[] = [
-    { image: 'projets-01-ciment-construction', legende: 'PROJETS.GALERIE_PHOTO_1' },
-    { image: 'projets-02-sensibilisation', legende: 'PROJETS.GALERIE_PHOTO_2' },
-    { image: 'projets-03-inauguration-sante', legende: 'PROJETS.GALERIE_PHOTO_3' },
+    { image: 'projets-01-ciment-construction', legende: 'PROJETS.GALERIE_PHOTO_1', position: 'center 55%' },
+    { image: 'projets-02-sensibilisation', legende: 'PROJETS.GALERIE_PHOTO_2', position: 'center 35%' },
+    { image: 'projets-03-inauguration-sante', legende: 'PROJETS.GALERIE_PHOTO_3', position: 'center 30%' },
   ];
 
   getAll(): Observable<GaleriePhoto[]> {

@@ -34,6 +34,29 @@
   <div class="cdv-grille-missions">
     @for (mission of missions$ | async; track mission.id) {
       <cdv-carte>
+        <div class="cdv-icone-domaine cdv-icone-domaine--{{ mission.pilier }}" aria-hidden="true">
+          @switch (mission.icone) {
+            @case ('school') {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3 2 8l10 5 10-5-10-5z" />
+                <path d="M6 10.5V16c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5" />
+                <path d="M22 8v6" />
+              </svg>
+            }
+            @case ('health') {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20.5s-7-4.3-9.3-8.7C1.2 9 2.5 5.8 5.6 5.8c1.9 0 3.2 1 4 2.1.8-1.1 2.1-2.1 4-2.1 3.1 0 4.4 3.2 2.9 6-2.3 4.4-9.3 8.7-9.3 8.7z" />
+                <path d="M3.8 12h2.6l1.6-2.6 1.8 4.6 1.6-3.4 1.2 1.4h4.2" />
+              </svg>
+            }
+            @case ('economy') {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="2 17 9.5 9.5 14 14 22 5" />
+                <polyline points="15 5 22 5 22 12" />
+              </svg>
+            }
+          }
+        </div>
         <cdv-badge [type]="mission.pilier">{{ 'COMMON.CATEGORIE_' + mission.pilier.toUpperCase() | translate }}</cdv-badge>
         <h3>{{ mission.titre }}</h3>
         <p>{{ mission.description }}</p>

@@ -7,9 +7,9 @@ import { GaleriePhoto } from '../models/galerie-photo.model';
 @Injectable({ providedIn: 'root' })
 export class AProposGalerieService {
   private readonly photos: GaleriePhoto[] = [
-    { image: 'apropos-01-partenaires-terrain', legende: 'A_PROPOS.GALERIE_PHOTO_1' },
-    { image: 'apropos-02-partenaire-visite', legende: 'A_PROPOS.GALERIE_PHOTO_2' },
-    { image: 'apropos-03-certificat-covid', legende: 'A_PROPOS.GALERIE_PHOTO_3' },
+    { image: 'apropos-01-partenaires-terrain', legende: 'A_PROPOS.GALERIE_PHOTO_1', position: 'center 25%' },
+    { image: 'apropos-02-partenaire-visite', legende: 'A_PROPOS.GALERIE_PHOTO_2', position: 'center 15%' },
+    { image: 'apropos-03-certificat-covid', legende: 'A_PROPOS.GALERIE_PHOTO_3', position: 'center 30%' },
   ];
 
   getAll(): Observable<GaleriePhoto[]> {
