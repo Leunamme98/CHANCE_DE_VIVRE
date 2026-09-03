@@ -1,22 +1,25 @@
 # Déploiement Netlify — site statique pré-rendu (Angular + @angular/ssr en mode Prerender).
 #
-# Le projet Angular vit dans `frontend/`, d'où le `base` : toutes les autres options de cette
-# section sont relatives à ce répertoire.
-#
-# Aucune règle de redirection SPA (`/* -> /index.html`) n'est déclarée volontairement :
-# `ng build` génère un vrai fichier HTML pour chacune des 4 routes (cf. app.routes.server.ts),
-# que Netlify sert directement. Un catch-all renverrait un HTTP 200 sur les URL inexistantes,
-# ce qui produirait des « soft 404 » pénalisés par les moteurs de recherche.
+# Volontairement SANS clé `base`. Avec un `base`, la résolution du chemin `publish` est ambiguë :
+# la documentation dit qu'il est relatif au `base`, mais Netlify a modifié ce comportement par le
+# passé pour les dépôts à sous-dossiers, et un chemin mal résolu produit un déploiement vide qui
+# répond 404 partout sans message d'erreur explicite.
+# Sans `base`, `publish` est sans ambiguïté relatif à la racine du dépôt, et la commande gère
+# elle-même le passage dans `frontend/`.
 
 [build]
-  base = "frontend"
-  command = "npm run build"
-  publish = "dist/chance-de-vivre/browser"
+  command = "cd frontend && npm ci && npm run build"
+  publish = "frontend/dist/chance-de-vivre/browser"
 
 [build.environment]
-  # Angular 22 exige Node ^20.19 || ^22.12 || ^24. On épingle une LTS supportée plutôt que de
-  # dépendre de la version par défaut de Netlify, qui peut changer sans préavis.
-  NODE_VERSION = "22"
+  # Angular 22 exige Node ^20.19 || ^22.12 || ^24. On épingle 24 : « 22 » pourrait résoudre vers
+  # un 22.x antérieur à 22.12, que la CLI Angular refuserait.
+  NODE_VERSION = "24"
+
+# Aucune redirection SPA (`/* -> /index.html`) n'est déclarée volontairement : `ng build` génère
+# un vrai fichier HTML pour chacune des 4 routes (cf. app.routes.server.ts), que Netlify sert
+# directement. Un catch-all renverrait un HTTP 200 sur les URL inexistantes, ce qui produirait
+# des « soft 404 » pénalisés par les moteurs de recherche.
 
 # Le service worker et son manifeste ne doivent jamais être servis depuis un cache :
 # sinon un visiteur déjà venu peut rester bloqué indéfiniment sur une version périmée du site.
