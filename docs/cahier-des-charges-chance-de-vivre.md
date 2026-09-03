@@ -142,7 +142,8 @@ Ce document contient l'ensemble des valeurs précises et non négociables du pro
 - Code source Angular (site V1)
 - Fichiers de traduction FR/EN/DE
 - Manifest PWA + icônes
-- Instructions de déploiement (Netlify/Vercel) et de connexion du domaine
+- Instructions de déploiement et de connexion du domaine — livrées sous forme de configuration exécutable (`netlify.toml`) plutôt que de documentation à appliquer à la main, complétée par `docs/stack-technique.md`
+- **Site déployé et accessible : https://chancedevivre-togo.netlify.app** (publication automatique à chaque push sur `main`, HTTPS actif)
 
 ---
 

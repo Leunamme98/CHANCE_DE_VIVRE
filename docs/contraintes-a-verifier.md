@@ -33,8 +33,18 @@
 
 ## SEO
 
-- [ ] Prerendering actif sur toutes les pages
+- [x] ~~Prerendering actif sur toutes les pages~~ : vérifié en production — les 4 routes répondent HTTP 200 avec leur HTML complet
 - [ ] Balises title/description définies par page (dans chaque langue)
+- [ ] **Contenu dupliqué à éviter dès l'achat du domaine** : le sous-domaine `*.netlify.app` reste actif définitivement. Sans redirection, Google indexerait deux sites identiques. Ajouter la redirection 301 documentée dans `docs/stack-technique.md` — **uniquement après** que le domaine réponde en HTTPS
+
+## Déploiement (site en ligne depuis le 3 septembre 2026)
+
+URL de production : **https://chancedevivre-togo.netlify.app** — publication automatique à chaque push sur `main`.
+
+- [ ] **Formulaire de contact non encore validé de bout en bout** : les attributs Netlify Forms sont bien présents dans le HTML servi, mais l'enregistrement du formulaire côté Netlify n'a pas pu être vérifié à distance. Ouvrir l'onglet *Forms* du tableau de bord : un formulaire nommé `contact` doit y figurer. **Si la détection a échoué, les envois retournent une erreur sans autre signal.**
+- [ ] **Notification email des soumissions à configurer** côté Netlify. Tant qu'aucune adresse n'est renseignée, les messages sont bien enregistrés mais **personne n'est prévenu** — le formulaire semble fonctionner alors que rien n'arrive.
+- [ ] **Ne jamais réintroduire la clé `base` dans `netlify.toml`** : elle a provoqué une panne totale (404 sur toutes les routes) avec un build affiché en vert et aucun message d'erreur. Voir la mise en garde détaillée dans `docs/stack-technique.md`.
+- [ ] **Formulaire de contact intestable en local** : Netlify Forms n'existe que sur un déploiement Netlify. En `npm start`, l'envoi échoue — ne pas conclure à une régression.
 
 ## Accessibilité
 
@@ -87,7 +97,7 @@ Placeholders introduits dans les services `core/services/*` — à valider avant
 - [ ] **Notification email à configurer côté Netlify** : aucune adresse de destination n'est dans le dépôt (c'est voulu). Sans configuration dans le tableau de bord, les messages sont stockés dans Netlify mais **personne n'est prévenu**
 - [ ] **Fonction perdue au passage à Netlify Forms** : la copie du message envoyée à l'expéditeur (l'ancien champ Formspree `_cc`) n'a pas d'équivalent intégré. À rétablir uniquement via une Netlify Function si le client y tient
 - [ ] **Anti-spam** : un piège à robots (`netlify-honeypot="bot-field"`) est en place, invisible et retiré de l'arbre d'accessibilité. Netlify propose en plus un reCAPTCHA activable côté tableau de bord — à envisager si du spam passe malgré le piège
-- [ ] **⚠️ Email de contact** (`organisation.service.ts`) : `contact@chancedevivre-togo.org` est désormais l'adresse **retenue officiellement**, mais elle **ne fonctionne pas encore** — le domaine n'est pas acheté et la boîte (ou la redirection) n'est pas créée. D'ici là, le lien `mailto:` affiché sur la page Contact et dans le pied de page **pointe dans le vide, sans message d'erreur pour le visiteur**. À traiter en priorité au moment de l'achat du domaine, ou masquer la ligne « Email » en attendant
+- [ ] **🔴 Email de contact — défaut actuellement VISIBLE en production** (`organisation.service.ts`) : `contact@chancedevivre-togo.org` est l'adresse retenue officiellement, mais elle **ne fonctionne pas** — le domaine n'est pas acheté et la boîte n'est pas créée. Le site étant désormais **publiquement accessible**, tout visiteur qui clique sur ce lien `mailto:` (page Contact et pied de page) écrit dans le vide, **sans aucun message d'erreur**. Ce n'est plus une hypothèse : c'est un défaut en ligne. Deux issues : acheter le domaine et créer la boîte, ou masquer la ligne « Email » en attendant
 - [ ] **⚠️ Contradiction sur le siège social** : `organisation.service.ts` affiche `Rue Assomé, Tsévié, Togo`, adresse notée comme **confirmée par le client**. Or la description officielle de l'association indique `SIÈGE SOCIAL : DAVIÉ ASSOMÉ`, et la publication sur la maison des jeunes situe Assomé « à 5 km de Davié, dans la préfecture de Zio ». L'adresse **n'a pas été modifiée** dans l'attente d'un arbitrage : c'est celle qui s'affiche sur la page Contact et dans le pied de page
 - [ ] **Textes narratifs FR** (`assets/i18n/fr.json` — valeurs, sous-titres) : premier jet éditorial, formulation non validée. En revanche « Notre histoire » (`QUI_SOMMES_NOUS.HISTOIRE_TEXTE`) et « Notre zone d'action » (`ZONE_TEXTE`) sont désormais **repris de la description officielle et des publications du client** (création en mars 2012, mission d'accès à l'éducation et à la santé, attention aux jeunes, IST/VIH/SIDA, veuves et orphelins, partenariat Tukolere Wamu, 14 localités sur 4 régions) — seule la mise en forme reste à valider
 - [ ] **Traductions EN/DE** (`assets/i18n/en.json`, `de.json`) : traduction assistée (pas de traducteur professionnel pour la V1, conformément au cahier des charges section 6) — à faire relire par un locuteur natif avant mise en ligne

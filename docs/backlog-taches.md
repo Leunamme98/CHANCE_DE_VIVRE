@@ -52,14 +52,19 @@ fournies par le client ; les placeholders restants sont explicitement marqués `
 
 ## Phase 5 — Déploiement
 
-- ✅ Configuration de déploiement Netlify (`netlify.toml` : base, commande, dossier publié, version de Node, en-têtes de cache du service worker)
-- ⬜ Création du site sur Netlify et premier déploiement depuis GitHub
-- ⬜ Vérifier que le formulaire `contact` est bien détecté dans l'onglet *Forms* de Netlify
-- ⬜ Configurer la notification email des soumissions côté tableau de bord Netlify
+- ✅ Configuration de déploiement Netlify (`netlify.toml` : commande, dossier publié, version de Node, en-têtes de cache du service worker)
+- ✅ **Site en ligne : https://chancedevivre-togo.netlify.app** — publication automatique à chaque push sur `main`, HTTPS actif
+- ✅ Contenu du déploiement vérifié en direct : 4 domaines d'action, sous-titre « Quatre piliers », 14 réalisations réelles, 5 filtres, chiffres 500+ / 80+ / 12+ localités / 14+ années, attributs Netlify Forms présents dans le HTML servi
+
+> **Panne rencontrée et résolue** — le premier déploiement répondait **404 sur toutes les routes** alors que Netlify affichait un build « Complete » en vert. Cause : la clé `base = "frontend"` dans `netlify.toml`, qui faisait résoudre `publish` vers un dossier inexistant et publier un déploiement vide, sans aucun message d'erreur. Corrigé en supprimant `base` et en donnant le chemin complet depuis la racine du dépôt. Détail et mise en garde dans `docs/stack-technique.md`.
+
+- ⬜ Vérifier que le formulaire `contact` est bien détecté dans l'onglet *Forms* de Netlify (la détection se fait au build ; si elle échoue, les envois retournent une erreur sans autre signal)
+- ⬜ Configurer la notification email des soumissions côté tableau de bord Netlify (sans ça, les messages sont enregistrés mais personne n'est prévenu)
+- ⬜ Supprimer le formulaire de test côté compte Formspree
 - ⬜ Achat du domaine `chancedevivre-togo.org` chez Netmaster (15 000 FCFA/an)
 - ⬜ Connexion du domaine à Netlify + vérification HTTPS actif
 - ⬜ Création de la boîte ou de la redirection `contact@chancedevivre-togo.org`
-- ⬜ Supprimer le formulaire de test côté compte Formspree
+- ⬜ **Après** que le domaine réponde en HTTPS : ajouter la redirection 301 du `.netlify.app` vers le domaine (`docs/stack-technique.md`) — à ne surtout pas faire avant, sous peine de rendre le site inaccessible
 - ⬜ (Optionnel) Achat du `.tg` chez Netmaster (10 000 FCFA/an), redirigé vers le `.org`
 
 ---

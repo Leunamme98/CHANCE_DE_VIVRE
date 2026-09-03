@@ -49,5 +49,24 @@ Dernière mise à jour : 28 août 2026 (Phase 0 — Setup)
 - **Prerendering** : `@angular/ssr` est configuré en mode `RenderMode.Prerender` pour **toutes** les routes (`src/app/app.routes.server.ts`), donc chaque page est générée en HTML statique au build (`ng build`). Le dossier `dist/chance-de-vivre/browser/` est déployable tel quel sur un hébergeur statique (Netlify/Vercel), conformément au cahier des charges. Le bundle serveur Express (`server.mjs`) n'est utile que si un hébergement SSR à la demande est choisi plus tard.
 - **Assets statiques** : le dossier source est `src/assets/` (et non `public/`, qui est le défaut Angular 22) pour respecter l'arborescence de `docs/normes-codage.md`. Son contenu est copié à la **racine** du build (comme l'aurait fait `public/`) — donc un fichier `src/assets/i18n/fr.json` est servi à l'URL `/i18n/fr.json`, **pas** `/assets/i18n/fr.json`. Le loader ngx-translate est configuré avec le préfixe `/i18n/` en conséquence.
 - **Formulaire de contact — Netlify Forms, aucune dépendance npm** : le formulaire n'utilise ni SDK ni bibliothèque. Netlify détecte le formulaire au déploiement en analysant le HTML pré-rendu de `/contact` (`data-netlify="true"` + attributs `name` sur les champs), et les soumissions sont postées par `HttpClient` en `application/x-www-form-urlencoded` avec un champ `form-name`. Deux conséquences à connaître : (1) `responseType: 'text'` est obligatoire dans `contact.service.ts` car Netlify répond du HTML et non du JSON — sans ça un envoi réussi serait interprété comme une erreur ; (2) le formulaire **ne fonctionne pas en `ng serve`**, le point d'entrée n'existant que sur un déploiement Netlify. Remplace Formspree, qui était un service tiers supplémentaire plafonné à 50 envois/mois.
-- **Déploiement — `netlify.toml` à la racine du dépôt** : `base = "frontend"`, `publish = "dist/chance-de-vivre/browser"`, `NODE_VERSION = "22"` (Angular 22 exige `^20.19 || ^22.12 || ^24`). Aucune redirection SPA n'est déclarée : les 4 routes étant pré-rendues en fichiers HTML réels, un catch-all `/* -> /index.html 200` transformerait les URL inexistantes en « soft 404 ». Des en-têtes `Cache-Control: no-cache` sont posés sur `ngsw-worker.js` et `ngsw.json` pour qu'un visiteur ne reste pas bloqué sur une version périmée du service worker.
+- **Déploiement — `netlify.toml` à la racine du dépôt.** Configuration en production :
+  ```toml
+  [build]
+    command = "cd frontend && npm ci && npm run build"
+    publish = "frontend/dist/chance-de-vivre/browser"
+  [build.environment]
+    NODE_VERSION = "24"
+  ```
+  ⚠️ **Ne pas réintroduire de clé `base`.** La première version de ce fichier utilisait `base = "frontend"` avec `publish = "dist/chance-de-vivre/browser"`. Résultat : Netlify a résolu le chemin vers un dossier inexistant, publié un déploiement **vide**, et répondu **404 sur toutes les routes** — tout en affichant un build « Complete » en vert. Aucune erreur n'apparaît nulle part, ce qui rend la panne très pénible à diagnostiquer. La documentation Netlify affirme que `publish` est relatif à `base`, mais le comportement a changé par le passé pour les dépôts à sous-dossiers. Sans `base`, `publish` est sans ambiguïté relatif à la racine du dépôt, et la commande gère elle-même le `cd frontend`.
+  `NODE_VERSION` est épinglé à **24** et non `"22"` : Angular 22 exige `^20.19 || ^22.12 || ^24`, et `"22"` pourrait résoudre vers un 22.x antérieur à 22.12 que la CLI refuserait.
+  Aucune redirection SPA n'est déclarée : les 4 routes étant pré-rendues en fichiers HTML réels, un catch-all `/* -> /index.html 200` transformerait les URL inexistantes en « soft 404 ». Des en-têtes `Cache-Control: no-cache` sont posés sur `ngsw-worker.js` et `ngsw.json` pour qu'un visiteur ne reste pas bloqué sur une version périmée du service worker.
+- **Redirection à ajouter APRÈS l'achat du domaine.** Le sous-domaine `*.netlify.app` reste actif définitivement, même avec un domaine personnalisé. Pour éviter que Google n'indexe deux sites identiques, ajouter alors dans `netlify.toml` :
+  ```toml
+  [[redirects]]
+    from = "https://chancedevivre-togo.netlify.app/*"
+    to = "https://chancedevivre-togo.org/:splat"
+    status = 301
+    force = true
+  ```
+  ⚠️ **Ordre impératif** : acheter le domaine → le connecter à Netlify → vérifier qu'il répond en HTTPS → **puis seulement** ajouter cette redirection. L'ajouter avant rendrait le site totalement inaccessible, y compris depuis le `.netlify.app` qui est aujourd'hui la seule porte d'entrée.
 - **Préfixe de sélecteur** : `angular.json` définit `"prefix": "cdv"` — tout composant généré via `ng generate component` produit un sélecteur `cdv-...`, conformément à `docs/normes-codage.md`.
