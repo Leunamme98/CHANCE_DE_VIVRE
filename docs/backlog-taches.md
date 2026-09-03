@@ -25,14 +25,15 @@ Détails et versions exactes : voir `docs/stack-technique.md`.
 
 Architecture simplifiée à 4 pages (décision prise après un premier passage à 6 pages séparées) :
 
-- ✅ Page Accueil `/` (hero, aperçu 3 domaines, chiffres clés, CTA)
-- ✅ Page À propos `/a-propos` (fusion : histoire, valeurs, zone d'action, 3 missions + exemples réels, partenaires)
-- ✅ Page Nos projets `/projets` (galerie + données placeholder, à valider — voir `contraintes-a-verifier.md`)
-- ✅ Page Contact `/contact` (formulaire réactif avec validation + intégration Formspree, coordonnées) — mise en avant en bouton plein dans la navigation
+- ✅ Page Accueil `/` (hero, aperçu 4 domaines sur une ligne, chiffres clés, CTA)
+- ✅ Page À propos `/a-propos` (fusion : histoire, valeurs, zone d'action, 4 missions + exemples réels, galerie partenaires, partenaires)
+- ✅ Page Nos projets `/projets` (14 réalisations réelles issues des publications du client, filtrables par domaine)
+- ✅ Page Contact `/contact` (formulaire réactif avec validation + intégration Netlify Forms, coordonnées) — mise en avant en bouton plein dans la navigation
 
-Build de production (`ng build`) et tests unitaires (`ng test`, 10/10) validés. Contenu factuel confirmé
-utilisé partout où possible ; chiffres/photos/logos/n° de téléphone/endpoint Formspree sont des
-placeholders explicitement marqués `TODO` (voir `docs/contraintes-a-verifier.md`).
+Build de production (`ng build`) et tests unitaires (`ng test`, 21/21) validés. Les projets, la zone
+d'action, l'année de création et les photos reposent désormais sur les publications officielles
+fournies par le client ; les placeholders restants sont explicitement marqués `TODO`
+(voir `docs/contraintes-a-verifier.md`).
 
 ## Phase 3 — Contenu
 
@@ -51,9 +52,15 @@ placeholders explicitement marqués `TODO` (voir `docs/contraintes-a-verifier.md
 
 ## Phase 5 — Déploiement
 
-- ⬜ Déploiement sur Netlify/Vercel
-- ⬜ Achat et connexion du domaine `.tg`
-- ⬜ Vérification HTTPS actif
+- ✅ Configuration de déploiement Netlify (`netlify.toml` : base, commande, dossier publié, version de Node, en-têtes de cache du service worker)
+- ⬜ Création du site sur Netlify et premier déploiement depuis GitHub
+- ⬜ Vérifier que le formulaire `contact` est bien détecté dans l'onglet *Forms* de Netlify
+- ⬜ Configurer la notification email des soumissions côté tableau de bord Netlify
+- ⬜ Achat du domaine `chancedevivre-togo.org` chez Netmaster (15 000 FCFA/an)
+- ⬜ Connexion du domaine à Netlify + vérification HTTPS actif
+- ⬜ Création de la boîte ou de la redirection `contact@chancedevivre-togo.org`
+- ⬜ Supprimer le formulaire de test côté compte Formspree
+- ⬜ (Optionnel) Achat du `.tg` chez Netmaster (10 000 FCFA/an), redirigé vers le `.org`
 
 ---
 

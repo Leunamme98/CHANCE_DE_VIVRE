@@ -1,4 +1,4 @@
-export type CategorieProjet = 'education' | 'sante' | 'economie';
+export type CategorieProjet = 'education' | 'sante' | 'economie' | 'environnement';
 
 export interface Projet {
   id: string;
@@ -7,6 +7,8 @@ export interface Projet {
   description: string;
   image: string;
   imageAlt: string;
-  date: string;
-  lieu: string;
+  /** Année de l'action. Omise quand la publication d'origine ne la mentionne pas. */
+  date?: string;
+  /** Localité de l'action. Omise quand la publication d'origine ne la mentionne pas. */
+  lieu?: string;
 }

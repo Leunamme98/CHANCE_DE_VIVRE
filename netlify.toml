@@ -1,0 +1,31 @@
+# Déploiement Netlify — site statique pré-rendu (Angular + @angular/ssr en mode Prerender).
+#
+# Le projet Angular vit dans `frontend/`, d'où le `base` : toutes les autres options de cette
+# section sont relatives à ce répertoire.
+#
+# Aucune règle de redirection SPA (`/* -> /index.html`) n'est déclarée volontairement :
+# `ng build` génère un vrai fichier HTML pour chacune des 4 routes (cf. app.routes.server.ts),
+# que Netlify sert directement. Un catch-all renverrait un HTTP 200 sur les URL inexistantes,
+# ce qui produirait des « soft 404 » pénalisés par les moteurs de recherche.
+
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = "dist/chance-de-vivre/browser"
+
+[build.environment]
+  # Angular 22 exige Node ^20.19 || ^22.12 || ^24. On épingle une LTS supportée plutôt que de
+  # dépendre de la version par défaut de Netlify, qui peut changer sans préavis.
+  NODE_VERSION = "22"
+
+# Le service worker et son manifeste ne doivent jamais être servis depuis un cache :
+# sinon un visiteur déjà venu peut rester bloqué indéfiniment sur une version périmée du site.
+[[headers]]
+  for = "/ngsw-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/ngsw.json"
+  [headers.values]
+    Cache-Control = "no-cache"

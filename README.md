@@ -2,7 +2,7 @@
 
 ## Contexte
 
-Site vitrine pour l'ONG **Chance De Vivre-Togo**, basée à Tsévié (région Maritime, Togo). L'ONG agit sur 3 piliers : éducation, santé, économie locale. Ce projet donne à l'ONG une présence web professionnelle : présenter la structure, ses missions, ses réalisations, ses partenaires, et permettre le contact.
+Site vitrine pour l'ONG **Chance De Vivre-Togo**, basée à Tsévié (région Maritime, Togo). L'ONG agit sur 4 piliers : éducation, santé, économie locale, environnement. Ce projet donne à l'ONG une présence web professionnelle : présenter la structure, ses missions, ses réalisations, ses partenaires, et permettre le contact.
 
 ## Documents de référence (à lire avant tout développement)
 
@@ -21,9 +21,9 @@ Site vitrine pour l'ONG **Chance De Vivre-Togo**, basée à Tsévié (région Ma
 - Données en dur (services TS), structurées comme une future API
 - PWA (`@angular/service-worker`)
 - i18n : ngx-translate (FR par défaut, EN, DE)
-- Formulaire de contact : Formspree
-- Hébergement cible : Netlify ou Vercel
-- Domaine cible : `.tg` (non acheté à ce jour)
+- Formulaire de contact : Netlify Forms (aucun service tiers en plus de l'hébergeur)
+- Hébergement : **Netlify** — offre gratuite. Vercel a été écarté : son offre gratuite (Hobby) interdit contractuellement l'usage commercial, ce qui exposerait l'ONG le jour où elle ajouterait un appel aux dons
+- Domaine cible : **`chancedevivre-togo.org`** (non acheté à ce jour — 15 000 FCFA/an chez Netmaster, Lomé). Le `.tg` reste envisagé en complément, redirigé vers le `.org`
 
 ## Statut actuel
 

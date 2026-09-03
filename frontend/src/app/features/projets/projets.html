@@ -13,6 +13,7 @@
         [class.cdv-filtres__item--education]="filtre === 'education'"
         [class.cdv-filtres__item--sante]="filtre === 'sante'"
         [class.cdv-filtres__item--economie]="filtre === 'economie'"
+        [class.cdv-filtres__item--environnement]="filtre === 'environnement'"
         [attr.aria-pressed]="filtreActif() === filtre"
         (click)="choisirFiltre(filtre)"
       >
@@ -57,6 +58,12 @@
                     <polyline points="15 5 22 5 22 12" />
                   </svg>
                 }
+                @case ('environnement') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" />
+                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                  </svg>
+                }
               }
             </span>
           </div>
@@ -66,7 +73,9 @@
             }}</cdv-badge>
             <h2>{{ projet.titre }}</h2>
             <p>{{ projet.description }}</p>
-            <p class="cdv-galerie__lieu">{{ projet.lieu }} · {{ projet.date }}</p>
+            @if (lieuEtDate(projet); as lieuEtDate) {
+              <p class="cdv-galerie__lieu">{{ lieuEtDate }}</p>
+            }
           </div>
         </cdv-carte>
       }

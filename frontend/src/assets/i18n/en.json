@@ -19,7 +19,8 @@
     "FERMER": "Close",
     "CATEGORIE_EDUCATION": "Education",
     "CATEGORIE_SANTE": "Health",
-    "CATEGORIE_ECONOMIE": "Local economy"
+    "CATEGORIE_ECONOMIE": "Local economy",
+    "CATEGORIE_ENVIRONNEMENT": "Environment"
   },
   "FOOTER": {
     "COORDONNEES_TITRE": "Contact details",
@@ -35,12 +36,12 @@
   },
   "ACCUEIL": {
     "TITRE_PAGE": "Chance de Vivre — Home",
-    "DESCRIPTION_PAGE": "Chance De Vivre-Togo NGO: education, health and local economy in Tsévié and several regions of Togo.",
+    "DESCRIPTION_PAGE": "Chance De Vivre-Togo NGO: education, health, environment and local economy in Tsévié and several regions of Togo.",
     "HERO_TITRE": "Every action counts to change a life",
-    "HERO_SOUS_TITRE": "Chance De Vivre-Togo works for education, health and local economic development in several parts of Togo.",
+    "HERO_SOUS_TITRE": "Chance De Vivre-Togo works for education, health, environment and local economic development in several parts of Togo.",
     "HERO_CTA": "Contact us",
     "DOMAINES_TITRE": "Our areas of action",
-    "DOMAINES_SOUS_TITRE": "Three pillars for a lasting impact",
+    "DOMAINES_SOUS_TITRE": "Four pillars for a lasting impact",
     "CHIFFRES_TITRE": "Our impact in numbers",
     "CTA_SECTION_TITRE": "Want to support us or learn more?",
     "CTA_SECTION_BOUTON": "Contact us",
@@ -48,10 +49,12 @@
     "GALERIE_PROJETS_REGION": "Slideshow: our achievements in the field"
   },
   "HERO": {
-    "SLIDE_1": "Hundreds of children gathered for the opening of a renovated school",
-    "SLIDE_2": "Every desk donated is one more chance to learn",
-    "SLIDE_3": "The strength of our work is the community that carries it",
-    "SLIDE_4": "Raising awareness about hygiene to protect everyone's health",
+    "SLIDE_1": "Clean drinking water in the school yard, finally within reach",
+    "SLIDE_2": "Every desk donated is one more chance to learn.",
+    "SLIDE_3": "World AIDS Day in Assomé: the whole village mobilised",
+    "SLIDE_4": "Soap made by women, an income that lasts",
+    "SLIDE_5": "Moringa and Artemisia: natural medicine shared with the communities",
+    "SLIDE_6": "The strength of our work is the community that carries it",
     "PRECEDENT": "Previous slide",
     "SUIVANT": "Next slide",
     "ALLER_SLIDE": "Go to slide {{n}}",
@@ -63,13 +66,16 @@
     "TITRE": "About us",
     "SOMMAIRE": "Page contents",
     "GALERIE_TITRE": "Our partners in the field",
-    "GALERIE_PHOTO_1": "Our international partners alongside us during an awareness session",
-    "GALERIE_PHOTO_2": "A partner visit to the communities we support",
-    "GALERIE_PHOTO_3": "Presenting a certificate of recognition during a Covid-19 awareness campaign"
+    "GALERIE_PHOTO_1": "Our German partners meeting the communities we support",
+    "GALERIE_PHOTO_2": "Cutting the ribbon: the Assomé youth centre opens its doors",
+    "GALERIE_PHOTO_3": "Speaking side by side with our partners at the opening ceremony",
+    "GALERIE_PHOTO_4": "Mothers in Hiheatro in front of the vaccination unit funded by Tukolere Wamu",
+    "GALERIE_PHOTO_5": "Handing over the keys to the CMS Hiheatro vaccination unit",
+    "GALERIE_PHOTO_6": "An honorary certificate received during a Covid-19 awareness campaign"
   },
   "QUI_SOMMES_NOUS": {
     "HISTOIRE_TITRE": "Our story",
-    "HISTOIRE_TEXTE": "Chance De Vivre-Togo is an NGO based in Tsévié, in the Maritime Region of Togo. For several years, it has carried out concrete actions for education, health and local economic development, alongside Togolese communities.",
+    "HISTOIRE_TEXTE": "Founded in March 2012, Chance De Vivre-Togo is a non-profit association based in the Zio prefecture, in Togo's Maritime Region. Its mission: to support the most disadvantaged towards access to education and healthcare, with particular attention to young people and their training. It works in the health and social field — caring for the sick, orphans and vulnerable children, people living with HIV/AIDS and widows — and was profoundly transformed by meeting its key partner, Tukolere Wamu.",
     "VALEURS_TITRE": "Our values",
     "VALEUR_SOLIDARITE_TITRE": "Solidarity",
     "VALEUR_SOLIDARITE_TEXTE": "Acting alongside communities, with them and for them.",
@@ -78,15 +84,19 @@
     "VALEUR_IMPACT_TITRE": "Lasting impact",
     "VALEUR_IMPACT_TEXTE": "Favouring actions that durably improve everyday life.",
     "ZONE_TITRE": "Our area of action",
-    "ZONE_TEXTE": "Our actions take place in several localities of Togo: Tsévié (Maritime Region), Agbonou and Anié (Plateaux Region), as well as the Kara Region.",
+    "ZONE_TEXTE": "Our work spans four of Togo's five regions: the Maritime Region (Assomé, Davié, Tsévié), the Plateaux Region (Kpalimé, Agodeke, Yokélé, Avetonou, Danyi N'Digbé, Agbonou, Anié), the Kara Region (Bafilo, N'Kassaïdé) and the Savanes Region (Batambouré, Dapaong).",
+    "ZONE_LOCALITE_ASSOME": "Assomé",
     "ZONE_LOCALITE_TSEVIE": "Tsévié",
-    "ZONE_LOCALITE_AGBONOU": "Agbonou",
-    "ZONE_LOCALITE_ANIE": "Anié",
-    "ZONE_LOCALITE_KARA": "Kara"
+    "ZONE_LOCALITE_KPALIME": "Kpalimé",
+    "ZONE_LOCALITE_AVETONOU": "Avetonou",
+    "ZONE_LOCALITE_DANYI": "Danyi N'Digbé",
+    "ZONE_LOCALITE_BAFILO": "Bafilo",
+    "ZONE_LOCALITE_NKASSAIDE": "N'Kassaïdé",
+    "ZONE_LOCALITE_DAPAONG": "Dapaong"
   },
   "MISSIONS": {
     "TITRE": "Our missions",
-    "SOUS_TITRE": "Three pillars, one ambition: durably improving the lives of Togolese communities.",
+    "SOUS_TITRE": "Four pillars, one ambition: durably improving the lives of Togolese communities.",
     "EXEMPLES_TITRE": "Examples of actions"
   },
   "PROJETS": {
@@ -99,8 +109,11 @@
     "AUCUN_RESULTAT": "No projects in this area yet.",
     "CTA_TITRE": "A project to suggest, or a question about our work?",
     "GALERIE_PHOTO_1": "Renovating a school: every bag of cement is a step towards decent classrooms",
-    "GALERIE_PHOTO_2": "Raising awareness among women to strengthen their economic independence",
-    "GALERIE_PHOTO_3": "Launching a health campaign in service of the communities"
+    "GALERIE_PHOTO_2": "The pupils of Yokélé in front of their new water point",
+    "GALERIE_PHOTO_3": "The Bafilo secondary school site: four classrooms fully renovated",
+    "GALERIE_PHOTO_4": "The Danyi N'Digbé health unit after its renovation",
+    "GALERIE_PHOTO_5": "The CMS Hiheatro vaccination unit, newly built",
+    "GALERIE_PHOTO_6": "A Moringa plantation tended together with the community"
   },
   "PARTENAIRES": {
     "TITRE": "Our partners",

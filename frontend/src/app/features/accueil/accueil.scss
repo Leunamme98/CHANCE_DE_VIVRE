@@ -51,9 +51,11 @@
   gap: v.$space-4;
   margin-top: v.$space-6;
 
+  // Les 4 domaines d'action tiennent sur une seule ligne en desktop : icône et titre passent
+  // en colonne (cf. .cdv-domaine-entete) pour rester lisibles dans une colonne plus étroite.
   @include v.desktop {
-    grid-template-columns: repeat(3, 1fr);
-    gap: v.$space-5;
+    grid-template-columns: repeat(4, 1fr);
+    gap: v.$space-4;
   }
 
   h3 {
@@ -97,12 +99,19 @@
 }
 
 // Icône + nom du domaine sur une même ligne, centrés en bloc dans la carte.
+// En desktop, les 4 domaines partagent la largeur : on empile icône puis titre pour éviter
+// que les libellés longs (« Économie locale ») ne cassent sur deux lignes serrées.
 .cdv-domaine-entete {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: v.$space-3;
   margin-bottom: v.$space-3;
+
+  @include v.desktop {
+    flex-direction: column;
+    gap: v.$space-2;
+  }
 }
 
 // Icône ronde par domaine, mêmes tons que le badge de catégorie utilisé ailleurs sur le site
@@ -135,6 +144,11 @@
   &--economie {
     background-color: v.$color-primary-light;
     color: v.$color-primary-dark;
+  }
+
+  &--environnement {
+    background-color: v.$color-tertiary-light;
+    color: v.$color-tertiary-dark;
   }
 
   @include v.desktop {

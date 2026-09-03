@@ -8,8 +8,11 @@ import { GaleriePhoto } from '../models/galerie-photo.model';
 export class ProjetsGalerieService {
   private readonly photos: GaleriePhoto[] = [
     { image: 'projets-01-ciment-construction', legende: 'PROJETS.GALERIE_PHOTO_1', position: 'center 55%' },
-    { image: 'projets-02-sensibilisation', legende: 'PROJETS.GALERIE_PHOTO_2', position: 'center 35%' },
-    { image: 'projets-03-inauguration-sante', legende: 'PROJETS.GALERIE_PHOTO_3', position: 'center 30%' },
+    { image: 'galerie-eau-enfants-yokele', legende: 'PROJETS.GALERIE_PHOTO_2', position: 'center 45%' },
+    { image: 'projet-renovation-ceg-bafilo', legende: 'PROJETS.GALERIE_PHOTO_3', position: 'center 45%' },
+    { image: 'projet-usp-danyi-ndigbe', legende: 'PROJETS.GALERIE_PHOTO_4', position: 'center 50%' },
+    { image: 'projet-vaccination-hiheatro', legende: 'PROJETS.GALERIE_PHOTO_5', position: 'center 45%' },
+    { image: 'environnement-01-moringa-plantation', legende: 'PROJETS.GALERIE_PHOTO_6', position: 'center 60%' },
   ];
 
   getAll(): Observable<GaleriePhoto[]> {

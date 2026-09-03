@@ -9,9 +9,10 @@ import { ChiffreCle } from '../models/chiffre-cle.model';
 // des actes précis) pour refléter l'ensemble des actions, pas un seul type d'intervention :
 // TODO: contenu à valider avec le client (voir docs/contraintes-a-verifier.md).
 //
-// Année de création de l'ONG non documentée dans le projet : TODO: confirmer la vraie date avec
-// le client et remplacer ANNEE_CREATION — le nombre d'années affiché se recalcule alors seul.
-const ANNEE_CREATION = 2015;
+// Année de création confirmée par le client (publication officielle sur l'inauguration de la
+// maison des jeunes d'Assomé : « Créée en Mars 2012 »). Le nombre d'années affiché se recalcule
+// automatiquement chaque année.
+const ANNEE_CREATION = 2012;
 
 @Injectable({ providedIn: 'root' })
 export class ChiffresClesService {
@@ -23,7 +24,9 @@ export class ChiffresClesService {
       libelle: 'Bâtiments et équipements scolaires financés',
       icone: 'education',
     },
-    { id: 'localites', valeur: '4+', libelle: "Localités d'intervention au Togo", icone: 'localites' },
+    // 14 localités nommément documentées (publications du client + cahier des charges section 2),
+    // réparties sur 4 des 5 régions du Togo. Le « 12+ » reste volontairement en deçà du décompte.
+    { id: 'localites', valeur: '12+', libelle: "Localités d'intervention au Togo", icone: 'localites' },
     {
       id: 'anciennete',
       valeur: `${new Date().getFullYear() - ANNEE_CREATION}+`,

@@ -227,6 +227,11 @@
       color: v.$color-primary-dark;
     }
 
+    &--environnement {
+      background-color: v.$color-tertiary-light;
+      color: v.$color-tertiary-dark;
+    }
+
     @include v.desktop {
       width: 56px;
       height: 56px;

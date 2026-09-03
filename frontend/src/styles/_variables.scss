@@ -16,6 +16,9 @@ $color-secondary-light: #F3E1D6;
 $color-accent: #F4A623;
 $color-accent-dark: #C9800F;
 $color-accent-light: #FDECC7;
+$color-tertiary: #4E9A2F;
+$color-tertiary-dark: #3B7522;
+$color-tertiary-light: #E2F3D9;
 
 // Neutres
 $color-bg: #FBF9F5;
@@ -87,6 +90,9 @@ $breakpoint-desktop: 768px;
   --color-accent: #{$color-accent};
   --color-accent-dark: #{$color-accent-dark};
   --color-accent-light: #{$color-accent-light};
+  --color-tertiary: #{$color-tertiary};
+  --color-tertiary-dark: #{$color-tertiary-dark};
+  --color-tertiary-light: #{$color-tertiary-light};
 
   /* Neutres */
   --color-bg: #{$color-bg};

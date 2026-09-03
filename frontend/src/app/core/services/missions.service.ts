@@ -38,6 +38,19 @@ export class MissionsService {
       exemples: ['Production de savon par des groupements de femmes'],
       icone: 'economy',
     },
+    {
+      id: 'environnement',
+      pilier: 'environnement',
+      titre: 'Environnement',
+      description:
+        "Valorisation des plantes locales et de la médecine naturelle : culture, pépinières et vulgarisation du Moringa et de l'Artémisia Annua auprès des communautés.",
+      exemples: [
+        "Vulgarisation du Moringa et de l'Artémisia Annua",
+        'Pépinières et production de plants',
+        'Récolte et conservation des semences de Moringa',
+      ],
+      icone: 'environment',
+    },
   ];
 
   getAll(): Observable<Mission[]> {

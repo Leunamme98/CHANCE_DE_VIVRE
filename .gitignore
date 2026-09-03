@@ -5,3 +5,9 @@ Thumbs.db
 # Éditeurs
 .idea/
 *.swp
+
+# Photos brutes fournies par le client (téléchargées depuis sa page Facebook).
+# Matériau de travail, pas un livrable : les versions retenues sont retaillées, retouchées et
+# compressées dans frontend/src/assets/images/. Exclues du dépôt pour ne pas l'alourdir de
+# ~7 Mo de doublons ni encombrer la racine du projet vue depuis GitHub.
+/images/

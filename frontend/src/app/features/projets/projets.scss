@@ -52,6 +52,10 @@
       background-color: v.$color-primary-dark;
     }
 
+    &--environnement.cdv-filtres__item--actif {
+      background-color: v.$color-tertiary-dark;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       transition: none;
 
@@ -149,6 +153,11 @@
     &--economie {
       background-color: v.$color-primary-light;
       color: v.$color-primary-dark;
+    }
+
+    &--environnement {
+      background-color: v.$color-tertiary-light;
+      color: v.$color-tertiary-dark;
     }
   }
 

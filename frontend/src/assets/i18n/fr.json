@@ -19,7 +19,8 @@
     "FERMER": "Fermer",
     "CATEGORIE_EDUCATION": "Éducation",
     "CATEGORIE_SANTE": "Santé",
-    "CATEGORIE_ECONOMIE": "Économie locale"
+    "CATEGORIE_ECONOMIE": "Économie locale",
+    "CATEGORIE_ENVIRONNEMENT": "Environnement"
   },
   "FOOTER": {
     "COORDONNEES_TITRE": "Coordonnées",
@@ -35,12 +36,12 @@
   },
   "ACCUEIL": {
     "TITRE_PAGE": "Chance de Vivre — Accueil",
-    "DESCRIPTION_PAGE": "ONG Chance De Vivre-Togo : éducation, santé et économie locale à Tsévié et dans plusieurs régions du Togo.",
+    "DESCRIPTION_PAGE": "ONG Chance De Vivre-Togo : éducation, santé, environnement et économie locale à Tsévié et dans plusieurs régions du Togo.",
     "HERO_TITRE": "Chaque geste compte pour changer une vie",
-    "HERO_SOUS_TITRE": "Chance De Vivre-Togo agit pour l'éducation, la santé et l'économie locale dans plusieurs localités du Togo.",
+    "HERO_SOUS_TITRE": "Chance De Vivre-Togo agit pour l'éducation, la santé, l'environnement et l'économie locale dans plusieurs localités du Togo.",
     "HERO_CTA": "Nous contacter",
     "DOMAINES_TITRE": "Nos domaines d'action",
-    "DOMAINES_SOUS_TITRE": "Trois piliers pour un impact durable",
+    "DOMAINES_SOUS_TITRE": "Quatre piliers pour un impact durable",
     "CHIFFRES_TITRE": "Notre impact en chiffres",
     "CTA_SECTION_TITRE": "Envie de nous soutenir ou d'en savoir plus ?",
     "CTA_SECTION_BOUTON": "Contactez-nous",
@@ -48,10 +49,12 @@
     "GALERIE_PROJETS_REGION": "Diaporama : nos réalisations sur le terrain"
   },
   "HERO": {
-    "SLIDE_1": "Des centaines d'enfants rassemblés pour l'ouverture d'une école rénovée",
-    "SLIDE_2": "Chaque table-banc offerte, c'est une chance de plus d'apprendre",
-    "SLIDE_3": "La force de nos actions, c'est la communauté qui les porte",
-    "SLIDE_4": "Sensibiliser à l'hygiène pour protéger la santé de tous",
+    "SLIDE_1": "De l'eau potable dans la cour de l'école, enfin à portée de main",
+    "SLIDE_2": "Chaque table-banc offert, c'est une chance de plus d'apprendre.",
+    "SLIDE_3": "Journée mondiale de lutte contre le VIH/SIDA à Assomé : tout le village mobilisé",
+    "SLIDE_4": "Le savon fabriqué par les femmes, un revenu qui dure",
+    "SLIDE_5": "Le Moringa et l'Artémisia, une médecine naturelle partagée avec les communautés",
+    "SLIDE_6": "La force de nos actions, c'est la communauté qui les porte",
     "PRECEDENT": "Diapositive précédente",
     "SUIVANT": "Diapositive suivante",
     "ALLER_SLIDE": "Aller à la diapositive {{n}}",
@@ -63,13 +66,16 @@
     "TITRE": "À propos de nous",
     "SOMMAIRE": "Sommaire de la page",
     "GALERIE_TITRE": "Nos partenaires sur le terrain",
-    "GALERIE_PHOTO_1": "Nos partenaires internationaux à nos côtés lors d'une séance de sensibilisation",
-    "GALERIE_PHOTO_2": "Visite de nos partenaires auprès des communautés bénéficiaires",
-    "GALERIE_PHOTO_3": "Remise d'un certificat d'honneur lors d'une campagne de sensibilisation à la Covid-19"
+    "GALERIE_PHOTO_1": "Nos partenaires allemands à la rencontre des communautés bénéficiaires",
+    "GALERIE_PHOTO_2": "Coupure du ruban : la maison des jeunes d'Assomé ouvre ses portes",
+    "GALERIE_PHOTO_3": "Prise de parole commune lors de l'inauguration, aux côtés de nos partenaires",
+    "GALERIE_PHOTO_4": "Les mères de Hiheatro devant l'antenne de vaccination financée par Tukolere Wamu",
+    "GALERIE_PHOTO_5": "Remise des clés de l'antenne de vaccination du CMS Hiheatro",
+    "GALERIE_PHOTO_6": "Un certificat d'honneur reçu lors d'une campagne de sensibilisation à la Covid-19"
   },
   "QUI_SOMMES_NOUS": {
     "HISTOIRE_TITRE": "Notre histoire",
-    "HISTOIRE_TEXTE": "Chance De Vivre-Togo est une ONG basée à Tsévié, dans la région Maritime du Togo. Depuis plusieurs années, elle mène des actions concrètes en faveur de l'éducation, de la santé et de l'économie locale, aux côtés des communautés togolaises.",
+    "HISTOIRE_TEXTE": "Créée en mars 2012, Chance De Vivre-Togo est une association à but non lucratif implantée dans la préfecture de Zio, en région Maritime. Sa mission : accompagner les couches les plus défavorisées vers un accès à l'éducation et à la santé, avec une attention particulière portée aux jeunes et à leur formation. Elle œuvre dans le domaine sanitaire et social — prise en charge des malades, des orphelins et des enfants vulnérables, des personnes vivant avec le VIH/SIDA et des veuves — et a connu une véritable métamorphose avec la rencontre de son partenaire privilégié, Tukolere Wamu.",
     "VALEURS_TITRE": "Nos valeurs",
     "VALEUR_SOLIDARITE_TITRE": "Solidarité",
     "VALEUR_SOLIDARITE_TEXTE": "Agir aux côtés des communautés, avec et pour elles.",
@@ -78,15 +84,19 @@
     "VALEUR_IMPACT_TITRE": "Impact durable",
     "VALEUR_IMPACT_TEXTE": "Privilégier des actions qui changent durablement le quotidien.",
     "ZONE_TITRE": "Notre zone d'action",
-    "ZONE_TEXTE": "Nos actions se déploient dans plusieurs localités du Togo : Tsévié (région Maritime), Agbonou et Anié (région des Plateaux), ainsi que dans la région de Kara.",
+    "ZONE_TEXTE": "Nos actions se déploient dans quatre des cinq régions du Togo : la région Maritime (Assomé, Davié, Tsévié), la région des Plateaux (Kpalimé, Agodeke, Yokélé, Avetonou, Danyi N'Digbé, Agbonou, Anié), la région de la Kara (Bafilo, N'Kassaïdé) et la région des Savanes (Batambouré, Dapaong).",
+    "ZONE_LOCALITE_ASSOME": "Assomé",
     "ZONE_LOCALITE_TSEVIE": "Tsévié",
-    "ZONE_LOCALITE_AGBONOU": "Agbonou",
-    "ZONE_LOCALITE_ANIE": "Anié",
-    "ZONE_LOCALITE_KARA": "Kara"
+    "ZONE_LOCALITE_KPALIME": "Kpalimé",
+    "ZONE_LOCALITE_AVETONOU": "Avetonou",
+    "ZONE_LOCALITE_DANYI": "Danyi N'Digbé",
+    "ZONE_LOCALITE_BAFILO": "Bafilo",
+    "ZONE_LOCALITE_NKASSAIDE": "N'Kassaïdé",
+    "ZONE_LOCALITE_DAPAONG": "Dapaong"
   },
   "MISSIONS": {
     "TITRE": "Nos missions",
-    "SOUS_TITRE": "Trois piliers, une même ambition : améliorer durablement la vie des communautés togolaises.",
+    "SOUS_TITRE": "Quatre piliers, une même ambition : améliorer durablement la vie des communautés togolaises.",
     "EXEMPLES_TITRE": "Exemples d'actions"
   },
   "PROJETS": {
@@ -99,8 +109,11 @@
     "AUCUN_RESULTAT": "Aucun projet dans ce domaine pour le moment.",
     "CTA_TITRE": "Un projet à nous proposer ou une question sur nos actions ?",
     "GALERIE_PHOTO_1": "Rénovation d'une école : chaque sac de ciment est un pas vers des salles de classe dignes",
-    "GALERIE_PHOTO_2": "Sensibiliser les femmes pour renforcer leur autonomie économique",
-    "GALERIE_PHOTO_3": "Inauguration d'une campagne de santé au service des communautés"
+    "GALERIE_PHOTO_2": "Les élèves de Yokélé devant leur nouveau point d'eau",
+    "GALERIE_PHOTO_3": "Le chantier du CEG de Bafilo : quatre salles de classe remises à neuf",
+    "GALERIE_PHOTO_4": "L'unité de soins de Danyi N'Digbé après sa rénovation",
+    "GALERIE_PHOTO_5": "L'antenne de vaccination du CMS Hiheatro, sortie de terre",
+    "GALERIE_PHOTO_6": "Une plantation de Moringa entretenue avec la communauté"
   },
   "PARTENAIRES": {
     "TITRE": "Nos partenaires",

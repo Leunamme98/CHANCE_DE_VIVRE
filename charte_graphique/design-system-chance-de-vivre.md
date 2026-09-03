@@ -20,6 +20,11 @@
 | Or solaire | Accent | `#F4A623` | `244, 166, 35` | Call-to-action principaux, highlights, icône catégorie « éducation » |
 | Or foncé | Accent foncé | `#C9800F` | `201, 128, 15` | Hover CTA, texte sur fond or clair |
 | Or clair | Accent clair | `#FDECC7` | `253, 236, 199` | Fonds badges catégorie « éducation » |
+| Vert feuille | Tertiaire | `#4E9A2F` | `78, 154, 47` | Accents tertiaires, icônes catégorie « environnement » |
+| Vert feuille foncé | Tertiaire foncé | `#3B7522` | `59, 117, 34` | Hover éléments tertiaires, texte sur fond vert feuille clair |
+| Vert feuille clair | Tertiaire clair | `#E2F3D9` | `226, 243, 217` | Fonds badges catégorie « environnement » |
+
+> Le vert feuille tire volontairement vers le jaune-vert, là où le vert palmier primaire (catégorie « Économie ») tire vers le bleu-vert : les deux catégories restent distinguables au premier coup d'œil malgré une même famille chromatique.
 
 ### 1.2 Couleurs neutres / interface
 
@@ -183,6 +188,7 @@ Dimensions : hauteur 44px, radius 8px, padding horizontal 14px.
 | Catégorie éducation | `#FDECC7` | `#C9800F` |
 | Catégorie santé | `#F3E1D6` | `#9C5636` |
 | Catégorie économie | `#D9F0E4` | `#155C3E` |
+| Catégorie environnement | `#E2F3D9` | `#3B7522` |
 | Succès | `#E5F5EA` | `#3B9E5C` |
 | Erreur | `#FAE7E3` | `#B4472E` |
 

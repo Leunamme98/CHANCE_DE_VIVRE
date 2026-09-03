@@ -1,6 +1,13 @@
 import { Component, input } from '@angular/core';
 
-export type BadgeType = 'neutre' | 'education' | 'sante' | 'economie' | 'succes' | 'erreur';
+export type BadgeType =
+  | 'neutre'
+  | 'education'
+  | 'sante'
+  | 'economie'
+  | 'environnement'
+  | 'succes'
+  | 'erreur';
 
 @Component({
   imports: [],

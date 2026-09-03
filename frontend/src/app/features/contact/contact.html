@@ -12,7 +12,32 @@
   <div class="cdv-contact__panel cdv-contact__panel--formulaire">
     <h2>{{ 'CONTACT.FORMULAIRE_TITRE' | translate }}</h2>
 
-    <form class="cdv-contact__formulaire" [formGroup]="formulaire" (ngSubmit)="envoyer()" novalidate>
+    <!--
+      `name` + `data-netlify` : c'est ainsi que Netlify détecte le formulaire dans le HTML
+      pré-rendu au moment du déploiement. Les attributs `name` de chaque champ ci-dessous lui
+      servent à nommer les colonnes des soumissions — les `formControlName` d'Angular n'y
+      suffisent pas, ils ne produisent aucun attribut dans le HTML final.
+    -->
+    <form
+      class="cdv-contact__formulaire"
+      [formGroup]="formulaire"
+      (ngSubmit)="envoyer()"
+      novalidate
+      name="contact"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <!--
+        Piège à robots : retiré de l'affichage et de l'arbre d'accessibilité, donc invisible
+        pour les visiteurs comme pour les lecteurs d'écran. Un robot qui remplit tous les
+        champs le remplira aussi, et Netlify rejettera alors la soumission. Volontairement
+        sans libellé : un texte en dur violerait la règle i18n de docs/normes-codage.md.
+      -->
+      <p hidden aria-hidden="true">
+        <input name="bot-field" tabindex="-1" autocomplete="off" />
+      </p>
+
       <div class="cdv-champ">
         <label for="contact-nom">{{ 'CONTACT.CHAMP_NOM' | translate }}</label>
         <div class="cdv-champ__zone">
@@ -23,6 +48,7 @@
           <input
             id="contact-nom"
             type="text"
+            name="nom"
             formControlName="nom"
             [class.cdv-champ__input--erreur]="
               formulaire.controls.nom.invalid && formulaire.controls.nom.touched
@@ -45,6 +71,7 @@
           <input
             id="contact-email"
             type="email"
+            name="email"
             formControlName="email"
             [class.cdv-champ__input--erreur]="
               formulaire.controls.email.invalid && formulaire.controls.email.touched
@@ -66,6 +93,7 @@
           <input
             id="contact-telephone"
             type="tel"
+            name="telephone"
             formControlName="telephone"
             placeholder="+228 90 19 25 82"
             [class.cdv-champ__input--erreur]="
@@ -91,6 +119,7 @@
           <input
             id="contact-objet"
             type="text"
+            name="objet"
             formControlName="objet"
             [class.cdv-champ__input--erreur]="
               formulaire.controls.objet.invalid && formulaire.controls.objet.touched
@@ -112,6 +141,7 @@
           <textarea
             id="contact-message"
             rows="5"
+            name="message"
             formControlName="message"
             [class.cdv-champ__input--erreur]="
               formulaire.controls.message.invalid && formulaire.controls.message.touched

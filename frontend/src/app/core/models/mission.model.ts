@@ -1,4 +1,4 @@
-export type PilierMission = 'education' | 'sante' | 'economie';
+export type PilierMission = 'education' | 'sante' | 'economie' | 'environnement';
 
 export interface Mission {
   id: string;

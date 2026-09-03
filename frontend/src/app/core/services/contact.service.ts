@@ -3,36 +3,42 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MessageContact } from '../models/message-contact.model';
 
-// TODO: contenu à valider avec le client — remplacer par l'URL Formspree réelle une fois le formulaire créé.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TODO_FORM_ID';
+// Netlify Forms (remplace Formspree). Fonctionnement :
+//  1. au déploiement, Netlify analyse le HTML pré-rendu et détecte le formulaire de /contact
+//     grâce à `data-netlify="true"` et aux attributs `name` des champs (cf. contact.html) ;
+//  2. les soumissions sont ensuite postées sur n'importe quel chemin du site, en
+//     `application/x-www-form-urlencoded`, avec un champ `form-name` qui doit correspondre
+//     exactement au `name` du formulaire déclaré dans le template.
+//
+// Aucune clé d'API ni adresse de destination dans le dépôt : les notifications sont
+// configurées côté tableau de bord Netlify et modifiables sans redéploiement.
+//
+// ⚠️ Ce point d'entrée n'existe QUE sur un déploiement Netlify. En `ng serve`, le POST vers `/`
+// n'est intercepté par personne et échoue : le formulaire ne peut pas être testé en local
+// autrement qu'avec `netlify dev` ou sur une preview de déploiement.
+const NETLIFY_FORM_NAME = 'contact';
+const NETLIFY_FORM_ENDPOINT = '/';
 
-// Le projet n'a pas de backend (cahier des charges section 5.1 : formulaire "sans backend",
-// via Formspree) : on ne peut donc pas envoyer nous-mêmes un email SMTP depuis le site (ça
-// exigerait un serveur et des identifiants secrets, impossibles à garder côté client). On
-// s'appuie à la place sur les champs spéciaux de Formspree pour obtenir un email bien formaté :
-// - `_subject` : objet de l'email reçu par l'ONG (repris du champ "Objet" du formulaire)
-// - `_replyto` : répondre depuis la boîte mail de l'ONG revient directement à l'expéditeur
-// - `_cc`      : envoie une copie du message à l'expéditeur lui-même
-// TODO: `_cc` (copie à l'expéditeur) et les autoréponses Formspree dépendent du plan tarifaire
-// du compte Formspree utilisé — à vérifier une fois le vrai compte/formulaire créé.
 @Injectable({ providedIn: 'root' })
 export class ContactService {
   constructor(private readonly http: HttpClient) {}
 
-  envoyer(message: MessageContact): Observable<object> {
-    const payload = {
+  envoyer(message: MessageContact): Observable<string> {
+    const corps = new URLSearchParams({
+      'form-name': NETLIFY_FORM_NAME,
       nom: message.nom,
       email: message.email,
-      telephone: message.telephone || undefined,
+      telephone: message.telephone,
       objet: message.objet,
       message: message.message,
-      _subject: `[Site web Chance De Vivre-Togo] ${message.objet}`,
-      _replyto: message.email,
-      _cc: message.email,
-    };
+    });
 
-    return this.http.post(FORMSPREE_ENDPOINT, payload, {
-      headers: { Accept: 'application/json' },
+    // `responseType: 'text'` est indispensable : Netlify répond avec du HTML, pas du JSON.
+    // Sans ça, Angular tenterait un JSON.parse et basculerait sur la branche d'erreur alors
+    // que l'envoi a réussi.
+    return this.http.post(NETLIFY_FORM_ENDPOINT, corps.toString(), {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      responseType: 'text',
     });
   }
 }
