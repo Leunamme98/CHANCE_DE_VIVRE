@@ -35,6 +35,49 @@ d'action, l'année de création et les photos reposent désormais sur les public
 fournies par le client ; les placeholders restants sont explicitement marqués `TODO`
 (voir `docs/contraintes-a-verifier.md`).
 
+## Retours client — ergonomie mobile (6 septembre 2026)
+
+Trois retours remontés après la mise en ligne, et leur traitement.
+
+### 1. Hamburger peu visible sur mobile
+
+- [x] Transformer le hamburger en **capsule bordée** (fond blanc, `$color-border`, `$shadow-sm`), identique au bloc logo à gauche — il se lit désormais comme un bouton et équilibre la barre
+- [x] Épaissir les traits de **1,5 px à 2 px** et les passer du noir `#2B2A27` au **vert primaire** `#1E8A5B` pour signaler l'interactivité
+- [x] Ajouter la **transformation en croix** à l'ouverture, avec état `--ouvert` et bordure verte
+- [x] Conserver la zone tactile de 44 × 44 px imposée par la charte
+- [x] Neutraliser l'animation sous `prefers-reduced-motion`
+- [ ] Faire valider le rendu sur un téléphone réel par la personne à l'origine du retour
+
+### 2. FR / EN / DE incompréhensibles
+
+Décision du client : **drapeaux SVG**. Ils sont associés au **nom de la langue dans sa propre langue**, de sorte qu'un germanophone reconnaisse « Deutsch » même si le drapeau lui échappe.
+
+- [x] Créer le composant `shared/drapeau-langue/` (patron repris de `icone-contact`), avec les drapeaux France, Royaume-Uni et Allemagne en SVG inline
+- [x] Dessiner les trois drapeaux sur un cadre **3:2 commun** pour qu'ils aient tous exactement la même taille dans la liste
+- [x] Ajouter un liseré interne sur chaque drapeau — sans lui, la bande blanche du drapeau français se fond dans le fond blanc du panneau
+- [x] Afficher **Français / English / Deutsch** à côté de chaque drapeau
+- [ ] ⚠️ **Point de vigilance signalé au client** : le header affiche déjà les drapeaux du Togo et de l'Allemagne à côté du logo, comme symbole du partenariat. Le drapeau allemand apparaît donc maintenant **deux fois avec deux sens différents** (langue et pays partenaire). À surveiller lors de la validation : si la confusion est réelle, retirer les drapeaux du sélecteur et ne garder que les noms
+
+### 3. Langue introuvable sur mobile (enterrée dans le hamburger)
+
+- [x] Sortir le sélecteur de langue du menu et le placer **dans la barre, à côté du hamburger**
+- [x] Créer un déclencheur compact **globe + code de la langue courante** (`🌐 FR`), visible sans rien ouvrir
+- [x] Ouvrir au clic un **panneau déroulant** listant les trois langues (`$shadow-md`, valeur que la charte désigne pour les menus déroulants)
+- [x] Remplacer les trois pastilles par ce même composant en desktop : « Français English Deutsch » côte à côte ferait ~200 px contre 110 px, et déborderait à 768 px avec le logo, les trois liens et le bouton Contact
+- [x] Conserver le dégradé vert des anciennes pastilles sur la langue active, pour la continuité visuelle
+- [x] Fermeture au clic extérieur et à la touche Échap
+- [x] Ouvrir un panneau ferme systématiquement l'autre (ils se recouvriraient sur mobile)
+- [x] Attributs d'accessibilité : `aria-expanded`, `aria-haspopup`, `role="listbox"`, `role="option"`, `aria-selected`, `lang` sur chaque option
+- [ ] Tester la navigation au clavier sur le panneau (Tab, Entrée, Échap)
+- [ ] Vérifier le contraste du déclencheur et des options au lecteur de contraste
+
+### Vérifications transverses
+
+- [x] Build de production et 21 tests unitaires au vert
+- [x] Sélecteur de langue confirmé **hors** de la nav dans le HTML pré-rendu
+- [ ] Contrôle visuel sur mobile réel (360 px) et sur desktop (1920 px)
+- [ ] Relancer l'audit Lighthouse (accessibilité) après ces changements
+
 ## Phase 3 — Contenu
 
 - ⬜ Rédaction contenu FR (placeholder proche des posts Facebook réels)

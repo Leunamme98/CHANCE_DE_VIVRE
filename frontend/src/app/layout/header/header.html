@@ -27,18 +27,6 @@
       </span>
     </a>
 
-    <button
-      type="button"
-      class="cdv-header__burger"
-      (click)="basculerMenu()"
-      [attr.aria-expanded]="menuOuvert()"
-      [attr.aria-label]="(menuOuvert() ? 'NAV.FERMER_MENU' : 'NAV.OUVRIR_MENU') | translate"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
     <nav class="cdv-header__nav" [class.cdv-header__nav--ouvert]="menuOuvert()">
       <div class="cdv-header__liens">
         <a
@@ -84,18 +72,73 @@
         </span>
       </a>
 
-      <div class="cdv-header__langues" role="group" [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate">
-        @for (langue of langues; track langue.code) {
-          <button
-            type="button"
-            class="cdv-header__langue"
-            [class.cdv-header__langue--active]="langueActuelle() === langue.code"
-            (click)="changerLangue(langue.code)"
-          >
-            {{ langue.libelle }}
-          </button>
+    </nav>
+
+    <div class="cdv-header__actions">
+      <!--
+        Selecteur de langue place DANS la barre et non dans le menu hamburger : un visiteur qui
+        ne lit pas la langue courante ne penserait pas a ouvrir un menu pour en changer.
+      -->
+      <div class="cdv-header__langue-select" #selecteurLangue>
+        <button
+          type="button"
+          class="cdv-header__langue-declencheur"
+          [class.cdv-header__langue-declencheur--ouvert]="languesOuvertes()"
+          (click)="basculerLangues()"
+          [attr.aria-expanded]="languesOuvertes()"
+          aria-haspopup="listbox"
+          [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate"
+        >
+          <svg class="cdv-header__globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            <path d="M2 12h20" />
+          </svg>
+          <span class="cdv-header__langue-code">{{ abregeCourant() }}</span>
+          <svg class="cdv-header__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+
+        @if (languesOuvertes()) {
+          <ul class="cdv-header__langue-panneau" role="listbox" [attr.aria-label]="'COMMON.CHANGER_LANGUE' | translate">
+            @for (langue of langues; track langue.code) {
+              <li>
+                <button
+                  type="button"
+                  role="option"
+                  class="cdv-header__langue-option"
+                  [class.cdv-header__langue-option--active]="langueActuelle() === langue.code"
+                  [attr.aria-selected]="langueActuelle() === langue.code"
+                  [attr.lang]="langue.code"
+                  (click)="changerLangue(langue.code)"
+                >
+                  <cdv-drapeau-langue [code]="langue.code" />
+                  <span class="cdv-header__langue-nom">{{ langue.nom }}</span>
+                  @if (langueActuelle() === langue.code) {
+                    <svg class="cdv-header__coche" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  }
+                </button>
+              </li>
+            }
+          </ul>
         }
       </div>
-    </nav>
+
+      <button
+        type="button"
+        class="cdv-header__burger"
+        [class.cdv-header__burger--ouvert]="menuOuvert()"
+        (click)="basculerMenu()"
+        [attr.aria-expanded]="menuOuvert()"
+        [attr.aria-label]="(menuOuvert() ? 'NAV.FERMER_MENU' : 'NAV.OUVRIR_MENU') | translate"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </div>
 </header>

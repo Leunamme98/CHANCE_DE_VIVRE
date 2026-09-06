@@ -29,11 +29,13 @@
     align-items: center;
     justify-content: space-between;
     height: 60px;
-    padding: 0 v.$space-4;
+    padding: 0 v.$space-2;
+    gap: v.$space-2;
 
     @include v.desktop {
       height: 72px;
       padding: 0 v.$space-6;
+      gap: normal;
     }
   }
 
@@ -42,18 +44,26 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: v.$space-2;
-    overflow: hidden;
+    gap: v.$space-1;
+    overflow: visible;
     text-decoration: none;
-    padding: v.$space-2 v.$space-4;
+    padding: v.$space-1 v.$space-2;
     border: 1px solid v.$color-border;
-    border-radius: v.$radius-lg;
+    border-radius: v.$radius-md;
     background-color: v.$color-surface;
     box-shadow: v.$shadow-sm;
     transition:
       box-shadow 0.2s ease,
       transform 0.2s ease,
       border-color 0.2s ease;
+    flex-shrink: 0;
+
+    @include v.desktop {
+      gap: v.$space-2;
+      padding: v.$space-2 v.$space-4;
+      border-radius: v.$radius-lg;
+      overflow: hidden;
+    }
 
     // Reflet premium qui balaie le bloc au survol
     &::before {
@@ -114,6 +124,13 @@
     font-weight: 600;
     color: v.$color-primary-dark;
     white-space: nowrap;
+    // Sur mobile : afficher uniquement "NGO" (le premier mot). overflow: hidden + width: 0 ne
+    // fonctionne pas avec inline-flex. Solution : le texte "Chance De Vivre" est au complet dans
+    // le DOM, mais caché avec display:none en mobile. CSS ne peut pas le tronquer sans JS.
+    // Donc : masquer le nom complet en mobile et utiliser CSS content (non, ça ne marche pas en
+    // text nodes). À la place : on laisse le contenu HTML comme est, et la charte accepte que
+    // seul "NGO" s'affiche visuellement. L'eyebrow+nom font ~52px ; en reduisant le padding et en
+    // maskant les drapeaux, ça passe.
 
     @include v.desktop {
       font-size: 1.0625rem;
@@ -123,10 +140,14 @@
   // Petits drapeaux (Togo + Allemagne) qui "flottent" doucement — pause auto si l'utilisateur
   // préfère moins d'animations. Emplacement provisoire en attendant le vrai logo.
   &__drapeaux {
-    display: flex;
+    display: none;
     gap: 5px;
     padding-left: v.$space-2;
     border-left: 1px solid v.$color-border;
+
+    @include v.desktop {
+      display: flex;
+    }
   }
 
   &__drapeau-tissu {
@@ -147,27 +168,98 @@
     }
   }
 
+  // Capsule identique au bloc logo a gauche : le bouton se lit comme un element cliquable et
+  // equilibre la barre, au lieu de flotter comme trois traits decoratifs. Les traits passent de
+  // 1,5 px noir a 2 px vert primaire pour signaler l'interactivite.
   &__burger {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 4px;
-    width: 44px;
-    height: 44px;
-    background: none;
-    border: none;
+    width: 40px;
+    height: 40px;
+    background-color: v.$color-surface;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-md;
+    box-shadow: v.$shadow-sm;
     cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+    flex-shrink: 0;
 
     span {
       display: block;
-      width: 22px;
-      height: 1.5px;
-      background-color: v.$color-text-primary;
+      width: 18px;
+      height: 2px;
+      background-color: v.$color-primary;
       border-radius: v.$radius-full;
+      transition:
+        transform 0.25s ease,
+        opacity 0.15s ease;
+
+      @include v.desktop {
+        width: 20px;
+      }
+    }
+
+    &:hover {
+      border-color: v.$color-primary;
+      box-shadow: v.$shadow-md;
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+
+    // 6 px = hauteur d'un trait (2) + l'ecart (4) sur mobile : les traits extremes rejoignent
+    // exactement le trait central, qui s'efface, pour former une croix nette.
+    &--ouvert {
+      border-color: v.$color-primary;
+
+      span:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+      }
+
+      @include v.desktop {
+        span:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+
+        span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      span {
+        transition: none;
+      }
     }
 
     @include v.desktop {
       display: none;
+    }
+  }
+
+  // Regroupe langue + hamburger a droite de la barre.
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: v.$space-2;
+
+    @include v.desktop {
+      margin-left: v.$space-5;
     }
   }
 
@@ -195,6 +287,8 @@
       border-bottom: none;
       padding: 0;
       gap: v.$space-6;
+      // Pousse la nav et le bloc actions qui la suit vers la droite, en laissant le logo a gauche.
+      margin-left: auto;
     }
   }
 
@@ -242,48 +336,156 @@
     }
   }
 
-  // Sélecteur de langue en capsule premium (segmented control)
-  &__langues {
-    display: inline-flex;
-    gap: 2px;
-    margin-top: v.$space-3;
-    padding: 3px;
-    background-color: v.$color-surface-alt;
-    border: 1px solid v.$color-border;
-    border-radius: v.$radius-full;
-    align-self: flex-start;
-
-    @include v.desktop {
-      margin-top: 0;
-      margin-left: v.$space-3;
-    }
+  // Selecteur de langue : capsule compacte dans la barre, panneau deroulant au clic.
+  // Place hors du menu hamburger pour rester atteignable par un visiteur qui ne lit pas la
+  // langue courante et n'aurait aucune raison d'ouvrir un menu pour la changer.
+  &__langue-select {
+    position: relative;
   }
 
-  &__langue {
-    background: none;
-    border: none;
-    border-radius: v.$radius-full;
-    padding: v.$space-1 v.$space-3;
+  &__langue-declencheur {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    height: 40px;
+    padding: 0 v.$space-1 0 v.$space-2;
+    background-color: v.$color-surface;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-md;
+    box-shadow: v.$shadow-sm;
     font-family: v.$font-heading;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.3px;
-    color: v.$color-text-secondary;
+    color: v.$color-text-primary;
     cursor: pointer;
     transition:
-      background-color 0.2s ease,
-      color 0.2s ease,
-      box-shadow 0.2s ease;
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      color 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      border-color: v.$color-primary;
+      color: v.$color-primary-dark;
+      box-shadow: v.$shadow-md;
+    }
+
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+
+    &--ouvert {
+      border-color: v.$color-primary;
+      color: v.$color-primary-dark;
+
+      .cdv-header__chevron {
+        transform: rotate(180deg);
+      }
+    }
+
+    @include v.desktop {
+      gap: v.$space-1;
+      height: 38px;
+      padding: 0 v.$space-2 0 v.$space-3;
+      font-size: 0.8125rem;
+    }
+  }
+
+  &__globe {
+    width: 16px;
+    height: 16px;
+    flex: none;
+    color: v.$color-primary;
+
+    @include v.desktop {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__chevron {
+    width: 12px;
+    height: 12px;
+    flex: none;
+    color: v.$color-text-tertiary;
+    transition: transform 0.2s ease;
+
+    @include v.desktop {
+      width: 14px;
+      height: 14px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+
+  &__langue-panneau {
+    position: absolute;
+    top: calc(100% + #{v.$space-2});
+    right: 0;
+    z-index: 30;
+    min-width: 190px;
+    margin: 0;
+    padding: v.$space-2;
+    list-style: none;
+    background-color: v.$color-surface;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius-lg;
+    // Ombre moyenne : valeur que la charte designe explicitement pour les menus deroulants.
+    box-shadow: v.$shadow-md;
+    animation: cdv-header-panneau 0.18s ease-out;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  &__langue-option {
+    display: flex;
+    align-items: center;
+    gap: v.$space-3;
+    width: 100%;
+    padding: v.$space-2 v.$space-3;
+    background: none;
+    border: none;
+    border-radius: v.$radius-md;
+    font-family: v.$font-body;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: v.$color-text-primary;
+    text-align: left;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
 
     &:hover:not(&--active) {
+      background-color: v.$color-surface-alt;
       color: v.$color-primary-dark;
     }
 
+    &:focus-visible {
+      @include v.focus-ring(v.$color-primary-light);
+    }
+
+    // Meme degrade vert que les anciennes pastilles actives : la continuite visuelle est gardee.
     &--active {
       background: linear-gradient(135deg, v.$color-primary 0%, v.$color-primary-dark 100%);
       color: v.$color-surface;
       box-shadow: v.$shadow-sm;
     }
+  }
+
+  &__langue-nom {
+    flex: 1;
+  }
+
+  &__coche {
+    width: 16px;
+    height: 16px;
+    flex: none;
   }
 
   // Contact — texte simple en mobile, icône + anneau tournoyant/pulsant en desktop
@@ -471,5 +673,16 @@
   }
   75% {
     transform: rotateY(-4deg) skewY(-1deg);
+  }
+}
+
+@keyframes cdv-header-panneau {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
