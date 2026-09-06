@@ -52,3 +52,17 @@
     padding: v.$space-8 v.$space-6;
   }
 }
+
+// Masquer le badge Netlify : "Powered by Netlify"
+[href*="netlify.app"] {
+  display: none !important;
+}
+
+.netlify-badge {
+  display: none !important;
+}
+
+// Alternative : cibler l'élément par son contenu (si le sélecteur ci-dessus ne marche pas)
+a[href*="netlify"] {
+  display: none !important;
+}
