@@ -32,3 +32,7 @@
   for = "/ngsw.json"
   [headers.values]
     Cache-Control = "no-cache"
+
+# Désactiver les injections Netlify non essentielles
+[context.production]
+  environment = { NETLIFY_SKIP_ROBOTS_TXT = "true" }
