@@ -1,39 +1,71 @@
+<!-- ===== HERO ===== -->
 <section class="cdv-hero">
   <div class="cdv-hero__contenu">
+    <div class="cdv-hero__badge" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="cdv-hero__badge-svg">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2" />
+        <text x="32" y="37" text-anchor="middle" font-size="16" font-weight="bold" fill="currentColor">14</text>
+        <text x="32" y="52" text-anchor="middle" font-size="10" fill="currentColor">ANS</text>
+      </svg>
+    </div>
     <h1>{{ 'ACCUEIL.HERO_TITRE' | translate }}</h1>
     <p>{{ 'ACCUEIL.HERO_SOUS_TITRE' | translate }}</p>
-    <cdv-bouton variante="accent" routerLink="/contact">{{
-      'ACCUEIL.HERO_CTA' | translate
-    }}</cdv-bouton>
+    <div class="cdv-hero__ctas">
+      <cdv-bouton variante="primaire" routerLink="/projets">{{ 'ACCUEIL.HERO_CTA_PROJETS' | translate }}</cdv-bouton>
+      <cdv-bouton variante="accent" routerLink="/contact">{{ 'ACCUEIL.HERO_CTA_CONTACT' | translate }}</cdv-bouton>
+    </div>
   </div>
 </section>
 
+<!-- ===== CAROUSEL HERO ===== -->
 <section class="cdv-hero-carousel-conteneur">
   <cdv-carousel-photos [slides]="(heroSlides$ | async) ?? []" libelleRegion="HERO.REGION" />
 </section>
 
-<section class="cdv-galerie-duo">
-  <cdv-carousel-photos
-    class="cdv-galerie-duo__item"
-    taille="compact"
-    [slides]="(galerieAPropos$ | async) ?? []"
-    libelleRegion="ACCUEIL.GALERIE_APROPOS_REGION"
-  />
-  <cdv-carousel-photos
-    class="cdv-galerie-duo__item"
-    taille="compact"
-    [slides]="(galerieProjets$ | async) ?? []"
-    libelleRegion="ACCUEIL.GALERIE_PROJETS_REGION"
-  />
+<!-- ===== CREDIBILITÉ : DEPUIS 2012 ===== -->
+<section class="cdv-section cdv-credibilite">
+  <div class="cdv-credibilite__container">
+    <div class="cdv-credibilite__timeline">
+      <div class="cdv-credibilite__year">
+        <span class="cdv-credibilite__year-label">2012</span>
+        <span class="cdv-credibilite__year-event">{{ 'ACCUEIL.TIMELINE_2012' | translate }}</span>
+      </div>
+      <div class="cdv-credibilite__progress" aria-hidden="true">
+        <div class="cdv-credibilite__progress-bar"></div>
+      </div>
+      <div class="cdv-credibilite__year">
+        <span class="cdv-credibilite__year-label">2026</span>
+        <span class="cdv-credibilite__year-event">{{ 'ACCUEIL.TIMELINE_2026' | translate }}</span>
+      </div>
+    </div>
+
+    <h2>{{ 'ACCUEIL.CREDIBILITE_TITRE' | translate }}</h2>
+
+    <div class="cdv-credibilite__stats">
+      <div class="cdv-credibilite__stat">
+        <span class="cdv-credibilite__stat-chiffre">14+</span>
+        <span class="cdv-credibilite__stat-label">{{ 'ACCUEIL.CREDIBILITE_ANS' | translate }}</span>
+      </div>
+      <div class="cdv-credibilite__stat">
+        <span class="cdv-credibilite__stat-chiffre">80+</span>
+        <span class="cdv-credibilite__stat-label">{{ 'ACCUEIL.CREDIBILITE_PROJETS' | translate }}</span>
+      </div>
+      <div class="cdv-credibilite__stat">
+        <span class="cdv-credibilite__stat-chiffre">12+</span>
+        <span class="cdv-credibilite__stat-label">{{ 'ACCUEIL.CREDIBILITE_LOCALITES' | translate }}</span>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ===== DOMAINES D'ACTION ===== -->
 <section class="cdv-section">
   <h2>{{ 'ACCUEIL.DOMAINES_TITRE' | translate }}</h2>
   <p class="cdv-section__sous-titre">{{ 'ACCUEIL.DOMAINES_SOUS_TITRE' | translate }}</p>
 
   <div class="cdv-grille-missions">
     @for (mission of missions$ | async; track mission.id) {
-      <cdv-carte [centre]="true">
+      <cdv-carte [centre]="true" class="cdv-mission-carte cdv-mission-carte--{{ mission.pilier }}">
         <div class="cdv-domaine-entete">
           <div class="cdv-icone-domaine cdv-icone-domaine--{{ mission.pilier }}" aria-hidden="true">
             @switch (mission.icone) {
@@ -73,12 +105,27 @@
   </div>
 </section>
 
-<section class="cdv-section cdv-section--alt">
+<!-- ===== GALERIE UNIFIÉE ===== -->
+<section class="cdv-section cdv-section--alt cdv-galerie-section">
+  <h2>{{ 'ACCUEIL.GALERIE_TITRE' | translate }}</h2>
+  <p class="cdv-section__sous-titre">{{ 'ACCUEIL.GALERIE_SOUS_TITRE' | translate }}</p>
+
+  <div class="cdv-galerie-unifiee">
+    <cdv-carousel-photos
+      class="cdv-galerie-unifiee__carousel"
+      [slides]="(galerieProjets$ | async) ?? []"
+      libelleRegion="ACCUEIL.GALERIE_PROJETS_REGION"
+    />
+  </div>
+</section>
+
+<!-- ===== CHIFFRES CLÉ ===== -->
+<section class="cdv-section">
   <h2>{{ 'ACCUEIL.CHIFFRES_TITRE' | translate }}</h2>
 
   <div class="cdv-grille-chiffres">
     @for (chiffre of chiffresCles$ | async; track chiffre.id) {
-      <div class="cdv-chiffre">
+      <div class="cdv-chiffre" [attr.data-chiffre]="chiffre.id">
         <div class="cdv-chiffre__icone" aria-hidden="true">
           @switch (chiffre.icone) {
             @case ('sante') {
@@ -114,6 +161,39 @@
   </div>
 </section>
 
+<!-- ===== CONFIANCE ===== -->
+<section class="cdv-section cdv-confiance">
+  <h2>{{ 'ACCUEIL.CONFIANCE_TITRE' | translate }}</h2>
+
+  <div class="cdv-confiance__grille">
+    <div class="cdv-confiance__item">
+      <div class="cdv-confiance__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+      </div>
+      <span>{{ 'ACCUEIL.CONFIANCE_1' | translate }}</span>
+    </div>
+    <div class="cdv-confiance__item">
+      <div class="cdv-confiance__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+      </div>
+      <span>{{ 'ACCUEIL.CONFIANCE_2' | translate }}</span>
+    </div>
+    <div class="cdv-confiance__item">
+      <div class="cdv-confiance__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+      </div>
+      <span>{{ 'ACCUEIL.CONFIANCE_3' | translate }}</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
 <section class="cdv-cta">
   <h2>{{ 'ACCUEIL.CTA_SECTION_TITRE' | translate }}</h2>
   <cdv-bouton variante="primaire" routerLink="/contact">{{
